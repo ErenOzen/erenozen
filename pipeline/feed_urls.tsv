@@ -55,6 +55,7 @@
 200ok.ch	https://200ok.ch/feed.xml
 20bits.com	-
 22ideastreet.com	-
+247wallst.com	https://247wallst.com/feed/
 24ways.org	https://feeds.feedburner.com/24ways
 250bpm.com	https://www.250bpm.com/feed
 256kilobytes.com	-
@@ -383,12 +384,14 @@ algorithmsbook.com	-
 algorithmsoup.wordpress.com	https://algorithmsoup.wordpress.com/feed/
 alicegg.tech	https://www.alicegg.tech//feed.xml
 alignment.anthropic.com	-
+alilleybrinker.com	https://www.alilleybrinker.com/rss.xml
 alinpanaitiu.com	https://alinpanaitiu.com/index.xml
 alisdair.mcdiarmid.org	https://alisdair.mcdiarmid.org/feed.rss
 alistapart.com	https://alistapart.com/main/feed/
 aljazeera.com	https://www.aljazeera.com/xml/rss/all.xml
 all-things-andy-gavin.com	https://all-things-andy-gavin.com/feed/
 allaboutcircuits.com	-
+allaboutcoding.ghinda.com	https://allaboutcoding.ghinda.com/rss.xml
 allbuttonspressed.com	https://www.allbuttonspressed.com/blog/feed
 allegro.tech	-
 allenai.org	https://allenai.org/rss.xml
@@ -486,6 +489,7 @@ andreabergia.com	https://andreabergia.com/index.xml
 andreaferretti.github.io	-
 andreafortuna.org	https://andreafortuna.org/feed.xml
 andreagrandi.it	-
+andrealeopardi.com	https://andrealeopardi.com/feed.xml
 andreas.github.io	https://andreas.github.io/atom.xml
 andreasgal.com	https://andreasgal.com/feed/
 andregarzia.com	https://andregarzia.com/feeds/all.atom.xml
@@ -545,6 +549,7 @@ anfractuosity.com	https://www.anfractuosity.com/feed/
 angg.twu.net	-
 angular.io	-
 angularjs.blogspot.com	-
+anil.recoil.org	https://anil.recoil.org/news.xml
 anildash.com	https://www.anildash.com/feed.xml
 animagraffs.com	-
 animalnewyork.com	https://animalnewyork.com/feed/
@@ -792,6 +797,7 @@ atgreen.github.io	-
 atilanevesoncode.wordpress.com	https://atilaoncode.blog/feed/
 atimes.com	-
 atlantablackstar.com	https://atlantablackstar.com/feed/
+atlantanewsfirst.com	-
 atlasobscura.com	https://www.atlasobscura.com/feeds/latest
 atom.io	https://github.blog/feed/
 atomic14.com	https://atomic14.com/feed.xml
@@ -915,6 +921,7 @@ bam.kalzumeus.com	https://www.bitsaboutmoney.com/archive/rss/
 bamsoftware.com	-
 bankinfosecurity.com	-
 banksimple.net	-
+bankstatementconverter.com	https://bankstatementconverter.com/blog/index.xml
 bannalia.blogspot.com	https://bannalia.blogspot.com/feeds/posts/default
 banu.com	https://banu.com/blog/rss/
 baptiste-wicht.com	https://baptiste-wicht.com/rss.xml
@@ -966,6 +973,7 @@ beatworm.co.uk	https://www.beatworm.co.uk/blog/feed
 beautifulpublicdata.com	https://www.beautifulpublicdata.com/rss/
 beautifulracket.com	-
 becca.ooo	https://becca.ooo/rss.xml
+beckershospitalreview.com	https://www.beckershospitalreview.com/feed/
 bedelstein.com	-
 beej.us	-
 beekeeperstudio.io	https://www.beekeeperstudio.io/feed.xml
@@ -1010,6 +1018,7 @@ benediktmeurer.de	https://benediktmeurer.de/feed.xml
 benfrederickson.com	-
 benfry.com	-
 bengtan.com	https://bengtan.com/index.xml
+benholmen.com	https://benholmen.com/rss.xml
 benhowdle.im	https://benhowdle.im/feed.xml
 benhoyt.com	-
 benjamin-meyer.blogspot.com	-
@@ -1228,6 +1237,7 @@ blog.afoolishmanifesto.com	https://blog.afoolishmanifesto.com/index.xml
 blog.afterthedeadline.com	https://blog.afterthedeadline.com/feed/
 blog.agilebits.com	-
 blog.aha.io	https://www.aha.io/blog/feed.xml
+blog.alaindichiappari.dev	https://blog.alaindichiappari.dev/feed
 blog.alexbeals.com	https://blog.alexbeals.com/rss
 blog.alexellis.io	https://blog.alexellis.io/rss/
 blog.alexewerlof.com	https://blog.alexewerlof.com/feed
@@ -1367,6 +1377,7 @@ blog.computationalcomplexity.org	https://blog.computationalcomplexity.org/feeds/
 blog.conan.io	https://blog.conan.io/feed.xml
 blog.confiant.com	https://blog.confiant.com/feed
 blog.confluent.io	-
+blog.coredump.cx	https://blog.coredump.cx/feed
 blog.cotten.io	https://medium.com/feed/@cottenio
 blog.couchdb.org	https://blog.couchdb.org/feed/
 blog.cr.yp.to	-
@@ -1432,6 +1443,7 @@ blog.dominodatalab.com	-
 blog.doordash.com	-
 blog.dornea.nu	https://blog.dornea.nu/feed.xml
 blog.dotcloud.com	-
+blog.doubleword.ai	https://blog.doubleword.ai/rss.xml
 blog.doyensec.com	https://blog.doyensec.com/atom.xml
 blog.drewolson.org	https://blog.drewolson.org/index.xml
 blog.dshr.org	https://blog.dshr.org/feeds/posts/default
@@ -1610,6 +1622,7 @@ blog.iterate.no	-
 blog.izs.me	https://blog.izs.me/feed/feed.xml
 blog.j11y.io	https://blog.j11y.io/rss_2.xml
 blog.jacobstechtavern.com	https://blog.jacobstechtavern.com/feed
+blog.jakesaunders.dev	https://blog.jakesaunders.dev/index.xml
 blog.janestreet.com	https://blog.janestreet.com/feed.xml
 blog.janetacarr.com	https://blog.janetacarr.com/rss/
 blog.janissary.xyz	https://blog.janissary.xyz/feed.xml
@@ -1720,6 +1733,7 @@ blog.luap.info	https://blog.luap.info/feeds.xml
 blog.lukaszolejnik.com	https://blog.lukaszolejnik.com/rss/
 blog.lunarlogic.io	-
 blog.lusis.org	https://blog.lusis.org/index.xml
+blog.lyc8503.net	https://blog.lyc8503.net/atom.xml
 blog.m-ou.se	https://blog.m-ou.se/index.xml
 blog.machinebox.io	-
 blog.macromates.com	https://macromates.com/blog/feed/
@@ -1907,6 +1921,7 @@ blog.pushbullet.com	http://blog.pushbullet.com/feed.xml
 blog.pusher.com	-
 blog.px.dev	https://blog.px.dev/rss.xml
 blog.pyston.org	https://blog.pyston.org/feed/
+blog.python.org	https://blog.python.org/rss.xml
 blog.pythonisito.com	-
 blog.pythonlibrary.org	https://blog.pythonlibrary.org/feed/
 blog.qt.digia.com	-
@@ -2035,6 +2050,7 @@ blog.staffjoy.com	-
 blog.startifact.com	https://blog.startifact.com/atom.xml
 blog.statwing.com	https://www.statwing.com/feed/
 blog.stenmans.org	-
+blog.stephaniestimac.com	https://blog.stephaniestimac.com/feed/feed.xml
 blog.stephenmarz.com	https://blog.stephenmarz.com/feed/
 blog.stephenwolfram.com	-
 blog.stephsmith.io	https://blog.stephsmith.io/rss/
@@ -2343,6 +2359,7 @@ box2d.org	https://box2d.org/index.xml
 box86.org	https://box86.org/feed/
 boxbase.org	-
 boxofcables.dev	https://www.boxofcables.dev/rss/
+boydkane.com	https://boydkane.com/index.xml
 boygeniusreport.com	https://www.bgr.com/category/news/feed/
 boyter.org	https://boyter.org/index.xml
 boz.com	https://boz.com/rss.xml
@@ -2631,6 +2648,7 @@ cantunsee.space	-
 canva.dev	-
 canvatechblog.com	https://www.canva.dev/blog/engineering/feed.xml
 capiche.com	-
+capitalandmain.com	https://capitalandmain.com/feed
 capitalnewyork.com	-
 capitolhillseattle.com	https://www.capitolhillseattle.com/feed/
 capnproto.org	https://capnproto.org/feed.xml
@@ -2683,6 +2701,7 @@ cbloomrants.blogspot.com	https://cbloomrants.blogspot.com/feeds/posts/default
 cbr.com	https://www.cbr.com/feed/
 cbracy.tumblr.com	https://cbracy.tumblr.com/rss
 cbs12.com	-
+cbsaustin.com	-
 cbssports.com	-
 ccc.de	https://www.ccc.de/rss/updates.xml
 cceckman.com	https://cceckman.com/index.xml
@@ -2846,6 +2865,7 @@ circle-lang.org	-
 circleci.com	-
 circleid.com	http://feeds.circleid.com/cid_master/
 circuitbored.com	https://circuitbored.com/app.php/feed?sid=9422d0df3be1b846052387fc9863d322
+circuitvalley.com	https://www.circuitvalley.com/feeds/posts/default
 cirosantilli.com	-
 cirw.in	https://cirw.in/blog/rss
 citationneeded.news	https://www.citationneeded.news/rss/
@@ -2942,6 +2962,7 @@ codastory.com	https://www.codastory.com/feed/
 code.blender.org	https://code.blender.org/feed/
 code.dblock.org	https://code.dblock.org/feed.xml
 code.fb.com	https://engineering.fb.com/feed/
+code.ffmpeg.org	-
 code.flickr.com	https://code.flickr.net/feed/
 code.flickr.net	https://code.flickr.net/feed/
 code.google.com	-
@@ -2993,6 +3014,7 @@ codeotaku.com	-
 codeproject.com	-
 codequarterly.com	-
 coder.com	https://coder.com/api/rss.xml
+coderabbit.ai	https://www.coderabbit.ai/feed
 codercofounder.wordpress.com	-
 coderholic.com	-
 coderoasis.com	https://sudosecurity.org/rss/
@@ -3036,6 +3058,7 @@ cofault.com	https://cofault.com/feed.xml
 coffeeghost.net	https://coffeeghost.net/feed/
 coffeeonthekeyboard.com	https://www.coffeeonthekeyboard.com/rss/
 coffeescript.org	-
+cognition.com	-
 cognitivemedium.com	https://cognitivemedium.com/feed.xml
 cohost.org	-
 coindesk.com	-
@@ -3060,6 +3083,7 @@ collison.ie	-
 coloradosun.com	https://coloradosun.com/feed/
 colorforth.com	-
 colorforth.github.io	-
+colossus.com	https://colossus.com/feed/
 comaps.app	https://www.comaps.app/rss.xml
 cometdaily.com	-
 comicbook.com	https://comicbook.com/feed/
@@ -3287,6 +3311,7 @@ cssgridgarden.com	-
 cssicon.space	-
 csswizardry.com	https://csswizardry.com/feed
 csszengarden.com	http://www.csszengarden.com/zengarden.xml
+cst.cam.ac.uk	https://www.cst.cam.ac.uk/rss.xml
 cstack.github.io	-
 csun.io	https://www.csun.io/feed.xml
 csvbase.com	-
@@ -3358,6 +3383,7 @@ dabeaz.blogspot.com	https://dabeaz.blogspot.com/feeds/posts/default
 dabeaz.com	-
 dadgum.com	-
 dadhacker.com	-
+dadrian.io	https://dadrian.io/index.xml
 daedtech.com	https://daedtech.com/feed/
 daeken.com	-
 daemon.co.za	-
@@ -3598,6 +3624,7 @@ deeplearning4j.org	-
 deeplearningweekly.com	-
 deepmind.com	https://deepmind.google/blog/rss.xml
 deepmind.google	https://deepmind.google/blog/rss.xml
+deepseek.com	-
 deepsource.io	-
 deepsouthventures.com	https://www.deepsouthventures.com/feed/
 deepstream.io	-
@@ -3822,6 +3849,7 @@ discourse.ubuntu.com	-
 discoursemagazine.com	-
 discovermagazine.com	-
 discovermeteor.com	-
+discoverwildlife.com	-
 discovr.info	-
 discrete.gr	-
 discursive.com	-
@@ -3905,6 +3933,7 @@ documentation.divio.com	-
 docusaurus.io	https://docusaurus.io/blog/rss.xml
 dodgycoder.net	https://www.dodgycoder.net/rss.xml
 dodov.dev	https://dodov.dev/feed
+dogbolt.org	-
 dogdogfish.com	https://dogdogfish.com/feed.xml
 doisinkidney.com	https://doisinkidney.com/rss
 dolphin-emu.org	-
@@ -3979,6 +4008,7 @@ drawar.com	-
 drbunsen.org	-
 drdobbs.com	-
 dreamsongs.com	-
+dreamstation.systems	-
 dremio.com	https://www.dremio.com/feed/
 drew.silcock.dev	https://drew.silcock.dev/rss.xml
 drewconway.com	-
@@ -5382,6 +5412,7 @@ guidebookgallery.org	-
 guidovranken.wordpress.com	https://guidovranken.com/feed/
 guitarworld.com	https://www.guitarworld.com/feeds.xml
 guix.gnu.org	https://guix.gnu.org/feeds/blog.atom
+gultsch.de	https://gultsch.de/index.xml
 gun.io	https://gun.io/feed/
 gunkies.org	-
 guru3d.com	https://www.guru3d.com/atom.xml
@@ -5502,6 +5533,7 @@ hatchet.run	https://hatchet.run/rss.xml
 haveibeenpwned.com	https://haveibeenpwned.com/feed/breaches/
 havenweb.org	https://havenweb.org/feed.xml
 hawaiinewsnow.com	-
+hawksley.dev	https://hawksley.dev/rss.xml
 haxe.org	https://haxe.org/blog/rss/
 haydenjames.io	https://linuxblog.io/feed/
 hazelweakly.me	https://hazelweakly.me/atom.xml
@@ -5543,6 +5575,7 @@ helsinkitimes.fi	https://www.helsinkitimes.fi/?format=feed&amp;type=rss
 hemmings.com	-
 henrikkarlsson.xyz	https://www.henrikkarlsson.xyz/feed
 henrikwarne.com	https://henrikwarne.com/feed/
+henry.codes	-
 henry.precheur.org	https://henry.precheur.org/atom.xml
 henvic.dev	https://henvic.dev/index.xml
 heraldextra.com	-
@@ -5551,6 +5584,7 @@ herbertlui.net	https://herbertlui.net/feed/
 herbertograca.com	https://herbertograca.com/feed/
 herbie.uwplse.org	-
 herbsutter.com	https://herbsutter.com/feed/
+herdr.dev	-
 herdrick.tumblr.com	-
 herecomesthemoon.net	https://herecomesthemoon.net/index.xml
 heredragonsabound.blogspot.com	https://heredragonsabound.blogspot.com/feeds/posts/default
@@ -5615,6 +5649,7 @@ hollywoodreporter.com	https://www.hollywoodreporter.com/feed/
 holmea.demon.co.uk	-
 hologram.page	-
 holovaty.com	-
+holtwick.de	https://holtwick.de/feed.xml
 holykaw.alltop.com	-
 homakov.blogspot.com	https://homakov.blogspot.com/feeds/posts/default
 home-assistant.io	https://www.home-assistant.io/atom.xml
@@ -5746,6 +5781,7 @@ iamnotarobot.substack.com	https://iamnotarobot.substack.com/feed
 iampaddy.com	-
 iamtrask.github.io	https://iamtrask.github.io/feed
 iamvishnu.com	https://iamvishnu.com/rss.xml
+iamwillwang.com	https://iamwillwang.com/rss.xml
 ian.sh	-
 iana.org	-
 ianbicking.org	https://ianbicking.org/feeds/atom.xml
@@ -5773,6 +5809,7 @@ icelandmonitor.mbl.is	https://icelandmonitor.mbl.is/rss/
 icelandreview.com	https://www.icelandreview.com/feed/
 icij.org	https://www.icij.org/feed/
 iclarified.com	https://www.iclarified.com/rss/rss.xml
+icml.cc	-
 icode4.coffee	https://icode4.coffee/?feed=rss2
 icrontic.com	https://icrontic.com/discussions/feed.rss
 icyphox.sh	-
@@ -5798,6 +5835,7 @@ ifixit.org	https://www.ifixit.com/News/rss
 iflscience.com	-
 ig.ft.com	-
 igalia.com	https://www.igalia.com/feed.xml
+iggy.apache.org	-
 ign.com	https://www.ign.com/rss/v2/articles/feed
 ignition.co	-
 ignorethecode.net	https://ignorethecode.net/blog/rss/
@@ -6237,6 +6275,7 @@ jcjc-dev.com	https://jcjc-dev.com/atom.xml
 jcp.org	-
 jcs.org	https://jcs.org/rss
 jdan.github.io	-
+jdebp.eu	-
 jdh.hamkins.org	https://jdh.hamkins.org/feed/
 jdhodges.com	https://www.jdhodges.com/feed/
 jdk.java.net	-
@@ -6273,6 +6312,7 @@ jeremykun.com	https://www.jeremykun.com/index.xml
 jeremykun.wordpress.com	https://jeremykun.wordpress.com/feed/
 jeremymikkola.com	https://jeremymikkola.com/atom.xml
 jeremymorgan.com	https://www.jeremymorgan.com/blog/index.xml
+jeremymorrell.dev	https://jeremymorrell.dev/rss.xml
 jerf.org	https://jerf.org/iri/rss.xml
 jernesto.com	https://jernesto.com/feed.xml
 jero.zone	https://jero.zone/posts.xml
@@ -6386,6 +6426,7 @@ joincolossus.com	https://colossus.com/feed/
 joindiaspora.com	-
 joinformal.com	https://formal.ai/index.xml
 joinpeertube.org	https://joinpeertube.org/rss-en.xml
+jointhefreeworld.org	https://jointhefreeworld.org/rss.xml
 joinup.ec.europa.eu	-
 jola.dev	https://jola.dev/rss.xml
 jolie-lang.org	-
@@ -6810,6 +6851,7 @@ kuzudb.com	-
 kvark.github.io	http://kvark.github.io/feed.xml
 kvz.io	https://kvz.io/feed.xml
 kwokchain.com	https://kwokchain.com/feed/
+kxan.com	https://www.kxan.com/feed/
 kyefox.com	https://kyefox.com/rss/
 kyivindependent.com	https://kyivindependent.com/news-archive/rss/
 kyivpost.com	https://www.kyivpost.com/feed
@@ -7100,6 +7142,7 @@ limi.net	https://limi.net/feed.xml
 liminality.xyz	-
 limitedresults.com	-
 limpet.net	-
+lina.sh	https://lina.sh/blog/rss.xml
 linaro.org	https://www.linaro.org/rss/news.xml
 lincoln.swaine-moore.is	-
 lincolnloop.com	https://lincolnloop.com/blog/feed/
@@ -8026,6 +8069,7 @@ mikehadlow.blogspot.com	https://mikehadlow.blogspot.com/feeds/posts/default
 mikeindustries.com	https://mikeindustries.com/blog/feed
 mikeinnes.github.io	https://mikeinnes.github.io/feed
 mikekarnj.com	https://mikekarnj.com/posts_feed
+mikekasberg.com	https://www.mikekasberg.com/feed.xml
 mikeknoop.com	https://mikeknoop.com/feed/
 mikekohn.net	-
 mikemcquaid.com	https://mikemcquaid.com/all.xml
@@ -8590,6 +8634,7 @@ newsinteractives.cbc.ca	-
 newslaundry.com	https://www.newslaundry.com/stories.rss
 newsletter.eng-leadership.com	https://newsletter.eng-leadership.com/feed
 newsletter.goodtechthings.com	https://newsletter.goodtechthings.com/feed
+newsletter.kentbeck.com	https://newsletter.kentbeck.com/feed
 newsletter.maartengrootendorst.com	https://newsletter.maartengrootendorst.com/feed
 newsletter.manager.dev	https://newsletter.manager.dev/feed
 newsletter.masilotti.com	https://newsletter.masilotti.com/feed
@@ -8936,6 +8981,7 @@ om.co	https://om.co/feed/
 omaha.com	http://omaha.com/search/?f=rss&amp;t=article&amp;l=50&amp;s=start_time&amp;sd=desc&amp;k%5B%5D=%23topstory
 omar.website	https://omar.website/posts/index.xml
 omarabid.com	https://omarabid.com/feed.xml
+omarchy.org	-
 omarshehata.me	https://omarshehata.me/rss
 omglinux.com	https://www.omglinux.com/feed/
 omgubuntu.co.uk	https://www.omgubuntu.co.uk/feed
@@ -9034,6 +9080,7 @@ opentelemetry.io	https://opentelemetry.io/index.xml
 openthemagazine.com	https://openthemagazine.com/stories.rss
 opentofu.org	-
 openttd.org	https://www.openttd.org/feed.xml
+openui.com	-
 openvim.com	-
 openwall.com	-
 openwrt.org	-
@@ -9126,6 +9173,7 @@ p5js.org	-
 pa3fwm.nl	-
 pablasso.com	https://pablasso.com/feed.xml
 pacifict.com	-
+packagemain.tech	https://packagemain.tech/feed
 packet.net	-
 packetstormsecurity.com	-
 paddleyourownkanoo.com	https://www.paddleyourownkanoo.com/feed/
@@ -9698,6 +9746,7 @@ projects.osmocom.org	-
 projects.propublica.org	https://www.propublica.org/feeds/propublica/main
 projects.sfchronicle.com	-
 projects.washingtonpost.com	-
+projectzero.google	https://projectzero.google/feed.xml
 prolost.com	https://prolost.com/blog?format=rss
 prometheus.io	-
 promptarmor.com	-
@@ -9767,6 +9816,7 @@ pv-magazine.com	https://www.pv-magazine.com/feed/
 pv-tech.org	https://www.pv-tech.org/feed/
 pvk.ca	https://pvk.ca/atom.xml
 pvs-studio.com	-
+pwning.systems	https://pwning.systems/index.xml
 pwy.io	https://pwy.io/feed.xml
 pxlnv.com	https://pxlnv.com/feed/
 pybrain.org	-
@@ -9944,6 +9994,7 @@ ratfactor.com	http://ratfactor.com/atom.xml
 rauchg.com	-
 ravenbrook.com	-
 ravenmagazine.org	https://ravenmagazine.org/feed/
+ravynos.com	-
 raw.githubusercontent.com	-
 rawkes.com	https://feeds.feedburner.com/rawkes
 rawstory.com	-
@@ -10098,6 +10149,7 @@ research.google.com	-
 research.googleblog.com	http://feeds.feedburner.com/blogspot/gJZg
 research.ibm.com	https://research.ibm.com/rss
 research.kudelskisecurity.com	-
+research.meta.ai	-
 research.microsoft.com	https://www.microsoft.com/en-us/research/feed/
 research.nccgroup.com	-
 research.neustar.biz	-
@@ -10227,6 +10279,7 @@ roberto.open-lab.com	-
 robertovitillo.com	https://robertovitillo.com/rss.xml
 robertputt.co.uk	https://robertputt.co.uk/feed/
 roberts.pm	-
+robida.net	https://robida.net/feed.xml
 robinlinacre.com	https://www.robinlinacre.com/rss
 robinrendle.com	https://robinrendle.com/feed.xml
 robinwieruch.de	https://www.robinwieruch.de/index.xml
@@ -10336,6 +10389,7 @@ rust-gpu.github.io	https://rust-gpu.github.io/blog/rss.xml
 rust-lang.github.io	-
 rust-lang.org	-
 rustdesk.com	https://rustdesk.com/rss.xml
+rustfoundation.org	https://rustfoundation.org/feed/
 rustpython.github.io	https://rustpython.github.io/feed.xml
 rusty.ozlabs.org	https://rusty.ozlabs.org/feed.xml
 rustyshelf.org	https://rustyshelf.org/feed.xml
@@ -10377,6 +10431,7 @@ sacrideo.us	-
 sadanand-singh.github.io	-
 sadh.life	-
 safari.ethz.ch	https://safari.ethz.ch/feed/
+safedep.io	https://safedep.io/rss.xml
 safetyresearch.net	https://safetyresearch.net/feed/
 sagemath.blogspot.com	https://sagemath.blogspot.com/rss.xml
 sagemath.org	-
@@ -10917,6 +10972,7 @@ snowpack.dev	-
 snoyman.com	https://www.snoyman.com/rss.xml
 snufk.in	-
 snyk.io	https://snyk.io/blog/feed/
+soapbox.pub	-
 soatok.blog	https://soatok.blog/feed/
 sobolevn.me	https://sobolevn.me/feed.xml
 sobyte.net	https://www.sobyte.net/index.xml
@@ -11151,6 +11207,7 @@ startwithawhy.com	https://startwithawhy.com/feed.xml
 stateofjs.com	-
 statescoop.com	https://statescoop.com/feed/
 static.googleusercontent.com	-
+static.laszlokorte.de	-
 static.pinboard.in	-
 statnews.com	https://www.statnews.com/feed/
 statsheet.com	-
@@ -11234,6 +11291,7 @@ stonetools.ghost.io	https://stonetools.ghost.io/rss/
 stopa.io	https://stopa.io/feed.rss
 storage.googleapis.com	-
 storagemojo.com	https://storagemojo.com/feed/
+storagereview.com	https://www.storagereview.com/feed
 stories.californiasunday.com	-
 storj.io	-
 storminthecastle.com	https://wp.storminthecastle.com/feed/
@@ -11279,6 +11337,7 @@ stuartsierra.com	https://stuartsierra.com/feed/
 stubbleblog.com	-
 studio.ribbonfarm.com	https://contraptions.venkateshrao.com/feed
 studios.disneyresearch.com	https://studios.disneyresearch.com/feed/
+studyfinds.com	https://studyfinds.com/feed/
 studyfinds.org	https://studyfinds.com/feed/
 stuff.co.nz	https://www.stuff.co.nz/feed
 stuffmatic.com	https://stuffmatic.com/index.xml
@@ -11633,6 +11692,7 @@ tensorzero.com	-
 tenthousandmeters.com	https://tenthousandmeters.com/feeds/all.atom.xml
 terathon.com	-
 terinstock.com	https://terinstock.com/index.xml
+terminalbytes.com	https://terminalbytes.com/rss.xml
 terminally-incoherent.com	https://www.terminally-incoherent.com/blog/feed/index.html
 terminusdb.com	-
 teropa.info	-
@@ -12066,12 +12126,14 @@ tic80.com	-
 ticalc.org	-
 ticki.github.io	https://ticki.github.io/index.xml
 ticotimes.net	https://ticotimes.net/feed
+tidalcycles.org	https://tidalcycles.org/blog/rss.xml
 tidbits.com	https://tidbits.com/feed/
 tiddlywiki.com	-
 tidyverse.org	https://tidyverse.org/index.xml
 tiemoko.com	https://tiemoko.com/atom.xml
 tigerbeetle.com	-
 tigerdata.com	https://www.tigerdata.com/blog/rss
+tigrisdata.com	-
 tigyog.app	-
 tiki.li	-
 til.andrew-quinn.me	https://til.andrew-quinn.me/index.xml
@@ -12479,6 +12541,7 @@ usb.org	https://usb.org/rss.xml
 use-the-index-luke.com	https://use-the-index-luke.com/blog/feed
 use.perl.org	-
 usebox.net	-
+usefeyn.com	-
 usefulfictions.substack.com	https://usefulfictions.substack.com/feed
 useit.com	-
 uselessd.darknedgy.net	-
@@ -12546,6 +12609,7 @@ vanillaos.org	https://vanillaos.org/feed.xml
 vanityfair.com	https://www.vanityfair.com/feed/rss
 vankessel.io	https://vankessel.io/feed.xml
 vanschneider.com	https://vanschneider.com/feed
+var0.xyz	https://var0.xyz/feed.xml
 varianceexplained.org	-
 variety.com	https://variety.com/feed/
 varnish-cache.org	https://vinyl-cache.org/atom.xml
@@ -12722,6 +12786,7 @@ waffle.wootest.net	-
 wagerfield.github.io	-
 wagslane.dev	https://www.wagslane.dev/index.xml
 wagtail.io	https://wagtail.org/blog/feed/
+wagtail.org	https://wagtail.org/blog/feed/
 waitbutwhy.com	https://waitbutwhy.com/feed
 wakatime.com	-
 waldo.jaquith.org	https://waldo.jaquith.org/feed/
@@ -12760,6 +12825,7 @@ wasp-lang.dev	-
 waspdev.com	https://waspdev.com/rss
 watabou.itch.io	-
 watchesbysjx.com	https://watchesbysjx.com/feed
+waterfox.com	https://www.waterfox.com/rss.xml
 waterfox.net	https://www.waterfox.com/rss.xml
 watilo.com	https://watilo.com/posts.atom
 wattenberger.com	https://wattenberger.com/rss
@@ -12847,6 +12913,7 @@ wellbredgrapefruit.com	-
 wensing.tumblr.com	https://wensing.tumblr.com/rss
 werat.dev	https://werat.dev/index.xml
 werd.io	https://werd.io/rss/
+werwolv.net	https://werwolv.net/rss.xml
 wescottdesign.com	-
 wesh.com	-
 wesleytansey.com	-
@@ -13041,6 +13108,7 @@ wpcentral.com	https://www.windowscentral.com/feeds.xml
 wpr.org	https://www.wpr.org/feed
 wpri.com	https://www.wpri.com/feed/
 wptavern.com	https://wptavern.com/feed
+wptv.com	https://www.wptv.com/index.rss
 wral.com	-
 wraltechwire.com	-
 wreflection.com	https://www.wreflection.com/feed
@@ -13158,6 +13226,7 @@ yarnpkg.com	https://yarnpkg.com/blog/rss.xml
 yasoob.me	https://yasoob.me/index.xml
 ybrikman.com	https://www.ybrikman.com/feed.xml
 yeet.cx	-
+yegge.ai	https://yegge.ai/feed.xml
 yegor256.com	https://www.yegor256.com/rss.xml
 yehudakatz.com	https://yehudakatz.com/rss/
 yellerapp.com	-

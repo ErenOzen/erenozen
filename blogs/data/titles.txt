@@ -111,6 +111,7 @@ China’s open-weights AI strategy is winning
 LG monitors silently install software through Windows Update without consent
 Inkling: Our Open-Weights Model
 Tracking down the 16-year-old WAL-reset SQLite bug
+Muse Glimmer: 30B-parameter model optimized for always-on local agent workflows
 Bypassing airport security via SQL injection
 Air Con: $1697 for an on/off switch
 The Onion buys Infowars
@@ -327,6 +328,7 @@ Apple Photos phones home on iOS 18 and macOS 15
 Undergraduate shows that searches within hash tables can be much faster
 Ingesting PDFs and why Gemini 2.0 changes everything
 The Llama 4 herd
+Show HN: I spent 6 years building a ridiculous wooden pixel display
 Streaming services are driving viewers back to piracy
 Do the simplest thing that could possibly work
 You should write an agent
@@ -491,6 +493,7 @@ Israeli firm BlackCore suspected of meddling in New York and Scotland votes
 Volkswagen started blocking GrapheneOS users
 Claude Fable is relentlessly proactive
 QuadRF can spot drones and see WiFi through my wall
+DeepSeek Harness developer preview
 A note on subscription prices from LWN
 Your intellectual fly is open when you use an LLM to author a post (2025)
 Canada will match US tariffs 'dollar for dollar' as trade talks break down
@@ -616,7 +619,6 @@ How to turn anything into a router
 Ban the sale of precise geolocation
 GitHub Copilot is moving to usage-based billing
 US cities are axing Flock Safety surveillance technology
-People inside Microsoft are fighting to drop mandatory Microsoft Account
 Apple reveals new AI architecture built around Google Gemini models
 30-year sentence for transporting zines is a five-alarm fire for free speech
 Can the stockmarket swallow Anthropic, SpaceX and OpenAI?
@@ -625,6 +627,7 @@ Pokémon Go Scans Trained the Navigation Tech for Military Drones
 Sony deletes more movies from the accounts of people who ‘bought’ them
 Bonsai 27B: A 27B-Class model that runs on a phone
 AI Companies Are Trying to Hide a Staggering Amount of Debt
+I accidentally logged hundreds of thousands of phone calls to military bases
 Are AI labs pelicanmaxxing?
 Delta
 Compression is prediction
@@ -679,14 +682,17 @@ OpenAI declares 'code red' as Google catches up in AI race
 10 Years of Let's Encrypt
 How to code Claude Code in 200 lines of code
 Neural Networks: Zero to Hero
+A website to destroy all websites
 The EU moves to kill infinite scrolling
 Prism
 An AI agent published a hit piece on me – more things have happened
+People inside Microsoft are fighting to drop mandatory Microsoft Account
 Willingness to look stupid
 Chuck Norris has died
 A Decade of Slug
 US SEC preparing to scrap quarterly reporting requirement
 Do your own writing
+Is anybody else bored of talking about AI?
 The future of everything is lies, I guess: Where do we go from here?
 DIY Soft Drinks
 Tech CEOs are apparently suffering from AI psychosis
@@ -822,6 +828,7 @@ Working on databases from prison
 Why are anime catgirls blocking my access to the Linux kernel?
 Gemma 3 270M: Compact model for hyper-efficient AI
 Mark Zuckerberg freezes AI hiring amid bubble fears
+A German ISP changed their DNS to block my website
 Android's sideloading limits are its most anti-consumer move
 Discord says 70k users may have had their government IDs leaked in breach
 US axes website for reporting human rights abuses by US-armed foreign forces
@@ -1060,6 +1067,7 @@ I regret migrating to Codeberg
 Executable Is a SQLite Database
 Diátaxis
 England set to be one of the first countries to eliminate hepatitis C
+Malicious Rust crate Arrayref runs a build-time payload
 Meta reaches $17B settlement over social media harms to children
 Firefox is on a slippery slope
 Google Maps' Moat
@@ -1369,6 +1377,7 @@ Zed is our office
 1.5 TB of VRAM on Mac Studio – RDMA over Thunderbolt 5
 I canceled my book deal
 US blocks all offshore wind construction, says reason is classified
+I got hacked: My Hetzner server started mining Monero
 Briar keeps Iran connected via Bluetooth and Wi-Fi when the internet goes dark
 I'm addicted to being useful
 FBI couldn't get into WaPo reporter's iPhone because Lockdown Mode enabled
@@ -1633,6 +1642,7 @@ SlopStop: Community-driven AI slop detection in Kagi Search
 Being poor vs. being broke
 Horses: AI progress is steady. Human equivalence is sudden
 Why xor eax, eax?
+No AI* Here – A Response to Mozilla's Next Chapter
 Are Apple gift cards safe to redeem?
 Postal Arbitrage
 Proton spam and the AI consent problem
@@ -1675,6 +1685,7 @@ Maybe you should learn something
 EU Council forces Chat Control via fast-track
 Sam Neill has died
 LAPD lets contract with surveillance giant Flock expire
+Has_not_been_viewed_much
 LG to ban residential proxies from smart TV apps
 French firefighters face 'pyrocumulonimbus' for first time
 Going Dark, and the era of law enforcement hacking
@@ -1684,6 +1695,7 @@ Civic Hygiene – avoid building technologies that could be used by a police sta
 And then the men with guns tell you to do it anyway
 CIA funding helped keep NeXT afloat in the 80s
 Lawmakers added $1 to car insurance policies. That money paid for Flock cameras
+Cognition launches new SWE-2 model, Rivaling Fable 5.1 and GPT-Astra
 Astra for Coding: Why Are We Doing This Again?
 Swift is Open Source
 Google's “Director of Engineering” Hiring Test
@@ -2108,6 +2120,7 @@ Scientist exposes anti-wind groups as oil-funded, now they want to silence him
 US Intel
 Improved Gemini 2.5 Flash and Flash-Lite
 US High school students' scores fall in reading and math
+Beliefs that are true for regular software but false when applied to AI
 Comprehension debt: A ticking time bomb of LLM-generated code
 Meta is axing 600 roles across its AI division
 Who needs Graphviz when you can build it yourself?
@@ -2143,6 +2156,7 @@ US appeals court declares 158-year-old home distilling ban unconstitutional
 Make tmux pretty and usable (2024)
 Game devs explain the tricks involved with letting you pause a game
 GitHub RCE Vulnerability: CVE-2026-3854 Breakdown
+A 0-click exploit chain for the Pixel 10
 Async Rust never left the MVP state
 SpaceX launches Starship v3 rocket
 A few words on DS4
@@ -2171,6 +2185,7 @@ A missing underscore sent innocent man to prison for 18 months
 The Nixpkgs core team has disbanded
 Pre-Release of Polars 2.0
 Breaking Claude Code Opus 5 Auto Mode
+Just the rumour of a bug is enough to find an exploit these days
 Damn fine tiny cafe
 RISC-V: They Should Have Known Better
 We Must Return to the Office to Use AI in Person
@@ -2358,6 +2373,7 @@ The Wholesale Plagiarism of Obscure Sorrows
 Tesco moving 40k server workloads off VMware amid Broadcom's abusive conduct
 Kimi K3, and what we can still learn from the pelican benchmark
 There is minimal downside to switching to open models
+Herdr: One terminal to rule them all
 $100 AI Music Video: Claude Fable 5 vs. GPT-5.6 Sol
 Taxi drivers rarely die of Alzheimer's
 Slovakia finds Russian backdoor in traffic speed cameras
@@ -2799,6 +2815,7 @@ Ring owners are returning their cameras
 Qwen3.5 Fine-Tuning Guide
 AI got the blame for the Iran school bombing. The truth is more worrying
 Death to Scroll Fade
+USB for Software Developers: An introduction to writing userspace USB drivers
 We replaced RAG with a virtual filesystem for our AI documentation assistant
 AWS engineer reports PostgreSQL perf halved by Linux 7.0, fix may not be easy
 A truck driver spent 20 years making a scale model of every building in NYC
@@ -2811,6 +2828,7 @@ Mythical Man Month
 SpaceX files to go public
 John Deere to pay $99M in right-to-repair settlement
 IBM didn't want Microsoft to use the Tab key to move between dialog fields
+Mini Shai-Hulud Strikes Again: 314 npm Packages Compromised
 Show HN: Freenet, a peer-to-peer platform for decentralized apps
 Hardening Firefox with Claude Mythos Preview
 Quack: The DuckDB Client-Server Protocol
@@ -3359,6 +3377,8 @@ Half-Life 2 running natively on HaikuOS
 S&P Global has lowered Oracle’s creditworthiness from BBB to BBB-
 Cursor removed cost information from the usage page and CSV export
 Harness engineering for self-improvement
+Zohran and the Short Link
+Muse Code and Muse Spark 1.2
 Taylor Farms Called White House to Try to Delay Cyclospora Recall
 Cops Used Flock to Track a Man Across State Lines for a Pretextual Weed Search
 Nvidia to acquire Hugging Face
@@ -3433,6 +3453,7 @@ Canada to ban foreigners from buying homes
 Two weeks in, the Webb Space Telescope is reshaping astronomy
 Visual effects for the Indian blockbuster “RRR”
 Stable Diffusion Public Release
+RavynOS – Finesse of macOS, freedom of FreeBSD
 Coinbase is reportedly selling geolocation data to ICE
 See what JavaScript commands get injected through an in-app browser
 Dozens of malicious PyPI packages discovered targeting developers
@@ -3516,6 +3537,7 @@ How bloom filters made SQLite 10x faster
 Google’s OAuth login doesn’t protect against purchasing a failed startup domain
 Nvidia announces next-gen RTX 5090 and RTX 5080 GPUs
 Nvidia’s $589B DeepSeek rout
+Every HTML Element
 Fluid Simulation Pendant
 Take the pedals off the bike
 The Demoralization is just Beginning
@@ -3541,6 +3563,7 @@ We’re secretly winning the war on cancer
 Joining Apple Computer (2018)
 Mini NASes marry NVMe to Intel's efficient chip
 Danish Ministry Replaces Windows and Microsoft Office with Linux and LibreOffice
+My iPhone 8 Refuses to Die: Now It's a Solar-Powered Vision OCR Server
 A 17-year-old teen refutes a mathematical conjecture proposed 40 years ago
 Games run faster on SteamOS than Windows 11, Ars testing finds
 Node.js is able to execute TypeScript files without additional configuration
@@ -3598,6 +3621,7 @@ Notepad++ supply chain attack breakdown
 UK Discord users were part of a Peter Thiel-linked data collection experiment
 IBM tripling entry-level jobs after finding the limits of AI adoption
 Thanks a lot, AI: Hard drives are sold out for the year, says WD
+Coding agents have replaced every framework I used
 Honda is killing its EVs
 Our Agreement with the Department of War
 Returning to Rails in 2026
@@ -3970,11 +3994,13 @@ SpaceX stock erases all its gains and slides below IPO price in intraday trading
 A.I. companies are recruiting electricians and carpenters by the thousands
 The LLM Critics Are Right. I Use LLMs Anyway
 The arguments against open source AI are bad
+RISC-V is now officially supported by CPython
 Over 170k Nonprofits Lost All Their Data. Is Microsoft to Blame?
 Tim King, AmigaDOS developer, has died
 Atlassian Rovo Exfiltrates Data, Bypassing Controls
 Whistleblower warns Postal Service mail ballot system has catastrophic problems
 Anna's Archive Owes $340 Million, Lost Several Domains, but It's Still Online
+I accidentally turned LLM memory into program analysis
 Doctors are finally learning to manage antidepressant withdrawal
 Linux 7.2
 Babies born under sugar rationing grew into adults with lower cancer risk
@@ -4276,6 +4302,7 @@ Dua Lipa opens library for banned and censored books in Portugal
 But yak shaving is fun (2019)
 Facebook is paying people overseas promoting Alberta separatism
 Codex Micro
+The gap between open weights LLMs and closed source LLMs
 Firefox 153 available with support for Vulkan video decoding, JPEG-XL
 Google loses fight over record $4.7B EU antitrust fine
 Jeff Dean leaving Alphabet
@@ -4283,6 +4310,7 @@ OpenAI and Anthropic unite against open-weight AI risks to their bottom line
 A road to Lisp: Why Lisp
 At-home test for infected ticks could improve Lyme Disease diagnosis
 Silicon Valley misreads science fiction and undermines democracy
+A walk through of the DeltaNet family of linear attention variants
 Branchless Rust: Making a Filter 4x Faster by Removing an If
 This Month in Ladybird – August 2026
 Mom gets 6-month suspended sentence for letting 5-year-old walk to the pond
@@ -4612,6 +4640,7 @@ Canceling "Hey"
 The war on terror primed America for autocracy
 Streaming services' obnoxiously loud ads become illegal on July 1 in California
 Apple is getting this wrong
+Perfection is not over-engineering
 Why skilled workers come to Germany and then leave again
 Ente – Opening Our Books
 Paged Out #9 [pdf]
@@ -4620,6 +4649,7 @@ Design is compromise
 US conducted mass spying campaign against leftwing and anti-ICE protesters
 Principia Mathematica is modern and insightful
 Asynchronous I/O in DuckDB: Work, Thread, Work
+Herdr is joining Y Combinator. The runtime stays open
 'Crush this lady': how eBay harassment campaign led to $56M payout
 OpenAI begins rolling out GPT-6 Astra
 Portal by Spotify cut my Claude Code token usage by 90%
@@ -4627,6 +4657,7 @@ The Rise and Fall of Agent Civilizations
 Cultivating a state of mind where new ideas are born (2023)
 Stockfish 19
 Neki – Sharded Postgres
+How much of HN is AI?
 METR and Redwood Offer Holy %^ Postmortem of the HuggingFace Hack
 Measuring the sloppiness of code
 NSA leaker is a patriot, not a traitor
@@ -4954,7 +4985,6 @@ Software Pump and Dump
 macOS Tahoe windows have different corner radiuses
 221 Cannon is Not For Sale
 Tesla is committing automotive suicide
-Scientists identify brain waves that define the limits of 'you'
 Payphone Go
 Block the “Upgrade to Tahoe” alerts
 California's new bill requires DOJ-approved 3D printers that report themselves
@@ -5021,6 +5051,7 @@ The growing vigilante movement to knock out Flock surveillance cameras
 How Has Roman Concrete Lasted for Millennia? 1,900-Year-Old Latrine Offers Clues
 An ESP32 based plane radar for my desk
 Decompiling a Nintendo 64 game in 84 days
+Jabber/XMPP: 25 Years of Digital Independence
 Severance
 Atlas: A World Model for Spatial Intelligence
 More than 10 firms pay up to $100k a month for access to Truth Social posts
@@ -5346,6 +5377,7 @@ As AI gobbles up chips, prices for devices may rise
 Upcoming Changes to Let's Encrypt Certificates
 Unscii
 TikTok Deal Is the Shittiest Possible Outcome, Making Everything Worse
+Scientists identify brain waves that define the limits of 'you'
 How SQLite is tested
 Is Rust faster than C?
 All AI Videos Are Harmful (2025)
@@ -5373,11 +5405,13 @@ I baked a pie every day for a year
 Nvidia and OpenAI abandon unfinished $100B deal in favour of $30B investment
 The US is flirting with its first-ever population decline
 Components of a Coding Agent
+15 Years of Forking
 Mamba-3
 Full Disclosure: A Third (and Fourth) Azure Sign-In Log Bypass Found
 MCP is dead; long live MCP
 OpenAI Privacy Filter
 A compelling title that is cryptic enough to get you to take action on it
+We rewrote our Rust WASM parser in TypeScript and it got faster
 Why AI companies want you to be afraid of them
 What are skiplists good for?
 The future of everything is lies, I guess: Work
@@ -5394,6 +5428,7 @@ Workers are spending over 6 hours a week botsitting AI, fueling job frustration
 Every Byte Matters
 Anna's Archive hit with $19.5M default judgment and global domain takedown order
 DeepSeek-V4-Flash means LLM steering is interesting again
+JSON-LD explained for personal websites
 Zero-Touch OAuth for MCP
 New York passes pied-a-terre tax
 80386 microcode disassembled
@@ -5404,6 +5439,7 @@ Codex for open source
 How we made hit video game Prince of Persia
 What job interviews taught me about Kubernetes
 The kids with phones are alright
+SWE-1.7 Reach Near GPT 5.5 and Opus Intelligence
 The Safari MCP server for web developers
 Germany set to restrict its Freedom of Information Act
 Stealing Is a Skill
@@ -5421,6 +5457,7 @@ Watching Go's new garbage collector move through the heap
 Unlocking a locked/deactivated e-waste Cricut Maker
 I stopped trusting USB-C cable labels and started testing them
 HTML over WebSockets: real-time SPAs with barely any JavaScript
+Reverse Engineering Unknown File Formats with ImHex
 SQLite as a Document Database (2020)
 Getting your hands dirty is good for you
 Blizzard Workers Win Historic Union Contract
@@ -5720,6 +5757,7 @@ Experimental release of GrapheneOS for Pixel 9a
 Porting Tailscale to Plan 9
 Knowledge-based society, my ass
 Your phone isn't secretly listening to you, but the truth is more disturbing
+Getting a Cease and Desist from Waffle House
 AI in my plasma physics research didn’t go the way I expected
 ClickHouse gets lazier and faster: Introducing lazy materialization
 How to modify Starlink Mini to run without the built-in WiFi router
@@ -5860,6 +5898,7 @@ Donate to GrapheneOS
 Designing an Ethernet Switch ASIC
 Keyv and friends compromised in active Shai-Hulud supply chain attack
 Developers are attached to tools because tools encode trust
+A week of using Codex more than Claude
 Arbitrary code execution in QubesOS via copy-to-VM error reporting backchannel
 Fake US thinktank set up and funded by Israel sought to game AI for propaganda
 Apple reveals 'shocking evidence' from ex-employee's MacBook in OpenAI suit
@@ -6245,6 +6284,7 @@ My “grand vision” for Rust
 Government agencies buy commercial data about Americans in bulk
 'Hairdryer used to trick weather sensor' to win Polymarket bet
 Lies I was told about collaborative editing, Part 2: Why we don't use Yjs
+Why I still reach for Lisp and Scheme instead of Haskell
 Your website is not for you
 SSH certificates: the better SSH experience
 AWS North Virginia data center outage – resolved
@@ -6281,6 +6321,7 @@ Windows 10 quietly gets one more year of support and updates
 "Drawing" the Mona Lisa with GPT-5.6, Claude, Gemini, and Grok
 Temporary Cloudflare accounts for AI agents
 Intel Starts Shipping High-NA EUV Silicon
+Detecting LLM-Generated Texts with “Classical” Machine Learning
 Should you wash your solar panels?
 New Amazon Data Center Is Set to Have the Most Polluting Power Plant in the U.S.
 As a Windows user, it's a surreal way to install a program
@@ -6795,6 +6836,7 @@ The Mojo language (by Modular, now Qualcomm) is now open-source
 We have proof automation now
 The Voice of Google
 Getting 25 Gbps Thunderbolt Ethernet on My Mac Studio
+Internet centralization and the original sin of NAT
 Humanising LLM Outputs Is Dumb
 Fable and the end of the free lunch
 So A Blogger Walks Into A Bar…
@@ -7541,6 +7583,7 @@ Reversing UK mobile rail tickets
 An AI lawyer was set to argue in court – real lawyers shut it down
 Self-Host All the Things?
 The Fourier Transform, explained in one sentence (2014)
+Open source USB C camera with C mount lens, MIPI Sensor, Lattice FPGA, USB 3.0
 Ruby 3.2’s YJIT is Production-Ready
 Police relied on Clearview AI and put the wrong person in jail
 Google exec fired after female boss groped him at drunken bash, suit says
@@ -7808,6 +7851,7 @@ Life During Class Wartime
 10Gb/s Ethernet: what I did to get it working in my home
 Pluto.jl 1.0 release – reactive notebook for Julia
 Hand Drawn QR Codes (2025)
+Hey, n00b, we didn't hire you to complete tasks
 Redis 8.8: New array data structure, rate limiter, performance improvements
 Microsoft reports AI is more expensive than paying human employees
 Israel's AI targeting system: how data from a phone become a death sentence
@@ -7823,7 +7867,6 @@ Supreme Court upholds broad conception of birthright citizenship
 'Careless People' author claims Meta surveilled her for 12mos to enforce silence
 'Ghost jobs' could soon be illegal in New York
 Wolfram Language and Mathematica version 15
-'Backrooms' Stuns with $81M Debut
 OpenAI Losses Increased Nearly 8X in 2025, with Spending Hitting $34B
 Looking Forward to Postgres 19: Query Hints
 Dolphin Emulator Progress Release 2606
@@ -8375,6 +8418,7 @@ Spanish court declines to fine NordVPN over LaLiga piracy blocking order
 sp.h: Fixing C by giving it a high quality, ultra portable standard library
 Local privilege escalation via execve()
 Ternary Bonsai: Top Intelligence at 1.58 Bits
+'Backrooms' Stuns with $81M Debut
 Print with dozens of colors: Our new open-source ColorMix for PrusaSlicer
 Get your passwords out of Bitwarden while you still can
 Extremely Low Frequencies
@@ -8394,7 +8438,6 @@ My Steam Machine is a 50ft HDMI cable
 The minimum viable unit of saleable software
 Samurai City
 Branchless Quicksort faster than std:sort and pdqsort with C and C++ API
-Training our own AI models
 The Boeing 747 begins its final descent
 Turns Out, There Is a Cabal of Elite Crazies Trying to Control the World
 Vibe coding my way to a healthy family: Introducing Gamow Labs
@@ -8937,6 +8980,7 @@ Jank now has its own custom IR
 Tesla is recalling its cheaper Cybertruck because the wheels might fall off
 "Not Medically Necessary": Helping America's Health Insurers Deny Coverage
 Artifacts: Versioned storage that speaks Git
+Training our own AI models
 Why are there both TMP and TEMP environment variables? (2015)
 Formatting a 25M-line codebase overnight
 The smelly baby problem
@@ -8966,11 +9010,13 @@ Kubernetes on Oxide: How customer needs shaped our integrations
 Radical Study Suggests Life on Earth Arose Twice
 Octopus intelligence may be related to never-before-seen mutation
 Modern email can be built from borrowed parts
+Omacom Foundation launches with $8M
 June in Servo: real world compat, media queries, SharedWorker, and more
 Why some US restaurants are banning tips
 Facebook ads are so hard to block that uBlock Origin stopped filtering them
 Company Offering '100% Human-Written, Never AI' Medical Research Is 100% AI
 Stripe said to abandon $50B pursuit of PayPal
+LLMs could control their host machines by exploiting inference engines
 Woman stranded in Spain after UK's eVisa system mistakes her for twin sister
 U of Michigan drops first-semester grades to ‘curb mental health crisis’
 Matrox: Graphics for Professionals
@@ -9631,6 +9677,7 @@ Increasing the lifespan of a bulb makes it worse in every other way
 hdiutil is deprecated in macOS 27 Golden Gate
 We finally learned to center a div, then browsers added sidebars
 Planet Labs' open satellite feed
+.gitignore Everything by Default
 Lotus Notes and the dangers of starting from scratch
 Muse, the band, lost its social media handles to Muse, Meta's new AI agent
 Six curl CVEs after OpenAI and Anthropic came back with zero
@@ -10157,7 +10204,6 @@ Arizona resident dies from the plague
 A Virginia public library is fighting off a takeover by private equity
 Neki – Sharded Postgres by the team behind Vitess
 US to rewrite its past national climate reports
-Show HN: New Ensō – first public beta
 Hyundai wants loniq 5 customers to pay for cybersecurity patch in baffling move
 Infinite Pixels
 We made Postgres writes faster, but it broke replication
@@ -10235,6 +10281,7 @@ Spanish track was fractured before high-speed train disaster, report finds
 San Francisco coyote swims to Alcatraz
 The U.S. Is Funding Fewer Grants in Every Area of Science and Medicine
 Raspberry Pi Drag Race: Pi 1 to Pi 5 – Performance Comparison
+Gas Town Decoded
 Waymo seeking about $16B near $110B valuation
 A free and open-source rootkit for Linux
 Instagram data breach reportedly exposed the personal info of 17.5M users
@@ -10320,8 +10367,10 @@ When str.lower() is a security vulnerability in Python
 One corner of China’s internet is insisting that the Tang Dynasty never existed
 ATProto spaces: A new extension to ATProto that enables non-public data
 Bespoke: A programming language for people who say please
+Extensible Software in the age of LLMs
 California's new tire efficiency rules could save drivers $1B a year
 Feeling Sad about AI
+How to get a free .arpa domain
 A Brief Rant on the Future of Interaction Design
 R.I.P. Ray Bradbury, Author of Fahrenheit 451 and The Martian Chronicles
 Sublime Text 2.0 Released
@@ -10881,6 +10930,7 @@ What If We Could Rebuild Kafka from Scratch?
 Java at 30: Interview with James Gosling
 Amazon Just Happens to Hold Book Sale During Independent Bookstore Day
 Create and edit images with Gemini 2.0 in preview
+Show HN: New Ensō – first public beta
 Endangered classic Mac plastic color returns as 3D-printer filament
 MCP is the coming of Web 2.0 2.0
 The Darwin Gödel Machine: AI that improves itself by rewriting its own code
@@ -11681,7 +11731,6 @@ Anduril and Palantir battlefield communication system has flaws, Army memo says
 Safe zero-copy operations in C#
 Valorant's 128-Tick Servers (2020)
 Bad Apple but it's played inside Super Mario Bros
-Hashed sorting is typically faster than hash tables
 U.S. hits new low in World Happiness Report
 Claude can sometimes prove it
 Mullvad: Shutting down our search proxy Leta
@@ -11718,6 +11767,7 @@ Sam Altman's pants are on fire
 Google confirms Android attacks; no fix for most Samsung users
 Toll roads are spreading in America
 My Snapdragon Dev Kit was healthy and working fine until a Windows update failed
+AI helps ship faster but it produces 1.7× more bugs
 2002: Last.fm and Audioscrobbler Herald the Social Web
 Notion AI: Unpatched data exfiltration
 NPM to implement staged publishing after turbulent shift off classic tokens
@@ -12503,6 +12553,7 @@ Qwen VLo: From “Understanding” the World to “Depicting” It
 Many lung cancers are now in nonsmokers
 Busy beaver hunters reach numbers that overwhelm ordinary math
 Show HN: Bedrock – An 8-bit computing system for running programs anywhere
+Hashed sorting is typically faster than hash tables
 Unofficial Windows 11 requirements bypass tool allows disabling all AI features
 My Own DNS Server at Home – Part 1: IPv4
 Y Combinator files brief supporting Epic Games, says store fees stifle startups
@@ -12518,6 +12569,7 @@ Hollow Knight: Silksong causes server chaos on Xbox, Steam, and Nintendo
 Ratfactor's illustrated guide to folding fitted sheets
 Thoughts on Cloudflare
 Processing Strings 109x Faster Than Nvidia on H100
+Uv overtakes pip in CI
 Survey: a third of senior developers say over half their code is AI-generated
 Omarchy Is Out
 Kernel: Introduce Multikernel Architecture Support
@@ -12536,6 +12588,7 @@ As Android developer verification gets ready to go, a new reason to be worried
 Aggressive bots ruined my weekend
 Run interactive commands in Gemini CLI
 Intel Announces Inference-Optimized Xe3P Graphics Card with 160GB VRAM
+How to Get a North Korea / Antarctica VPS
 Think in math, write in code (2019)
 Why did containers happen?
 Blender 4.5 LTS
@@ -12570,6 +12623,7 @@ Ray Marching Soft Shadows in 2D (2020)
 200 MB RAM FreeBSD desktop
 How have prices changed in a year? NPR checked 114 items at Walmart
 UK accounting body to halt remote exams amid AI cheating
+Using TypeScript to obtain one of the rarest license plates
 Incomplete list of mistakes in the design of CSS
 A year of vibes
 A battle over Canada’s mystery brain disease
@@ -12922,7 +12976,6 @@ Tesla's “full self driving” beta is potentially dangerous
 Faster JavaScript Calls
 U.S. Labor Secretary throws support behind classifying gig workers as employees
 Performance comparison: counting words in Python, Go, C++, C, Awk, Forth, Rust
-Developer and Power Users Tool List for Windows
 More Scientists Urge Broad Inquiry into Coronavirus Origins
 Colonial Pipeline Paid Hackers Nearly $5M in Ransom
 What’s interesting about the Florida water system hack is that we heard about it
@@ -13464,6 +13517,7 @@ Iowa farmers are leading the fight for repair
 A Tour of Oodi
 Understanding Traceroute
 Boy I was wrong about the Fediverse
+Show HN: M. C. Escher spiral in WebGL inspired by 3Blue1Brown
 I tried to prove I'm not AI. My aunt wasn't convinced
 Bayesian statistics for confused data scientists
 Meta will shut down VR Horizon Worlds access June 15
@@ -13766,6 +13820,7 @@ China sharply expands mass labor program in Tibet
 What’s New in Thunderbird 78
 Gitter now speaks Matrix
 Safari adopts the Chrome/Firefox extension model
+Developer and Power Users Tool List for Windows
 Nokia selected by NASA to build cellular network on the moon
 Amazon drivers are hanging smartphones in trees to get more work
 You've Been Referred Here Because You're Wrong About Section 230 of the CDA
@@ -14161,6 +14216,7 @@ Why to Not Write a Book
 GNU Screen 5.0 Released
 One man's quest to restore the first-ever Air Force One
 Pro bettors disguising themselves as gambling addicts
+OpenTelemetry Tracing in < 200 lines of code
 Anarchy in Sudan has spawned the world’s worst famine in 40 years
 Gleam Is Pragmatic
 Google banned me from Google Voice
@@ -14210,6 +14266,7 @@ Libraries and Well-Being: A Case Study from The New York Public Library
 Every System is a Log: Avoiding coordination in distributed applications
 Minecraft with object impermanence
 Build a tiny CA for your homelab with a Raspberry Pi
+uv downloads overtake Poetry for Wagtail users
 Money lessons without money: The financial literacy fallacy
 Vim after Bram: a core maintainer on how they've kept it going
 How about trailing commas in SQL?
@@ -14387,6 +14444,7 @@ Magic: The Gathering took me from N2 to Japanese fluency
 Alberta to hold referendum on whether to remain in Canada
 What Do Gödel's Incompleteness Theorems Mean?
 When “idle” isn't idle: how a Linux kernel optimization became a QUIC bug
+A Forth-inspired language for writing websites
 Earth is now heating up twice as fast as in previous decades
 590k buyers paid $59M for Trump's gold phone, but not one has shipped
 Fooling around with encrypted reasoning blobs
@@ -15203,6 +15261,7 @@ Oberon Pi
 Bamba: An open-source LLM that crosses a transformer with an SSM
 AI is ushering in a “tiny team” era
 Rolling the ladder up behind us
+Experts have it easy (2024)
 The Art of Lisp and Writing (2003)
 Chatbots are replacing Google's search, devastating traffic for some publishers
 Wendelstein 7-X sets new fusion record
@@ -15328,6 +15387,7 @@ America Is Now a Rogue Superpower
 The secrets of the Shinkansen
 The M×N problem of tool calling and open-source models
 CPanel and WHM Authentication Bypass – CVE-2026-41940
+I accidentally made law enforcement shut down their fake honeypot
 Math Is Hard – OpenBSD Stories
 Ex-CEO, ex-CFO of iLearningEngines charged with fraud
 Shooting down ideas is not a skill
@@ -15380,6 +15440,7 @@ Let's make the worst Htmx
 Working with Git Worktrees in Magit
 Differential Heuristics
 Can guitar frets perform multiplication?
+Run Qwen3.8 27B locally: real numbers from my Mac Studio
 Meta Paid $17B – Gets to Write Safety Rules for Other SocMedia Platform
 NanoGPT Speedrun Frontier
 Xorg-server 26.1.0 rc1
@@ -16390,7 +16451,6 @@ What came after the 486?
 AI ruling prompts warnings from US lawyers: Your chats could be used against you
 Sam Altman's home targeted in second attack
 OpenBSD on Motorola 88000 Processors
-Daily Driving GrapheneOS
 On a Boat
 Running Adobe's 1991 PostScript Interpreter in the Browser
 Clojure: Transducers
@@ -17445,6 +17505,7 @@ Satellites reveal heat leaking from largest US cryptocurrency mining center
 Debian adds LoongArch as officially supported architecture
 GNU recutils: Plain text database
 Supply Chain Vuln Compromised Core AWS GitHub Repos & Threatened the AWS Console
+My fast zero-allocation webserver using OxCaml
 The 3D Software Rendering Technology of 1998's Thief: The Dark Project (2019)
 Elasticsearch was never a database
 Pentagon moves to punish Democratic senator over 'seditious video'
@@ -17456,6 +17517,7 @@ A Botnet Accidentally Destroyed I2P
 Exploring a Modern SMTPE 2110 Broadcast Truck
 A Broken Heart
 iPhone 5s Gets New Software Update 13 Years After Launch
+Daily Driving GrapheneOS
 Environmentalists worry Google behind bid to control Oregon town's water
 An ode to houseplant programming (2025)
 Google Fiber will be sold to private equity firm and merge with cable company
@@ -17513,6 +17575,7 @@ Guide to data tools landscape for developers
 What I love about Django
 Memory safety absolutists
 Apple Fixes Hide My Email Vulnerability After 404 Media Coverage
+Escape IntelliJ: Scala and Kotlin LSPs on Emacs Eglot
 Unearthing a 31 year old Easter egg in Ecco the Dolphin
 How to Block Some of the Bots
 Windows 95 released August 24, 1995
@@ -17522,6 +17585,8 @@ Monzo Stand-In
 I Remain a Skeptic
 AMD Based FreeBSD Desktop Reloaded
 Changes to Sourcehut's terms of service regarding LLMs
+Tracking Costco gas prices
+I dream of quieter computing
 Ok, but does it scale?
 Project Xanadu: Even More Hindsight (2025)
 We now have an effective vaccine for Malaria
@@ -18167,7 +18232,6 @@ Future Fords could repossess themselves and drive away if you miss payments
 Intel Publishes Fast AVX-512 Sorting Library, 10~17x Faster Sorts in NumPy
 Matrix 2.0: How we’re making Matrix go voom
 Building a website like it's 1999
-Nuclear physicist explains why fusion ignition is hailed as a major breakthrough
 For the first time, the Fed is losing money
 The RIAA vs. Steve Jobs
 Noncompete clauses: Companies say they need them, research shows that’s not true
@@ -18673,6 +18737,7 @@ WAL-RUS: a Rust Rewrite of WAL-G for PostgreSQL Backups
 The UK's Teen Social Media Ban Is Political Theater, Not Child Safety Policy
 GDID Windows – Cut the tracker that follows you even under VPN
 Unicode's transliteration rules are Turing-complete
+The cost YAGNI was never about
 Signs you're a dangerous terrorist: using Signal, moving zines
 Self-host your mail server
 Marimo now runs in PyCharm
@@ -19305,6 +19370,7 @@ After 50 years, Michael Heizer is finally ready to unveil City, his life's work
 Publicity Stunt Fallout
 A requiem for amateur chemistry
 Get in zoomer, we're saving React
+Nuclear physicist explains why fusion ignition is hailed as a major breakthrough
 Company ‘Hijacks’ Blender’s CC By-Licensed Film, YouTube Strikes User
 37signals Leaves the Cloud
 CS631 – Advanced Programming in the Unix Environment
@@ -19352,6 +19418,7 @@ PhpBB 3.3.10
 Giant SpaceX Spiral Appears Amid the Aurora Lights in Alaska's Night Sky
 Microsoft to support Windows 11 on M1 and M2 Macs through Parallels partnership
 Rust vs. Haskell
+A manifesto on shower temperature control
 U.S. regulator set to take over First Republic
 Maps show how parking lots “eat” U.S. cities
 IBM to pause hiring in plan to replace 7,800 jobs with AI
@@ -19445,7 +19512,6 @@ DKIM: Rotate and publish your keys
 An open letter to our community
 The new science of meditation
 Why your blog still needs RSS
-A beetle that heads for the ‘back door’ when eaten by a frog (2020)
 1.3B Worldcat scrape and data science mini-competition
 Stolen van Gogh painting returned in an IKEA bag
 Apple supports right-to-repair bill
@@ -19827,9 +19893,11 @@ I Just Want to Search
 Gateway 2000's hilariously bad ads in the 90s (Part II)
 Happy 45th Birthday to the IBM PC and Model F/XT
 Rust-lang/rust is adopting an LLM policy
+Show HN: FeyNoBg – Automatic background removal model and training library
 Launching Route 53 Files
 Let's all meet up in the Y2K
 The Two Abstractions of System Design: Hide or Reduce
+Building an (almost) fully self-hosted, sandboxed, agentic software factory
 Hunting Down a Go Runtime Bug on 32-Bit Embedded Systems
 Government Rails Site Hit Hours After CVE Patch
 I'm a seeing-eye dog for a computer
@@ -20360,7 +20428,6 @@ How to Study Effectively
 Experts Have Resigned from an FDA Committee over Alzheimer's Drug Approval
 Facebook Is the AOL of 2021
 I'm a Frito-Lay Factory Worker. I Work 12-Hour Days, 7 Days a Week
-Cheese photo leads to Liverpool drug dealer's downfall
 Starlink dishes go into “thermal shutdown” once they hit 122° Fahrenheit
 What is BGP? – BGP routing explained
 Samsung seemingly caught swapping components in its 970 Evo Plus SSDs
@@ -20585,6 +20652,7 @@ Blender 3.6 LTS Released
 Missing Titanic sub faced lawsuit over depths it could safely travel to
 Axle OS
 SQLite 3.42.0
+A beetle that heads for the ‘back door’ when eaten by a frog (2020)
 Multi-Layered Calendars
 Noticing when an app is only hosted in us-east-1
 Hard stuff when building products with LLMs
@@ -20798,6 +20866,7 @@ Traceroute Isn't Real
 The 1/8th Sleep
 DEF Con 32 – AMD Sinkclose Universal Ring-2 Privilege Escalation (Not Redacted) [pdf]
 Bluesky is ushering in a pick-your-own algorithm era of social media
+DeepSeek v2.5 – open-source LLM comparable to GPT-4, but 95% less expensive
 My solar-powered and self-hosted website
 The Globus INK: a mechanical navigation computer for Soviet spaceflight (2023)
 Australian Parliament bans social media for under-16s
@@ -20933,6 +21002,7 @@ AOL closes its dial up internet service
 I tried vibe coding in BASIC and it didn't go well
 Evolving the OCaml Programming Language (2025) [pdf]
 What does it mean to be thirsty?
+Omarchy, a Linux Distribution by DHH
 Shallow water is dangerous too
 Clojure's Solutions to the Expression Problem
 The History of Windows XP
@@ -21034,6 +21104,7 @@ Making Software: How to make a font
 OpenSSH 10.5/10.5p1
 When online commenters detect my art as AI
 Things I want in a modern relational query language
+What happens when a GPU reads memory
 The mean means nothing: data visualization to debug a latency problem
 Ubisoft's FOR HONOR will block SteamOS / Linux players starting September 10
 Fast and Hard Code
@@ -21567,6 +21638,7 @@ Hedge fund Melvin sustains 53% loss after Reddit onslaught
 That's not how 2FA works
 The Byte Order Fiasco
 Hello system, a FreeBSD-based OS designed to resemble Mac
+Cheese photo leads to Liverpool drug dealer's downfall
 Ex-Netflix VP found guilty of awarding tech contracts in exchange for bribes
 The Washington state legislature has voted to end limits on municipal broadband
 Medium sees employee exits after CEO publishes ‘culture memo’
@@ -22091,6 +22163,7 @@ Better text rendering in Chromium-based browsers on Windows
 Indigenous engineers are using AI to preserve their culture
 I'm Done with Ubuntu
 A standards-first web framework
+How to distrust a CA without any certificate errors
 Forget Twitter threads and write a blog post instead (2021)
 Why can't we screenshot frames from DRM-protected video on Apple devices?
 Cross Views
@@ -22275,6 +22348,7 @@ Inverse Kinematics and Foot Locking
 The car industry A/B tested selling a car with and without CarPlay
 On Really Trying (2009)
 To write non-fiction, draw the trunk, then the rest of the tree
+Hacking with Claude on a $27 smart watch
 Bing Wallpaper showing Ad for Harry Potter and Fantastic beasts box set
 ZX Spectrum: Experimenting with 1-Bit Sound
 A bizarre Commodore 64 peripheral, a mime, and some pretty bad ads
@@ -23509,7 +23583,6 @@ Do I not like Ruby anymore? (2024)
 AI must RTFM: Why tech writers are becoming context curators
 AI coding agents are removing programming language barriers
 ICE's Supercharged Facial Recognition App of 200M Images
-Deno 2.4
 Optimizing our way through Metroid
 Acronis True Image costs performance when not used
 Apple's new Processor Trace instrument is incredible
@@ -23611,7 +23684,9 @@ MkLinux and the pimped-out Apple Workgroup Server 9150
 An interactive tour of the spanning tree protocol
 The NX bit is not just about security
 A curmudgeon tries a language server
+Recursion into madness
 Research carried out using NetBSD
+How to bring up the Linux Kernel on a new platform
 How Swiss tables work in Go built-in map
 Why I Sold Zappos
 New iPhone Agreement Bans Flash-to-iPhone Compiler & Others
@@ -24653,6 +24728,7 @@ PyPy has been working for me for several years now
 FCC fines big three carriers $196M for selling users' real-time location data
 UniSuper members go a week with no account access after Google Cloud misconfig
 Microsoft ties executive pay to security after multiple failures and breaches
+Resilient Sync for Local First
 Show HN: Restate – Low-latency durable workflows for JavaScript/Java, in Rust
 Project Gameface launches on Android
 The notifier pattern for applications that use Postgres
@@ -24794,6 +24870,7 @@ A Math Lesson From Hitler’s Germany (2017)
 U.S. nuclear base hidden under Greenland's ice for decades
 The State of SSL Stacks
 OpenAI wants to buy Chrome and make it an "AI-first" experience
+Deno 2.4
 What a developer needs to know about SCIM
 You Are in a Box
 Gradients Are the New Intervals
@@ -24883,7 +24960,6 @@ On The Need For Understanding
 Using Thunderbird for RSS
 California's Digital Age Assurance Act, and FOSS
 Log messages are mostly for the people operating your software
-Cash issuing terminals
 Keeping a Postgres Queue Healthy
 Category Theory Illustrated – Types
 Back to FreeBSD – Part 2 – Jails
@@ -24910,6 +24986,7 @@ The Common Lisp Cookbook – LispWorks Review
 I can haz smoller NixOS ISOs?
 Is x86 ready to ACE it?
 Gödel, Escher, Elisp: The Beauty of Macros
+Show HN: Pulpie – Models for Cleaning the Web
 Chip Off The Old Block
 I built a 10 inch mini rack from aluminium extrusions
 Linux Desktop Market Share Surpasses 10% in North America
@@ -24919,8 +24996,10 @@ A handful of cities have replaced Flock with Axon
 JEP 544: Ahead-of-Time Code Compilation
 Debugging my new network, when 10 Gigabit Ethernet Runs at 300 Megabits
 SAP stops most travel and hiring because of AI's soaring cost
+Building my own network stack
 Just Bury Your Trash
 Bootstrappable Builds: How and Why
+Beyond Recall and the Illusion of Competence
 Cambridge University refuses to censor student's thesis
 Dear Dr. Stallman: An Open Letter
 A new type of phishing attack. Works on savvy users.
@@ -26296,6 +26375,7 @@ Implementing a tiny CPU rasterizer (2024)
 Where to Sleep in LAX
 Sandboxing AI Agents in Linux
 1 kilobyte is precisely 1000 bytes?
+Cash issuing terminals
 Native FreeBSD Kerberos/LDAP with FreeIPA/IDM
 Dario Amodei – "We are near the end of the exponential" [video]
 Stop Killing Games update says EU petition advances
@@ -26332,9 +26412,11 @@ AI has torched the market for junior programmers
 AI Meets Cryptography 2: What AI Found in OpenVM's ZkVM
 Probably check on your smart appliances
 AI Coding Without the Vibes
+Apache Iggy, a message streaming platform in Rust, graduates to an Apache TLP
 Hot Chips 2026: CUDA Targets RISC-V
 The Color of White Light
 118M Queries per Second on Neki
+Fences, Not Sandboxes
 Yes/No/Cancel causes Aspirin sales to soar (2007)
 Xorshift Generators
 Wikileaks To Leak 5000 Open Source Java Projects
@@ -29027,6 +29109,7 @@ Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet
 GPU compute in the browser at the speed of native: WebGPU marching cubes
 Microsoft employees exposed internal passwords in security lapse
 India’s electric rickshaws
+Post-quantum cryptography is too damn big
 'The big problem is water': UK ebike owners plagued by failing motors
 Martha Gellhorn, the only woman to report on the D-Day landings from the ground
 Publishing AI Slop Is a Choice
@@ -29296,6 +29379,7 @@ C++26: Standard Library Hardening Experiments
 9front "This Was Supposed to Be Fun" Released
 CSS Curiosities of the Past
 Whistle Synth Mac App
+My Business Is Dying
 Top Programming Fonts
 Sleep is more important than food
 Google Cars Drive Themselves, in Traffic
@@ -30469,7 +30553,6 @@ A theory that Mars lost its magnetic field and then its oceans (2022)
 Echoes of Electromagnetism Found in Number Theory
 Samsung expected to report 80% profit plunge as losses mount at chip business
 Most UI applications are broken real-time applications
-Thousands of octopuses gather off California to brood eggs at a warm spot
 HTML attributes for improved accessibility and user experience
 Most AI startups are doomed
 Zelle finally caves after years of refusing to refund scam victims
@@ -30622,6 +30705,7 @@ Mangrove trees are on the move, taking the tropics with them
 The plan-execute pattern
 Nuclear reactors a mile underground promise safe, cheap power
 Generating Mazes
+Pi calculation world record with over 202T digits
 At the Mountains of Madness
 Google's carbon emissions surge nearly 50% due to AI energy demand
 Rerun: Visualize Multimodal Data over Time
@@ -30835,6 +30919,8 @@ The <usermedia> HTML element
 A quick look at zero-knowledge proofs
 Guarded Methods in OCaml (2025)
 G'mic 4.0: Squaring the Pixel, Easier
+Omarchy: 1Password and 37signals become Distinguished Corporate Patrons
+The Shape of Things to Come
 Omarchy Is a Power Grab
 Is There I/O After Death? What Happens to Io_uring When a Process Dies
 Pnpm 12.0
@@ -31996,6 +32082,7 @@ SpaceX rocket launches Euclid space telescope to map the 'dark universe'
 LastPass users locked out due to MFA resets
 Modern CSS for Dynamic Component-Based Architecture
 An Example of a Sad Google Account Recovery Failure and Its Effects
+Thousands of octopuses gather off California to brood eggs at a warm spot
 Why Htmx Does Not Have a Build Step
 Server-side rendering is a better choice for many applications (2020)
 Jitsi Meet Flutter SDK
@@ -32358,6 +32445,7 @@ The people writing AI alignment policy are not whose work is being replaced
 Testing Mac OS on the Apple Network Server 2.0 ROMs
 Local Git remotes
 Cutting inference cold starts by 40x with LP, FUSE, C/R, and CUDA-checkpoint
+I taught a bucket to speak Git
 Matt's Script Archive: The Scripts That Reshaped the Web
 Epidurals are a miracle technology
 Zork name origin got an update on Wikipedia
@@ -35482,6 +35570,7 @@ Open Challenges in LLM Research
 The Bipolar Lisp Programmer (2007)
 Teach a man to phish and he’s set for life
 Git files hidden in plain sight
+A Breakdown of HTTP Clients in Elixir
 Big Tech can transfer Europeans’ data to US in win for Facebook and Google
 Fastmail 30 June outage post-mortem
 Even more hindsight on Vim, Helix and Kakoune
@@ -35796,6 +35885,7 @@ Safeguarding cryptocurrency by disclosing quantum vulnerabilities responsibly
 Cat Itecture: Better Cat Window Boxes (2023)
 Profiling Hacker News users based on their comments
 Killswitch: Per-function short-circuit mitigation primitive
+Counting Fast in Erlang with:counters and:atomics
 Exposing Floating Point – Bartosz Ciechanowski (2019)
 The route from Prussian military headquarters to Gary Gygax’s basement
 Sneaky spam in conversational replies to blog posts
@@ -37580,11 +37670,13 @@ Scaling to 1M concurrent sandboxes in seconds
 Recovering Corrupt Zip Files
 Amiga-Inspired AROS Goes Bare Metal on Raspberry Pi
 "It's unclear how Sopwith escaped to the general public."
+What happens when a GPU writes memory
 Working on Economics with Fable 5
 PostgreSQL 19 Interactive Tour
 Ending my elixir exploratory writing
 Agent Is Not the Model
 The road to ACID transactions in Cassandra 6
+Conway's Game of Life in real life
 I used to be excited about new tech, but I rarely am anymore
 Recreating Minecraft Is Not a Benchmark
 Tailcat: Tailscale Without Tailscale, by Tailscale
@@ -40492,7 +40584,6 @@ Why RISC-V doesn't yet support KVM
 Bird song sonographs show distinct drawing patterns
 Google will stop using Oracle’s finance software and adopt SAP instead
 How Poverty Makes Workers Less Productive
-Where's the fastest place to put my server? How much does it matter?
 Tips for Better Signup / Login UX
 Belarus has temporarily banned most of its citizens from leaving
 Where does a candle go when it burns?
@@ -41270,6 +41361,7 @@ Minecraft Java raises recommended memory to 16GB ahead of Vulkan transition
 The IBM PC, Part 1: Arrival
 Tor VPN Beta: What we've learned building our own VPN for Android from scratch
 How I Prompt
+Object storage is all you need
 Top Web Design Styles of 1993
 Memory Ordering in CPUs
 Project Cybersyn (2022)
@@ -41277,6 +41369,7 @@ The Education of a Doomer
 Normalized Fascism in Open Source: $12M Given to DHH
 “We want it to really confuse people, but also really make people happy”
 The growing divide between AI hype and software engineering reality
+Building an interactive instrument for a one-of-a-kind festival
 How FriendFeed uses MySQL to store schema-less data
 Yeah Ok, So Facebook Punk’d Us
 Microsoft’s Creative Destruction
@@ -41580,7 +41673,6 @@ Krita 3.0: The Animation Release
 FBI quietly changes its privacy rules for accessing NSA data on Americans
 Scrapy Tips from the Pros
 Django 1.9 Released
-U.S. Mass Surveillance Has No Record of Thwarting Large Terror Attacks
 Mercedes-Benz shows off the first fully electric heavy urban transport truck
 ABI vs. API (2004)
 CIA Director John Brennan Pretends Foreign Cryptography Doesn't Exist
@@ -42331,6 +42423,7 @@ Chili pepper consumption associated with 25% reduction in death from any cause
 Finding vulnerable Twitter accounts with expired domains
 Volunteers spot almost 100 cold brown dwarfs near our sun
 Debian discusses vendoring again
+Where's the fastest place to put my server? How much does it matter?
 Vancouver seaplane company to resume test flights with electric plane
 India asks WhatsApp to withdraw new privacy policy over ‘grave concerns’
 Leaking silhouettes of cross-origin images
@@ -42514,6 +42607,7 @@ Twitter shakes up its security team
 Superhighway84 – a Usenet-inspired decentralized internet discussion system
 Crypto wallet security as seen by security engineers
 The final, anguished years of a warrior-scholar who exposed torture by US troops
+Show HN: Fourier Transform Visualized via WebGL
 FDA wants 55 years to process FOIA request over vaccine data
 Microsoft gaming chief calls for industry-wide game preservation
 October had the biggest U.S. inflation surge in more than 30 years
@@ -43089,6 +43183,7 @@ A GTK4 SSH-askpass in Zig
 ICE Illegally Scooped Up Medicaid Data, Then Shared It with Palantir
 Pirate Site Blocking Is Legally Impossible in Bulgaria, Supreme Court Ruled
 JEP 539: Strict Field Initialization in the JVM moved to preview
+Composable Tests
 How I Under-Engineered my Book
 Debian has begun voting on the future of AI/LLM contributions
 Why do we assume everyone should be working?
@@ -43098,8 +43193,8 @@ Systemd Linger
 Go-Flavored Concurrency in C
 D2 Is Non-Profit
 Is it safe to call print in a Python signal handler?
-pg_clickhouse v0.10: Subquery pushdown and 1000x faster TPC-H queries
 How we rebuilt complex permissions without migrating to Zanzibar
+Playing whack-a-mole is losing
 Picolibrary: A Small Press
 My experience has nuance, yours is a data point
 The most surprising thing I've seen in 2009, courtesy of Etherpad
@@ -43357,6 +43452,7 @@ New Court Evidence Reveals Hollywood’s Plan to Smear Google
 How Can There Still Be a Sex Difference, Even When There Is No Sex Difference?
 Harper Lee to publish Mockingbird 'sequel'
 Writers Say They Feel Censored by Surveillance
+U.S. Mass Surveillance Has No Record of Thwarting Large Terror Attacks
 Norway: photographs taken of the same places separated by long periods of time
 Texas Student Is Under Police Investigation for Building a Clock
 Banks Forgot Who Was Supposed to Own Dell Shares
@@ -44872,7 +44968,6 @@ Code Mode: the better way to use MCP
 TV Time Machine: A Raspberry Pi That Plays Random 90s TV
 Logging in Go with Slog: A Practitioner's Guide
 Data modeling guide for real-time analytics with ClickHouse
-Not paying with cash
 Streaming AI agent desktops with gaming protocols
 Cloudflare Data Platform
 The allure of new languages vs. the necessity of problem-solving
@@ -44946,11 +45041,13 @@ Running a software jam in a world of slop
 GuixPkgs: Every Guix package, as a Nix flake
 Pact: Anonymous Credentials for the Web
 A tale of two path separators
+pg_clickhouse v0.10: Subquery pushdown and 1000x faster TPC-H queries
 How much can you delegate to agents?
 Multicast TV Distribution on My Home Network
 Game of Trees – Git-based version control from OpenBSD folks
 Paxos Made Simple (2001) [pdf]
 Android is almost dead – OSnews
+Omacom Foundation funding hits $10M
 Optimizing meshoptimizer to process billions of triangles in minutes (2025)
 Better Batteries
 The Origin of Consciousness (2008)
@@ -44961,6 +45058,7 @@ Leaked Document Shows the Surveillance Tech at ICE's Fingertips
 Could we dredge the Netherlands without fossil fuels? (2018)
 CUDA Shared Memory Swizzling
 Python string literals are kinda funny
+Testing Race Conditions
 Tracing np.add, all the way down
 Claude Fable 5.1 made me a nice animated pelican
 DoltLite: A SQLite fork with Git-style version control, built with 2k agent PRs
@@ -46729,6 +46827,7 @@ Slowing the flow of core-dump-related CVEs
 Snake on a Globe
 Deep Down the Rabbit Hole: Bash, OverlayFS, and a 30-Year-Old Surprise
 Checking Out CPython 3.14's remote debugging protocol
+Not paying with cash
 40 Years of the Amiga
 IBM Keyboard Patents
 No AI Content
@@ -46816,6 +46915,7 @@ Are you telling me a readonly property is wrecking my performance?
 This Month in Ladybird: June 2026
 Reverse Jevons Paradox
 'AI Mania Is Eviscerating Global Decision-Making'
+Show HN: Rotation via Double Reflection
 Don't Look Up
 Honey, I shrunk the embeddings: Matryoshka vs. PCA
 Birduino: A card-triggered audio player for [learning] the birds
@@ -48830,6 +48930,7 @@ The art of CHIP-8
 How I came to write that paper with Leslie Lamport
 My friends all hate AI; I just joined an AI startup
 Person Hides Prompt Injection in Legal Filing Telling AI to Side with Them
+Falsehoods Programmers Believe About LANs
 The hell that is a restaurant website
 Schneier's response to Eric Schmidt
 Tornado: FriendFeed's non-blocking Python web server is now open source
@@ -49649,6 +49750,7 @@ Telco lobbyists accidentally send their talking points
 Someone Is Waging a Secret War to Undermine the Pentagon’s Huge Cloud Contract
 Soviet Collapse Echoes in China’s Belt and Road
 Boston-area startups are on pace to overtake NYC venture totals
+WKWebView, an Electron alternative on macOS/iOS
 Advent of Nim
 I Used to Be Homeless
 Arabic, a great language, has a low profile
@@ -50536,7 +50638,6 @@ Sigh, this is what browsing the web in the EU looks like nowadays (2021)
 RFC 9420 – A Messaging Layer Security Overview
 Reversing 'France Identité': The New French Digital ID
 God writes Haskell
-Atari Tempest: Time-Lapse Photography (2016)
 A PCIe Coral TPU Finally Works on Raspberry Pi 5
 It's OK if your code is just good enough
 Validating Data in Elixir: Using Ecto and NimbleOptions
@@ -50682,6 +50783,7 @@ Some Notes on Upgrading Hugo
 EuroBSDcon 2024: Some notes after the conference
 Recreating Dune II for the Amiga
 The Continued Trajectory of Idiocy in the Tech Industry
+How to Reverse Engineer a 12 EUR Intel PCIe FPGA Card IBM 98Y2610
 Is the UK's liver transplant matching algorithm biased against younger patients?
 Fedora KDE Desktop Spin Promoted to Same Tier as Gnome-Based Fedora Workstation
 Making the Web Boring Again
@@ -50689,6 +50791,7 @@ Should programming languages be safe or powerful?
 Coercing a Magic MIFARE credential into being an iPhone-compatible NFC tag
 Htmhail
 Why software only moves forward
+A Practitioner's Guide to Wide Events
 Isomorphic Web Components
 Hackers get $886,250 for 49 zero-days at Pwn2Own Automotive 2025
 A Proper x86 Assembler in Haskell Using the Escardó-Oliva Functional
@@ -50856,6 +50959,7 @@ Updated GPG Key for Signing Firefox and Thunderbird Releases
 What if everything we know about recycling is wrong?
 Daycare Pseudoscience
 Zellij 0.45.0: nested sessions, Kitty graphics, a fresh UI
+Show HN: MultiMatte, a Promptable Image Background Removal Model
 Some things need to change
 The bar for success in our industry is too low
 An NBA Superstar with No Stats (2009)
@@ -51430,7 +51534,6 @@ Writing a Very Fast Hash Table with Tiny Memory Footprints
 Cheating on a string theory exam
 Elon Musk, Travis Kalanick, Indra Nooyi to Join Presidential Advisory Council
 Double Solitude
-Why We're Living in the Age of Fear
 Mega-Tunnels Dug by South American Megafauna
 EPA Official Accused of Helping Monsanto ‘Kill’ Cancer Study
 Java 10 – Specification for Value Types
@@ -52522,6 +52625,7 @@ In practice, cool URLs can become inaccessible even if they don't change
 Mineverse
 Atari VCS Myst “Demake”
 FreeBSD 13.2 on ThinkPad T14 (GEN1)
+Atari Tempest: Time-Lapse Photography (2016)
 Solving “Two Sum” in C with a tiny hash table
 Breadbee: Build your own (tiny) single board computer (2020)
 MusicGen-Looper: Generate fixed-bpm loops from text prompts
@@ -52546,6 +52650,7 @@ Enable ARMv9 Memory Tagging Extension (MTE) on Pixel 8
 Automating Dead Code Cleanup
 TSMC: Ecosystem for 2nm Chip Development Is Nearing Completion
 My Unhealthy Relationship with Keyboards
+Just Build It...
 The Linux kernel has been accidentally hardcoded to a maximum of 8 cores
 Satya Nadella: "We have all the rights and all the capability."
 Google Cloud TPU Multislice Training
@@ -52779,6 +52884,7 @@ Plumbing vs. Internet, Revisited
 Mullvad DNS
 Illuminating the processor core with LLVM-mca
 The AI-Education Death Spiral a.k.a. Let the Kids Cheat
+ULID: Universally Unique Lexicographically Sortable Identifier
 This blog is now hosted on a GPS/LTE modem (2021)
 Gnome is better macOS than macOS
 Command Lines
@@ -52787,6 +52893,7 @@ Building a CI/CD Pipeline Runner from Scratch in Python
 You need a kitchen slide rule
 The Case for Nushell (2023)
 ISBN Visualization
+Golang optimizations for high‑volume services
 AI Lazyslop and Personal Responsibility
 Loongarch Improvements with Box64
 The Cost of a Closure in C: The Rest
@@ -52857,6 +52964,7 @@ What an improv stage can teach you about leading cross-cultural teams in Tokyo
 Cloudflare enforces engineering standards using AI
 The Billable Usage API: programmatic cost visibility for Cloudflare
 Nerd culture is murdering intellectuals
+Designing for Dual Screen and Foldable Devices with CSS (2023)
 GrapheneOS on AI Usage
 Flat vs. segmented memory – it's recursive
 Introducing MicroLighter
@@ -53316,6 +53424,7 @@ Zenefits Scandal Highlights Perils of Hypergrowth at Startups
 Rust vs. C++: Fine-grained Performance
 Show HN: An algorithm to automatically turn photos of food into faces
 French Uber drivers have created their own Uber
+Why We're Living in the Age of Fear
 BeagleBone Black Wireless
 Swift 3.0 Released
 Google to acquire Apigee
@@ -54711,7 +54820,6 @@ Emulating the Early Macintosh Floppy Drive
 Western Digital: We Are Sampling 32TB SMR Hard Drives
 Notes on Taylor and Maclaurin Series
 Blender 4.2
-The manager's unbearable lack of endorphins
 sRGB Gamut Clipping (2021)
 84% want stronger online privacy laws, but Congress's corruption stalls progress
 Neo Geo Dev: Fixed Point Numbers
@@ -54923,6 +55031,7 @@ Beauty in my backyard
 AI in Linux
 Who does Anubis actually stop?
 I'm a Proud Luddite. That's Why I Use Linux
+Fluorescent lamps (don't) have ears
 Working to Make Python Lazy
 Aspirational Clownmaxxing and Joey's cadillac todo list
 NSA and IETF, Part 9
@@ -56177,7 +56286,6 @@ Coronavirus could force ISPs to abandon data caps forever
 U.S. Labor Department allows unemployment benefits for coronavirus
 Our experience moving to SF to do YC
 The web as a GUI toolkit
-Twitter to label deepfakes and other deceptive media
 Why does musl make my Rust code so slow?
 Why Can't I Reproduce Their Results?
 Golang Desktop App with Webview/Lorca, WASM and Bazel
@@ -56673,6 +56781,7 @@ Linux fu: getting started with systemd
 Emacs Info Expressions
 Metaprogramming in Ruby: It's All About the Self (2009)
 Generating music in the waveform domain (2020)
+The manager's unbearable lack of endorphins
 Microsoft Recall should make you consider Linux
 Save the Web by Being Nice
 Why We Hate Working for Big Companies (2018)
@@ -58062,6 +58171,7 @@ SharpScript
 Uber Is Biggest Loser as SoftBank Counts IPO Returns
 Better Encrypted Group Chat
 Exploring Mathematics with Matplotlib and Python
+Twitter to label deepfakes and other deceptive media
 Frank Abagnale on the death of the con artist and the rise of cybercrime
 Chrome OS has stalled out
 Kurt Gödel and the Mechanization of Mathematics
@@ -58126,7 +58236,6 @@ The battle to save America’s undercover spies in the digital age
 The Inquirer reaches end-of-life
 Proxmox VE 6.1 – Open-Source virtualization platform
 The impact of direct air carbon capture on climate change
-For Sale: Sat-Takers’ Names. Colleges Buy Student Data and Boost Exclusivity
 What's Coming in Go 1.15
 Ruby Next: A Transpiler for Ruby
 Hacker Bribed 'Roblox' Insider to Access User Data
@@ -58219,6 +58328,7 @@ Unofficial Guide to Datomic Internals (2014)
 Foreign data wrappers: PostgreSQL's secret weapon?
 Exciting Days for ARM Processors
 Kraftwerk played live with an astronaut on the ISS (2018)
+How to Dual-Boot Ubuntu 20.04 and Windows 10 with Encryption
 Linux Developers Discussing Possible Kernel Driver for Intel CPU Undervolting
 Spamtoberfest
 Space Tethers: Stringing Up the Solar System
@@ -58817,6 +58927,7 @@ Two Ways to Draw Infinite Jest's Sierpinski Gasket
 Scammers Sell Seeds for Exotic AI-Generated Flowers That Don't Exist
 Movwin: My (Unpublished) TUI Framework
 Nul Characters in Strings in SQLite
+I Changed My Name
 Journalism is rearranging the deckchairs. It needs to reinvent itself
 LLMs Will Replace 8-Track Duplication Engineers
 Protect Your Relays
@@ -59582,7 +59693,6 @@ REST Anti-Patterns (2008)
 Thousands of Veterans Want to Learn to Code But Can’t
 Hackers exploited Word flaw for months while Microsoft investigated
 Boeing to lay off hundreds more engineers
-Ubuntu 17.04 Released
 How to Fix Facebook Before It Fixes Us
 Potential Impact of Spectre on Processors in the Power family
 Moving from Disqus to Schnack
@@ -60007,6 +60117,7 @@ A whirlwind tour of object-oriented code in F# (2012)
 Grumpy Cat has died
 Scientific Errors in Nat Geo Milky Way Photos
 My Childhood in a Cult
+For Sale: Sat-Takers’ Names. Colleges Buy Student Data and Boost Exclusivity
 Driverless cars are stuck in a jam
 How to Avoid Leaving Tracks Around the Internet
 The boy behind the biggest coin-op conversion of the 80s
@@ -60705,6 +60816,7 @@ Hard problems in social media archiving
 The Evolution of Bengt Betjänt
 Particle Lenia
 My heuristics are wrong. What now?
+Sending Jabber/XMPP Messages via HTTP
 I'm Not Consulting an LLM
 How many options fit into a boolean?
 Points on a ring: An interactive walkthrough of a popular math problem
@@ -60735,6 +60847,7 @@ Not Becoming a Cyborg
 Sloc Cloc and Code 4.0 (scc) – Finding the files that need the most attention
 T3X/0 a Minimal Procedural Language
 Intriguing stories in computer science
+Why are all the amounts values negative?
 Morten Linderud resigning from Arch Linux development team
 One resignation turned the embers of AI fear into a wildfire
 Function Arguments Are Not Function Colors
@@ -61387,6 +61500,7 @@ The fight to cheat death is heating up
 Microsoft, Sony, and others still use illegal warranty-void-if-removed stickers
 Caddy 0.9 Released with All New Core
 Drop the Supersonic Aircraft Ban
+Ubuntu 17.04 Released
 Lbry.io – decentralized digital library
 Is the Default Mode of the Brain to Suffer?
 Master these five concepts to master React
@@ -62225,6 +62339,7 @@ Migrating from SQLite to PostgreSQL
 Tonight we’re gonna log on like it's 1979
 Converting integers to decimal strings faster with AVX-512
 How to build a bike generator with control panel
+Escaping privileged containers for fun
 Mozilla patches two use-after-free vulnerabilities (ab)used in the wild
 Self-host your static assets (2019)
 Delayed Job vs. Sidekiq
@@ -62474,7 +62589,6 @@ Copy-on-write performance and debugging
 Electromechanical Lunar Lander
 Canada imposes 5% tax on streaming to fund local news, diverse content
 Zig 0.13.0 Release Notes
-Golang PGO builds using GitHub Actions
 Forewarn gives realtors access to buyers' histories with a phone number
 Automating my gate door via a smart relay
 The ChatGPT Linux System
@@ -63456,6 +63570,7 @@ Stars may collide in a “red nova” in 2022
 French workers win legal right to avoid checking work email out-of-hours
 An American airline wins the right to weigh passengers on its Samoan route
 Russia’s Creepy, Innovative Internet [video]
+TidalCycles – A language for the Live Coding pattern
 'Environmental Nightmare' After Thousands of Atlantic Salmon Escape Fish Farm
 Plastic Micro-Particle Patch Bigger Than Mexico Found in Pacific
 Police sent warrant to Facebook for information on Philando Castile’s girlfriend
@@ -64366,6 +64481,7 @@ Beyond the 1 MB barrier in DOS
 Coding on Copilot: Data suggests downward pressure on code quality
 The SuperH-3, part 1: Introduction (2019)
 86-DOS Revisited
+Golang PGO builds using GitHub Actions
 Internet of Desks: How I Connected My Standing Desk to the Internet
 Fedora 41 will unify bin and sbin
 Do You Need IPv4 Anymore?
@@ -65672,6 +65788,7 @@ Towards a fully reproducible Debian
 Patents: how and why to get them
 What Sucks About Erlang (2008)
 Open source confronts its midlife crisis
+A book list for OS kernel developers and device driver writers (2006)
 An overview of the top web hacking techniques of 2017
 PostGIS 2.5.0 released
 C++ Core Coroutines Proposal [pdf]
@@ -66341,6 +66458,7 @@ Fish shell announces 4.0 release
 Imposing memory security in C [video]
 U.S. soldier charged in AT&T hack searched "can hacking be treason"
 Karol Herbst Steps Down as Nouveau Maintainer Due to Linux's Toxic Environment
+Open Source Software and Corporate Influence
 The LLM Curve of Impact on Software Engineers
 Show HN: Simple Docker Hosting
 Code reviews: A success story
@@ -66461,8 +66579,11 @@ LAPD Regularly Pulled over Innocent People Plate Readers Flagged Cars as Stolen
 Revisiting Yliluoma's ordered dither algorithm
 Two nasty surprises in Home Assistant's config
 LLMs are proof that Unix won
+Is the industry ready for tokens-constrained work?
 "Solving a largely imaginary user goal"
 The Apple Calculator Language
+What Even Are Microservices?
+Selling Software Worldwide from Europe
 Disenchantment with the Post-AI Internet
 Canonical backs new project to translate large C codebases into safe Rust
 GCC 13.5 Released with 256 bugs fixed, closing release series
@@ -68133,6 +68254,7 @@ Replacing CVE
 Treasury's OCC Says Hackers Had Access to 150k Emails
 Cloudflare Acquires Outerbase
 GitHub Copilot Pro+
+How to create value objects in Ruby – the idiomatic way
 Comparing Docusaurus and Starlight and why we made the switch
 Go Cryptography Security Audit
 Science funding was already way too low
@@ -68264,6 +68386,7 @@ Play Dates
 The Creation of Abulafia
 YC startups are abandoning .com
 ChatGPT ad targeting is garbage
+CMS with AI, Not AI CMS: Wagtail 8.0's New API
 I miss the old Claude Code
 Intuit To Acquire Mint For $170 Million
 R.I.P. Les Paul
@@ -70042,6 +70165,7 @@ Box64 Expands into RISC-V and LoongArch territory
 I don't write code anymore – I sculpt it
 GNU Guix 1.5.0 Released
 What if AI is both good and not that disruptive?
+A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby
 Radicle 1.6.0 – Amaryllis
 Linux 7.1 to Retire UDP-Lite – Allows for Better Performance with Cleansed Code
 I'm Getting a Whiff of Iain Banks' Culture
@@ -70081,11 +70205,13 @@ Games at the press of a button: The Rip-O-Bot (1989)
 Kimi K3: The open-weights escalation
 LLMs aren't remotely like compilers or power tools
 Re-Engineering YouTube for the Living Room: Bringing "Chrobalt" to RDK
+Please consider running a NTP server in the NTP Pool
 Yes, no (built-in) AI is now a feature – LibreOffice blog
 USPS Built an Untested, Undocumented Ballot-Blocking System Despite Injunction
 Why humanoid robots won't catch up to human workers any time soon
 GrapheneOS may skip Pixel 11 over missing hardware security feature
 Visualizing Combos in Judo in R
+You've heard of CSV files, but have you heard of CCSV files?
 Digital Immortality
 Delta probes Wi-Fi deauth attack on flight carrying DEF CON attendees
 So you want to be a consultant?
@@ -71728,6 +71854,7 @@ Impro is a handbook for running a cult
 Why ugly buildings create NIMBYism
 OpenAI agents attacked RubyGems back in May
 New app: Yesterday, an iPhone app for yesterday's weather
+1Password Supports the Ethnic Cleansing of Europe
 Flock's CEO Is Lying to Cops About 404 Media's Reporting on Abortion Case
 Debian: Retiring from the Project (Vv221)
 How Not to Pitch to a Startup
@@ -73291,6 +73418,7 @@ You shouldn't copy-paste errors into Claude Code
 US Grid Constraints: Towards 40GW+ of Behind-the-Meter Datacenter by 2028?
 Most AI Work Can Wait
 Software Engineering in the Agentic Era
+Micron, SK Commit Billions to RAM Capacity, but Almost Nothing Lands Before 2028
 Cancelling Cursor
 Scanning 7.6 Petabytes of HuggingFace Training Data for Secrets
 Just brute force your embeddings
@@ -73299,6 +73427,7 @@ Learning Musical Multitasking
 CERN Renounces RHEL in Favor of Debian
 What's the Scam?
 Wrapping GTK4 in 800 lines of Clojure with Jolt
+Quest for eternal dock on Wayland – lambdock (C and GTK4 and Lisp Guile Scheme)
 Code Obfuscation via Local Mixing
 A programmer's view of the Universe, part 1: The fish
 Why I Never Let Employees Negotiate a Raise
@@ -74728,6 +74857,7 @@ Making of the New York and Erie Railroad Organizational Diagram
 European Alternatives for Popular Services
 Predictions from the METR AI scaling graph are based on a flawed premise
 A cheat sheet for why using ChatGPT is not bad for the environment
+I Fought the IRS for Over $12K and won
 DDoS Mitigation Leak
 Let's Take a Look at JEP 483: Ahead-of-Time Class Loading and Linking
 Ollama Models Atom Feed
@@ -74795,6 +74925,7 @@ Claude Code's renderer is more complex than a game engine
 6 Years Building Video Players. 9B Requests. Starting Over
 CEO Asks ChatGPT to Void $250M Contract, Ignores Lawyers, Loses Terribly
 Apple Exclaves and the Secure Design of the Neo's On-Screen Camera Indicator
+Apache Iggy: thread-per-core with io_uring in Rust
 Nominal Types in WebAssembly
 Async Programming Is Just Inject Time
 Dictionary Compression is finally here, and it's ridiculously good
@@ -76365,12 +76496,14 @@ Humanity has built the records of FATE by accident
 Much Ado About Adenoids
 I turned Unix talk from 1983 into the interface for my AI
 Gmail might partially be to blame for receiving emails from other Sean Conners
+Baking a Model: A Metaphor for LLM Training
 Beware the Permanent Periphery
 Gleam v1.18.0
 My last six months at Evernote
 Githack: A Persistent Object Store for Lisp Based on Git
 Twenty Years of jQuery: How a Little Library Rewired Web Development
 Aptera announces a $44M to design and build a solar electric vehicle
+Microcode in Intel's 8087 floating-point chip: the scale instruction
 There Is No Such Thing as Nuclear Waste
 Lazy Linux: essential tricks for admins
 On Applying to Y Combinator
@@ -79123,6 +79256,7 @@ One Human and One Agent = One Browser from Scratch
 Handling Long Branches
 Why there's no European Google? And why it is a good thing
 Google Cloud: Investing in the Future of PostgreSQL
+Convincing Is Not Persuading
 The Dude
 EnshittifAIcation
 A Fuzzer for the Toy Optimizer
@@ -79161,6 +79295,7 @@ Running Wayland, X11, Gnome, and KDE Natively on an iPad
 GOG confirm they are working towards GOG Galaxy on Linux
 We rewrote our custom visualisation renderers from SVG to be in Canvas
 Claude × retrocomputing: emulating a QIC-117 tape drive
+Getting silly with C, part and((int*)-8)[3]
 The Future of CSS: Target Multiple Classes with the Class Prefix Selector
 Puppy PPE
 Looking for Missed Alarm Bugs in a Formal Verification Tool
@@ -79581,6 +79716,7 @@ Giteveryday – A useful minimum set of commands for Everyday Git
 Emulator Latency
 Introducing the free Microsoft R Client
 Emacs Live (2013)
+The State of Mobile XMPP in 2016
 A 6502 lisp compiler, sprite animation and the NES/Famicom
 Spaced repetition and practice
 Jitted LLVM IR on the JVM [pdf]
@@ -79691,6 +79827,7 @@ A Brief History of Lisp Machines (2008)
 Allocation Efficiency in High-Performance Go Services
 MDN’s new design is in Beta
 I do whatever I want at work and I haven’t been fired yet
+Pip 10 has been released
 Userland PCI drivers
 Representing the Impractical and Impossible with JDK 10 “var”
 Ken and Roberta (2011)
@@ -79746,6 +79883,7 @@ How to make a self-hosted video livestream
 Machine Learning for Drummers
 Deep Learning and Free Software
 The Evolution of Operating Systems (2000) [pdf]
+Some clients use SRV lookups, a few (to their embarrassment) do not (2009)
 In which Apple destroys my daughter’s iPad forever
 On Competing with C Using Haskell (2017)
 Evolving Chrome's security indicators
@@ -79895,6 +80033,7 @@ Backblaze acknowledges using curl, becomes the new largest single-shot donor
 Technology Holy Wars Are Coordination Problems
 Defining the ’90s Music Canon
 Machine Learning for a Better Developer Experience
+Browser Font Rendering Inconsistencies
 Apple iPhone SE 2020 Camera review
 A Group Is Its Own Worst Enemy (2003) [pdf]
 Things I wish I had known when I started programming, Part 4 (2019)
@@ -80434,6 +80573,7 @@ The day my ping took countermeasures
 Smartmedia Card Spec Opened, available free (2000)
 Discovering Monero
 Adding a feature to a closed-source app
+Mini PC for local LLMs in 2026
 Reducing Assumptions, Exploding Your Code
 Faking keyword arguments to functions in C++
 The Economics of Speculative Decoding
@@ -80447,6 +80587,7 @@ Accretive Editing
 How RCA Victor sold Sound Service to classrooms in 1939
 You shouldn't trust Trusted Publishing
 My Microblog Has an RSS Mastodon Twitter Nostr and Bluesky Feed
+Elixir's Broadway Explained Visually
 Stanisław Lem foretold the current LLM mania in 1964
 NetBSD GSoC 2026 Improving RAIDframe
 Our Servants Will Do That for Us
@@ -81827,7 +81968,6 @@ How I do support and community
 Gemini 2.5 Flash-Lite is now stable and generally available
 Budget Bill Takes WiFi & Citizen Spectrum Away and Hands It to Wireless Carriers
 Free as Air, Free as Water, Free as Knowledge (1992)
-Analyzing a Critique of the AI 2027 Timeline Forecasts
 Linux 6.18 Expected to Land Google's Rust Binder Driver
 Linkgraphs are fun
 Bringing restartable sequences out of the niche
@@ -81923,6 +82063,7 @@ Demystifying Complex Configurations
 The Pelican comparison grid for Astra is pretty interesting
 Latest F-Droid Update Implements GNU Taler Support
 Why office workers are turning against AI
+CHC5: Open Camera System – Image Sensor Specification Comparison
 A docs page is a search query to find AI agents and route them to your company
 Hot Chips 2026: Samsung and HBM Base Die Opportunities
 Edge is dropping older extensions(Manifest V2), affecting popular privacy tools
@@ -83170,13 +83311,13 @@ The Rise and Fall of America's Response to Foreign Election Meddling
 Thinking About Why YouTube Is a Monopoly
 Humane (Or Red Flags to Spot for Next Time)
 You Don't Need a Terminal Multiplexer on Your Desktop
-Scaling with PostgreSQL without boiling the ocean
 Static Types Are for Perfectionists
 Decentralizing Schemes
 We ended up rewriting NuGet Restore in .NET 9
 Nearly $13M stolen from Abracadabra Finance in crypto heist
 In React {Transitions} = F(state)
 Hack: 6M Records for Sale Exfiltrated from Oracle Cloud Affecting 140k+ Tenants
+Analyzing a Critique of the AI 2027 Timeline Forecasts
 Unveiling the EndBOX – A microcomputer prototype for EndBASIC
 Rsync's defaults are not always enough
 WTF,Kees?
@@ -83264,6 +83405,7 @@ A Visual Guide to Gemma 4
 From Hallmark to neon signs: A look at Jim Parkinson's career in letter art
 Honesty gets Emacs patch rejected
 GLM-5.2 is probably the most powerful text-only open weights LLM
+It doesn't matter if it works
 Automating my job away
 Cosmodial Sky Atlas
 On Reading SRAMs in IR Images, and Establishing Bounds on Trust
@@ -83273,6 +83415,7 @@ Making Xen's dom0 I/O path NUMA aware
 Police arrests 5,800 suspects in global anti-fraud crackdown
 Vacuum at the Page Level
 SystemIO conflicts are not firmware bugs
+DigitalOcean joins Omarchy as a Founding Corporate Patron with $3M
 A few feral cats in an ALGOL trenchcoat.
 Your AGENTS.md file doesn't do anything
 The broadcast squeezeback, rebuilt with CSS Grid and WebVTT
@@ -83280,6 +83423,7 @@ Grokipedia Stopped Reviewing Edits in April. It Didn't Tell Anyone
 Hell has more than 7 circles you guys (2022)
 Touring the Consensus, Six Months In
 Show HN: Modern Browsers Don't Need the Cookie Anymore
+The Shape of Things to Come, Part 2: Model Welfare for Agentic Engineers
 Let kids be kids: When collectibles lose their playfulness
 Anatomy of a Program in Memory
 How I Built an RPG In A Week From Scratch With No Budget
@@ -83949,7 +84093,6 @@ Stop cherry-picking, start merging, Part 1: The merge conflict
 Building apps on top of Google Sheets
 Android Studio 3.2
 On holy wars, and a plea for peace
-Quantum Computing and Cryptography
 Birthday Paradox Revisited
 Show HN: Dali – A pure-Nim indie assembler for Android dex and apk files
 Creating LFortran, an interactive Fortran compiler built on top of LLVM
@@ -84216,6 +84359,7 @@ First Flight of Kestrel, the FPGA OpenPOWER-Based BMC, and Arctic Tern
 Microsoft is force installing PC Health Check in Windows 10
 Transformer Inference Arithmetic
 AudioTransmit – Transmitting data between computers using audio
+PHP filter_var shenanigans
 WireGuard DNS Configuration for Systemd
 SQLite 3.38 Released
 What Is Rust's Hole Purpose?
@@ -84525,6 +84669,7 @@ Functors to Monads: A Story of Shapes
 How to Correctly Sum Up Numbers
 Designing a Query Execution Engine
 Stick to boring architecture for as long as possible
+Scaling with PostgreSQL without boiling the ocean
 Cloudflare R2 Incident on February 6, 2025
 List Any Linux Tracepoint with Their Arguments, Datatypes and Related Structs
 Krita 5.2.9 Released
@@ -85312,6 +85457,7 @@ Node v9.4.0
 The Last JSON Spec
 Error handling in Upspin
 Are EV certificates worth the paper they're written on?
+Quantum Computing and Cryptography
 Why is a Java guy so excited about Node.js and JavaScript?
 The MRISC32 – A vector first CPU design
 Whiteboard problems in pure Lambda Calculus (2017)
@@ -87281,6 +87427,7 @@ Calculating the Bounding Rectangle of a Circular Sector
 Various locale mismatch scenarios in Windows clipboard text format synthesis
 Apex: Universal Markdown Processor
 Evaluating Uniform Memory Access Mode on AMD's Turin
+Show HN: Building WebSocket in Apache Iggy with Io_uring and Completion Based IO
 Intel Recently Shelved Numerous Open-Source Projects
 Fast Properties in V8 (2017)
 Tuning Semantic Search on JFMM.net – Joint Fleet Maintenance Manual
@@ -88191,7 +88338,6 @@ Debian network-manager: Please restore removed init script
 Playing with fonts
 Pleroma 2.1
 Why Understanding Beats Knowledge
-CMDR-DOS: Commodore DOS on FAT32
 Hyperfunctions
 Overview of Early Electric Cars
 SiPearl Lets Rhea Design Leak: 72x Zeus Cores, 4x HBM2E, 4-6 DDR5
@@ -88669,6 +88815,7 @@ Vompeccc from Scratch: Picking Produce with ICR in Emacs
 Linux PTP mainline development war story and new features
 Prepping for the Endgame of the Open Web
 Mozilla Announces "Thunderbolt" as an Open-Source, Enterprise AI Client
+We need Post-Quantum Cryptography more than ever
 Make your own ColecoVision at home, part 5
 Linux 7.1 Expected to Begin Removing I486 CPU Support
 Let's be Honest about AI Coding
@@ -89509,6 +89656,7 @@ Obsolete Technology in Unicode (2018)
 Socratic vs. Euclidean Forms of API Documentation
 The Mechanical Transmission of Power (2013)
 Watching for software inefficiencies with Valgrind
+CMDR-DOS: Commodore DOS on FAT32
 Cerebras Wafer Scale Engine Gen2 7nm 2.6T Transistors
 What Alternate Reality Games Can Teach Us About QAnon
 Regulating Technology
@@ -92581,7 +92729,6 @@ Binary Distribution Rebuilds
 DuckDB: Development Roadmap
 I Recommend Against Brave
 Curl website traffic Feb 2025
-Thinking Machines Lab
 Linux Foundation Announces the Fair Package Manager Project
 Teachers Are Not OK
 Azul CTO: Java at 30 Still Rules Enterprise Dev
@@ -93785,7 +93932,6 @@ The Articulation Barrier: Prompt-Driven AI UX Hurts Usability
 Apple's new extortion regime to keep big app makers
 Deno 1.40: Temporal API
 X-Wing is video gaming's Greek Fire
-How to install Firefox on a Chromebook the easy way
 Making a tic-tac-toe game with ‘randomness’ using pure HTML and CSS
 How to use I2C devices in (Apache) NuttX: Adding support for an I2C device
 2024 GitHub Accelerator: Meet the 11 projects shaping open source AI
@@ -93844,6 +93990,7 @@ I wonder how much Cook dithered over that cheerful-looking exclamation mark
 Make It Ephemeral: Software Should Decay and Lose Data
 Benchmarking Ruby Parsers
 The Circular Electronics Design Guide
+Thinking Machines Lab
 Only About 40% of the Cruz "Woke Science" Database Is Woke Science
 You can still own music
 You don't link all of Libc
@@ -94999,6 +95146,7 @@ P**fectionism Isn’t Your Problem
 Mastodon Instance with 6 Files
 A Pre-Release Version of IBM PC-DOS from June 1981, Also Called DOS 0.90 (2021)
 RustRover Is a New Standalone IDE for Rust from JetBrains
+How to install Firefox on a Chromebook the easy way
 Linux 6.8 Landing A Tantalizing Optimization For Common $PATH-Based Searches
 Unverified vanity URLs and interest tracking catalyze fraud online
 LLM Training and Inference with Intel Gaudi 2 AI Accelerators
@@ -96152,6 +96300,7 @@ The PlanetScale GitHub Actions
 Memex is a secure archiving tool that offers a user interface similar to Git's
 Godot 4.0 Release Party
 Nearly every person in Iraq is an illegal streaming pirate, sources say
+Using Tigris as an open source MongoDB Atlas alternative for Go applications
 An instant camera using e-paper as film
 Tracking Viruses with WastewaterSCAN
 MIT No-AI License
@@ -102310,7 +102459,6 @@ Why and how we use primitive maps
 LoongArch Port Accepted into GCC
 Portrait vs. Landscape – more than meets the eye
 As Moore’s Law slows, Apple is forced to use cheaper chipsets in non-pro iPhones
-The Mind Map Book
 Use-After-Freedom: MiraclePtr
 macOS leaves users vulnerable, and unaware of their vulnerability
 Crunchyroll Blocks Privacy-Focused Email Tutanota Because “Hackers Use It”
@@ -103466,6 +103614,7 @@ Pin, Unpin, and why Rust needs them
 Getting my personal Dogsheep up and running again
 On the Nature of Merge Conflicts
 Novice Programming Mistakes (2016)
+The Mind Map Book
 Transit Panel
 Asus and DD-WRT – don't even think about it
 Thinking about Passwords
@@ -103670,7 +103819,6 @@ Applying the Facade Pattern on Spotify for Artists
 Adding the "Move to Trash" function to System 7.1
 Using an E-Ink Monitor
 Adventures with Fortran
-Why are modern televisions so cheap?
 It's Christlike to Love Immigrants and Transfolk
 Optimize for now!
 How We Prepare a Demo
@@ -104767,10 +104915,29 @@ Neuroqueering on the lawn
 More nothing now
 The Singapore strategies
 AI on your terms: Firefox meets you where you are
+So you want to use OpenRouter?
+Any Nix package, live in your browser
+.blend URL Viewer
+Introducing ChatGPT Images 2.5
+llm 0.35
+Research acceleration: The view inside OpenAI
+Introducing GPT-6 Astra for developers
 The best and most iconic drinking songs ever made
 Here are the 10 best birthday songs of all time
 5 Trader Joe’s fall treats worth adding to your cart
 Amazon taught us not to wait
+Where Are the AI-Generated Killer Apps?
+Clarus the Dogcow Easter Egg in Apple’s OS 27 Settings
+Apple’s OS 27 Updates Will Be Released on Monday, 14 September
+★ The iPhone Air and iPhone 17 Pro
+‘Modern Day Typographer’
+[Sponsor] Glyphs 4
+Meta AI Has a Native Mac App Now, and It Seems Decent
+Gloria Steinem’s Final Essay
+NBA Brings the Hammer on the Clippers — $30 Million Fine, 5 First-Round Draft Picks, and Steve Ballmer Is Banned for a Year
+Phil Schiller Steps Down From Running App Store and Product Events
+iOS 27 Introduces New ‘iPhone Handoff’ Feature
+Tim Cook’s Departure Memo on His Last Day as CEO
 The cost of youth sports is out of control
 25 years after 9/11, the GOP has never been more anti-Muslim
 The one thing you can do to help a whole lot of animals, explained in 4 charts
@@ -104886,7 +105053,6 @@ Elevating security, control, and accessibility: Stack Internal 2026.6
 The economics of agent scale: tokens, ROI, and building platforms for AI-first teams (Part 2)
 The good ol’ days of building Java
 When you keep AI Lean, you keep AI correct
-Inside LinkedIn's cognitive memory agent for agentic personalization
 India’s central bank tells Tata Sons to take conglomerate public
 Brics push for Gulf peace as war worries mount
 Trump says united Ireland ‘inevitable’ and ‘a very cool thing’
@@ -104991,7 +105157,6 @@ Fear Is Not an Argument
 A quick overview of atomics in C
 AI programming: a layered model
 The new Go JSON API: twice as fast, or 1.5x slower?
-Microcode in Intel's 8087 floating-point chip: the scale instruction
 Announcing new builds for 11 September 2026
 Announcing Windows 11 Release Preview Builds 26100.9539/26200.9539
 Announcing new builds for 8 September 2026
@@ -105349,7 +105514,6 @@ Building A UX ROI Case That Survives The Boardroom
 The Death Of The Button: Why The Best Interface Is No Interface
 The Many Faces Of September (2026 Wallpapers Edition)
 Rethinking Data Visualisation: A UX Approach To Dashboards That Actually Drives Decisions
-Why Your Website Should Never Stop Changing
 How Severe Illness During Pregnancy Alters Fetal Brain Development
 BlueMoon Exploit Kit Chains Recent Chrome, Windows Zero-Days
 Users in Houthi-Held Yemen Tried to Develop Advanced Weapons With AI, Anthropic Says
@@ -106006,7 +106170,6 @@ Vulnerability & Patch Roundup — August 2026
 Searching complexity and Taler update
 F-Droid goes FrOSCon
 9/11 in Realtime
-Modern Day Typographer
 Usenet-Rewind
 Grand Theft Automated License Plate Reader
 Kids Trends
@@ -106017,6 +106180,7 @@ Vote for the 2026 Tiny Awards winner
 Katamari Object Library
 Relay Tetris
 Walkable Cities
+Mimic your own voice with Pink Trombone
 Mactoberfest 2026: Exhibits, Activities & More
 Adventures in Microcontroller Circuit Debugging
 Building an Adaptive Agentic Cybersecurity System with NVIDIA Nemotron
@@ -106035,6 +106199,18 @@ BM Snaps
 Controlling when CSS custom property values are computed
 Solod 0.4: Better C interop
 Debian Code Search: Fast TurboPFor with Go SIMD
+Golden Gate Release Candidate
+iOS 26.6.2 and iPadOS 26.6.2
+iPhone Duo
+TestFlight Sort Order
+McKinley 1.0
+.name Termination
+Preparing to Update to Golden Gate
+Apple’s New Evidence in OpenAI Lawsuit
+TipKit for the Real World
+App Store Moves From Phil Schiller to Eddy Cue
+Indie Podcast Apps Not Growing
+Testing Tip: Make Your Keyboard Fast
 Building an Agentic SOC on a Stream
 Hemut: Building the Internet of Freight on Real-Time Data
 Save Your Money.  Do NOT Buy One of the New Netbooks 2.0.
@@ -106979,6 +107155,7 @@ Dual-port MIPI D-PHY SerDes delivers 20-Gbps bandwidth
 Marelli, Microchip extend ASA-ML to displays
 SECO pairs Dragonwing with HMI and SBC
 Double DPOT programming: Parallel gang-up, singleton, or none
+Why are modern televisions so cheap?
 Practical Methods for Programming Self-Study
 The Equipment Doesn’t Wait for the Approval
 Your Interconnection Costs Depend on Your Neighbors
@@ -106997,6 +107174,13 @@ Google's new AI model predicts the future from sales data, weather, and discount
 Leading mathematicians fear AI is making their field dumber, and warn the rest of us is next
 Ex-Deepmind VP Vinyals says AI self-improvement is coming but won't trigger an intelligence explosion
 Deep learning pioneer Bengio argues the training process itself makes AI dangerous
+Neural texture decoders can suppress DCT ringing artifacts within latent features
+Neural block textures vs. GPU textures (like BC7) at Equal Bitrates
+Neural block texture compression trained with Evolution Strategies (ES) on GitHub
+Fitting Neural Textures and PBR Material Maps with ES (No Backprop)
+Fitting a neural texture decoder with ES (no backprop)
+XUBC7 Low-Level Format Document
+In-loop deblocking of GPU textures
 Changelog – September 10, 2026
 Val Town Newsletter 27
 Kubernetes v1.37: Native Histograms Graduates to Beta
@@ -107075,6 +107259,12 @@ Base84 deserves a place in file names
 Anonymous and open to all: The Home Assistant survey dataset
 Klara and the gift of curiosity
 What a time to be alive
+The iPhone Air seems extremely niche in general, but my users love it
+The most interesting things in the iPhone Duo (and more)
+The iPhone Duo shows Apple at its best
+What's next for the iPhone Air?
+Birchtree goes liquid ass…ahem…glass
+Comfort Zone is coming back this month
 What Is AI Doing to Math?
 High-Performance Database Architecture
 520 Pages Per Hour
@@ -108117,7 +108307,6 @@ Why Clickhouse and Agents are a Great Combo
 Agent Grit Is a Double-Edged Sword
 Revisiting Joel's Test
 Memory Tiers in Qdrant: What to Use and When
-Configure Qdrant's Optimizer for Predictable Search Latency
 Lockstep
 All Rogue Amoeba Apps Support the New MacOS 27 (Golden Gate)
 Problems Streaming to Apple TVs and HomePods with Airfoil
@@ -108198,6 +108387,14 @@ Ryan Bigg is looking for work
 📸 Introducing OuijaRouter
 🔥  Asked Codex and Claude Code to each try their…
 🔥  /goal is a special command for OpenAI Codex in…
+How to make AI harnesses talk less
+How to use Cursor Projects
+A deep dive into Ghostty
+A deep dive into tmux
+I launched Things CLI
+A deep dive into exe.dev
+Introduction to TanStack Query
+What happens when Bun runs a TypeScript file
 What Is ISPM? How It Differs from IAM, PAM, IGA, and IDaaS
 The Models That Found 10,000 Zero-Days Broke Into Three Companies Using Weak Passwords
 Microsoft and Adobe Patch Tuesday, September 2026 Security Update Review
@@ -108429,7 +108626,6 @@ Gboard's Rambler Rewrites Your Intent
 Is having a '.name' email address a good idea? Update #1
 Read this before deleting your AGENTS.md
 You need to find product-market fit again (sorry)
-Testing race conditions with memory access tracing and stack-based delay injection
 Primer: Worktrees + Coding Agents
 Stop obsessing about the goddamn robot
 The 60-second procurement test
@@ -108519,7 +108715,6 @@ Why Ternus’s first iPhone as CEO might be Apple’s boldest bet yet
 Apple Finally Made A Device for Nerds Like Me — 7 Reasons The iPhone Duo Won Me Over
 7 Mac Apps So Cheap I Assumed They Do Nothing — I Was Very Wrong
 Apple Finally Made a Foldable iPhone — The Problem Is Everything Else
-OpenTitan project kicks off the Peppermint integrated root-of-trust for area-constrained SoCs
 Announcing Incus 7.4
 Metacarp
 I Wrote a Package Manager Ten Years Ago
@@ -109239,9 +109434,7 @@ Sovereign Tech Agency with Erik Möller
 Financial risks in 2026
 Migrating away from .org/.net/.com domains
 🔗 OpenAI agents carried out an undisclosed attack on RubyGems
-🔗 DigitalOcean donates $3 million to Fashy Linux
 🔗 What do you do when your favorite programming language has a fascism problem?
-🔗 1Password Supports the Ethnic Cleansing of Europe
 🔗 Neovim website quotes DHH · Issue #501 · neovim/neovim.github.io
 Zero Trust in Practice: Identity, Part 2 — Advanced Identity, from Static Roles to Dynamic Access
 AI Audit Trails: The Missing Piece of Enterprise AI Adoption
@@ -109395,6 +109588,14 @@ Nordic Semiconductor on Matter: Driving the Future of Connected Devices
 Xthings on Matter: Enabling Smarter Home Automations
 Alliance Members on Building the Future of Access with Aliro
 Anatomy of a Test
+Stainless Keys Are Inside The AI Providers Specifications
+When AI Agents Start Acting, APIs Become Execution Contracts
+ReadMe Is Carrying Working Code In Eighty Companies Contracts
+What Three Models Say About Sixty-Five API Providers
+Scoring the Impact AI Is Having on Higher Education
+PayPal Lets You Mint a Token, But Not Register the App
+The Blog Was The Retrieval Layer All Along
+The MCP Authentication and Authorization Gap
 ZJIT 🤝 GC: Inlining GC Fastpath in ZJIT
 Web Words: what if we used 3 words to find a web site?
 Coding JezzBall in Rust+WASM
@@ -109485,7 +109686,6 @@ Polynomial Square Roots
 Rename FT232RL USB Device Online
 How It Was Possible to Get Root Access Through MySQL
 TF-IDF Related-Article Ranking with MySQL 8.4
-A Simple Quaternion Game Engine
 The Joy of Working with Text Interfaces
 It's OK to Take a Break from Thinking About Digital Privacy
 Point Up Front
@@ -109827,6 +110027,15 @@ How I Reduced AI Coding Agent Token Waste by 70%
 WP Offload Media 3.4 Released: WordPress 7.1 Compatible, Preparing For Future Features & Performance Improvements
 Conversations with JJ
 From Jekyll to a POSIXish Static Site Generator
+«L’IA pourrait tous nous tuer» : par pitié, arrêtons ce cirque médiatique – Libération
+OpenAI accusée de mauvaises pratiques scientifiques pour résoudre un problème de maths - Next
+Opinion - Bloqueurs de publicité
+sebsauvage: "J'essaie de lire un article sur Reddit et BAM... bloqué." / Phanpy
+State of Mind 100% de réduction | GOG.COM
+GitHub - zedeus/nitter: Alternative Twitter front-end · GitHub
+𝐿𝒶𝓃𝒶 "not yet begun to fight": "Guys is it gay to [checks note…" - beige.party
+Enjeu de société : Ultra mini guide
+Upcoming Changes to XBOX Cloud Gaming - XBOX Wire
 Context-First Messaging for eCommerce: 3 Quick Moments That Drive the Most Revenue
 Best Push Notification Services For Lean Mobile Teams
 Amazon Pinpoint is Shutting Down: A Practical Migration Guide (and How One Tool Can Replace All Four)
@@ -110049,7 +110258,6 @@ XHDATA D-226: Field Recordings from Paul in L’Isle-Adam, France
 Prototyping a new CLI for Wagtail
 Open models only: back to school challenge
 Our DjangoCon US 2026 photo album 📷
-CMS with AI, not AI CMS: Wagtail 8.0’s new API
 Preserving Research as a Human Activity
 How to Build High-End Client Websites With Claude Code
 How to Build a Website With Hostinger AI
@@ -110107,6 +110315,12 @@ Security Leaders Dinner | SF
 Security Leaders Dinner | NYC
 Jason Lee, on JReleaser
 HAHWUL joins the Kemal Core Team as Security Lead
+Une IA de la NASA et d'IBM veut améliorer la carte de la Lune
+En Chine, un robot IA aide les médecins à réparer une malformation du cœur
+L'IA s'attaque à un grand problème de maths, et ça met le bazar
+Ils envoient par la poste de fausses mises en demeure des impôts pour voler vos cryptos
+Philips Hue pose une caméra sur la télé pour synchroniser les lumières avec n'importe quelle source
+XGIMI Aura 3 : le premier vidéoprojecteur à ultra-courte focale capable d'afficher de la 4K à 120 Hz
 Originality is mostly ego
 MetAcsl v0.11 for Frama-C 33.0 Arsenic
 Frama-Clang v0.0.20 for Frama-C 33.0 Arsenic
@@ -110250,6 +110464,11 @@ Watch Follow-Through: Complications, Tiles, and a Companion Wear APK
 UWB and Nearby Devices: Distance, Direction, Association, and Transport
 August 2026
 Milo cancer diary part 24 – Fifth protocol
+Sharing the Kin Score in Toronto
+The Good Parts of MCP: Prompts and Resources
+Personalities of Sovereign AI
+Square Made the OAuth Dance Scriptable, but Left Onboarding at the Dashboard Door
+RFC 10008 Left A Slot Open And Somebody Is Standing In It
 Annoyed after realizing I read an AI-generated blog post.
 I'm planning a lot of TTRPG sessions at the same time
 Brain dumping ideas to start making YouTube videos
@@ -110266,6 +110485,52 @@ NeXT's Missing History from Avie Tevanian and the Computer History Museum
 I Miss the Different Regional Cultures of America
 "Sinners" the Movie and the Dreamed-of Tabletop RPG
 The Computer-Forward Cyberpunk Icons of Eurythmics
+What is a Megawatt Worth?
+Apple Keynote | September 2026
+Post-Mortems and Accountability
+The CMS trap
+Tokens, token IDs and array operations in Ruby
+Adding a helper to silence logging in Rails console
+Sometimes the Best Prompt Is /new
+📍 Queer%20Plants
+Imperial Colors Manifesto
+Why You Probably Don’t Need React (or any other frontend framework)
+Static pero no mucho
+Welcome to the 9-5 Dolly Sprint!
+Reply
+Blaugust summary
+Entry
+Portuguese is not a good language for Wordle
+Your CMS should be a garden, not a pot
+I contributed to Golang, here is how you can too
+How to secure SSH and Postgres with Warpgate
+Coding a database proxy for fun
+Build htop for the Web with Go + Datastar
+Common LLM failure modes
+Where are the token-level LLM kill-switches?
+Reject Change, Sometimes
+What happens when you lock Claude in a macOS sandbox?
+CHC5 Open Camera ISP FPGA Architecture Part 5
+CHC5 Open Camera Software Architecture Part 4
+CHC5 Open Camera Lens Mount and Sensors Part 3
+The Agentic IDE Extension Blind Spot
+Deep-Live-Cam Supply Chain Attack: Technical Analysis
+Introducing SafeDep Threat Intel
+A malicious npm package hidden three dependencies deep: the ulid-xyz delivery chain
+Mini Shai-Hulud Strikes Again: openapi-react-query-codegen
+Reverse Engineering Unknown File Formats with ImHex
+A software factory needs a review gate it can trust
+Whose taste is shaping your agentic SDLC?
+GPT-6 Astra in code review: Gains, privacy, and cost
+What would the last software engineer still need to do?
+Fable 5.1 review: Should you switch?
+The Merge: Why Building AI Chat Is Harder Than It Looks
+The world runs on open source. We’re putting more than $10 million behind it
+Converting Commonwealth Bank PDFs to CSV
+Converting Transfer Wise PDFs to CSV
+Hitting a NERVE with attacks on AI-powered brain-computer interfaces
+The 3rd Programming for the Planet 2026 videos are available
+Celebrating a year of Tessera embeddings and releasing GeoTessera 0.10
 Follow Hacker News from the Console
 Using Microsoft Excel as a 3D Game Engine
 Are fans telling friends? If not, improve, don't promote.
@@ -111303,6 +111568,7 @@ How Cloudflare detects MCP traffic and helps secure it
 Getting the Steam Deck LCD working on a Raspberry Pi
 Hands-on with Raspberry Pi's CM5 Programming Jig
 I'm excited for Intel after testing the XPS 13
+Inside LinkedIn's cognitive memory agent for agentic personalization
 Responsible AI adoption needs developer workflow design
 Dispatches from O'Reilly: The right amount of spec for agentic development
 Weekly Update 518: IoT Doorlock Nirvana with UniFi
@@ -111361,7 +111627,6 @@ Card Sharks
 Vibe-Coded Flattery
 The Earnest Era Ends
 The TailscaleUp-date
-How Tailscale mitigates the lethal trifecta
 Robert Harris: Agrippa at the 92NY
 Magnifica: Pope Leo and The Church in the 21st Century
 Will farm animals always suffer?
@@ -111394,6 +111659,7 @@ The Next Big Bet for Binance.US in American Crypto
 Jamf Administrators: Your Backup Deployment Just Got Simpler
 Results from the Backblaze Generative AI Media Hackathon
 Backblaze Drive Stats: How an Open Dataset Powers Academic and AI/ML Research
+Why Your Website Should Never Stop Changing
 Timing Charts: A Blueprint For SMIL Animations
 New EU Guidelines For AI Labelling
 Building Tactile UX: Honoring Intentional Design With Lottie
@@ -111540,7 +111806,6 @@ DebConf26 closes in Santa Fe and DebConf27 announced
 A Syncthing and SQLite Gotcha
 AI Alignment as a Thought-Terminating Cliche
 Books I Enjoyed In 2026H1
-The Contracting Circle
 7.5x faster encryption in Go with the new "simd" and "simd/archsimd" packages
 Building a Plugin System for Rust: WebAssembly vs Native vs Scripting Language vs Rules Engine
 Failure of the week: encoding images to AVIF without keeping the originals
@@ -111822,7 +112087,6 @@ Does daycare damage children's brains?
 Medical innovation needs you
 Will factory farming fix itself?
 Cure all diseases
-The upper limits of biology
 The TDE Podcast Ep 40: Atari Project Manager John Ray
 Automated agent triage with Agent Tracing and Claude Routines
 What's new in Sentry Logs: The summer 2026 roundup
@@ -112441,7 +112705,6 @@ Coding was never the bottleneck
 Explaining AI agents is like explaining 3D printers
 Every student is cheating with AI
 What do we do if many people aren’t working?
-There’s a bug in the Economy, and Fable found it.
 There continue to be reasons for software to be slow
 Reviewing code is a skill
 125: A Useful Quirk
@@ -112540,6 +112803,7 @@ Have an Agent Babysit Your Deployments
 No Plan Survives Contact With the Enemy (Reality)
 OAuth for Agents
 The End of No Code
+Configure Qdrant's Optimizer for Predictable Search Latency
 Hybrid Search in Qdrant
 When Your Collection Outgrows RAM
 When Is a Reranker Worth It?
@@ -112782,6 +113046,7 @@ Agents, Randomness, and Receipts: Notes from trivago's QA Meetup
 Why LLMs Are Unreliable Language Detectors
 Multiple-column layout, rows, rules, and floats
 seL4 security proofs now complete on AArch64
+OpenTitan project kicks off the Peppermint integrated root-of-trust for area-constrained SoCs
 Public Service Announcement
 TASVideos Staff AI Stance and User Policy
 Load State: a TASVideos Monthly Recap (July 2026)
@@ -112966,7 +113231,6 @@ PHP Ambassadors: Six Weeks In
 AI Data Center Growth Is Outpacing Compute Planning
 6 Storage Questions for Every AI Infrastructure Architect to Ask Before Signing a Contract
 Why AI Data Growth Breaks Traditional Infrastructure Planning
-RISC-V is now officially supported by CPython!
 The Python documentation is now available in Russian!
 Announcing the Packaging Council Election Candidates for 2026!
 Python 3.12.14, 3.11.16 and 3.10.21 are now available!
@@ -113414,6 +113678,7 @@ What to look for in a no-code journey builder?
 How many push notifications should you send per month?
 Prove the outcomes that matter to your business with Airship’s Goal Optimization
 MarsEdit 5.4.5: A Heck of a Lot of Bug Fixes
+A Simple Quaternion Game Engine
 Introduction to Quaternion Derivatives
 Introduction to Rotations with Complex Numbers and Quaternions
 Calculate the Next Birthday in MySQL
@@ -113879,6 +114144,46 @@ ClamAV 1.5.4 and 1.4.6 security patch versions published
 BIP-110 monitoring stream: mandatory signaling start
 Steve Jobs in Exile
 This Is Not The Computer For You: An Appreciation of Struggle
+On-the-fly snapshot compression for elastic inference at scale
+The case for disaggregated LLM serving
+YOLO-mode by default
+Mindful coding: Purpose and intention
+Exhaustive Testing Is Still Impossible, Even with LLMs
+Setting the status line for all projects in Codex
+You can use Ruby to set the status line in Claude Code
+Explain to me in Simple Technical English
+What the HANDBOOK.md Benchmark Says About Your CLAUDE.md
+One Week of Building and Reviewing Code With LLM Agents
+Elixir's GenStage Demand (a Visual Explainer)
+How to catch goroutine leaks with Go 1.27
+Performance Benchmarking: gRPC+Protobuf vs. HTTP+JSON
+Welcome!
+AI Safety has a scaling problem
+Advice on interviewing candidates for AI safety fellowships
+Schedule meetings using the Pareto principle
+Public evidence of the OpenAI/HuggingFace AI attack
+What if AI Safety employees unionised?
+Extropians Archive (with OpenAI embeddings)
+Busy is Short Volatility
+Web Witch's Grimoire: Summer 2026
+Working with Dynamic Workers
+Know your paradoxes
+CHC5 Open Camera System, For Hardware Accelerated Advance Machine Vision , Part 2
+From YouTube Ad to Root: How a Fake TradingView Installer Delivers a macOS Stealer
+npm Bin Entry Harvesting: A Dependency Confusion Blind Spot
+Baileys npm forks farm WhatsApp Channel followers
+Introducing the CodeRabbit plugin for Cursor
+The pull request outlived its obituaries and got a bigger job
+Introducing CodeRabbit Security
+Code is abundant. Judgment is scarce. We raised $143 million to help it scale.
+Teaching NVIDIA Nemotron 3.5 Lightning to route code reviews
+Why not always OCR?
+.plan-26-34: Am I human or am I antibotty
+Using Forester to turn Foundations of CS into interactive evergreen lectures
+.plan-26-33: Zarro rides out and evidence papers pour in
+Improving local weather forecasts using Tessera embeddings
+.plan-26-32: Finally a use for serverless and found the Forester for the trees
+Updating to the OxCaml 5.2.0-minus39 opam packaging
 Quit your job
 We need a Wikipedia for data
 Why we disagree with Don Norman
@@ -114926,6 +115231,7 @@ httpd(8) gains support for custom HTTP headers
 OpenBSD relayd(8) adds ECDSA support with CA engine code from smtpd(8)
 Put A Tag On It
 Fa Fa
+How Tailscale mitigates the lethal trifecta
 Engineering quality compounds
 Did medieval people love their children?
 Orchard: An open framework for scalable agentic AI
@@ -115043,6 +115349,7 @@ Upcoming Changes to the Nearby Connections API
 std.Io.Writer.Allocating ate all my memory
 John C. Dvorak has died
 Invisible Problems
+The Contracting Circle
 Review: Job-Less Utopia
 When The Future Doesn’t Need Us
 How Firecracker microVMs work under the hood to sandbox untrusted code and AI agents
@@ -115283,6 +115590,7 @@ Vectors Week: become a savier vector db customer
 Just brute force your embeddings
 Principal Component Analysis: an embedding shrink-ray
 Weighing the Business Case for Quality
+The upper limits of biology
 Are miracle drugs hiding in plain sight?
 The myth of medieval childhood
 Nye vinduer – guide til pris, kvalitet og det rigtige valg
@@ -115459,7 +115767,6 @@ Measuring Crawled Coverage of a Website in Common Crawl
 Sovereign Tech Fellowship for Rust maintenance (June-July 2026 report)
 Modelling Actors with Redex: Part III
 Joy & Curiosity #93
-Joy & Curiosity #92
 Euforia
 El aerolito multimedia y la aplanadora 3D
 DebConf26 starts today in Santa Fe on Monday, July 20, 2026
@@ -115775,6 +116082,7 @@ Why Digital Forensic Reports Don’t Survive Cross-Examination
 AI agents can't yet do open-ended AI research
 Kimi K3, The Manos, The Mythos, The Legendos
 just surf
+There’s a bug in the Economy, and Fable found it.
 Millions of Lifetimes
 To my friends in China.
 Things that “A New-ish Theory of Economics” predicts
@@ -116978,6 +117286,34 @@ Updates on the Board game logging app
 Navigating My First Jenkins Security Advisory: A Maintainer’s Journey
 OpenSats Work-Log 10
 JSter #258: Libraries and more
+Gigatoken: making tokenisation care about the hardware
+Throughputmaxxing: DeepSeek-V4-Flash on Isambard-AI
+NVLink, NVSwitch, and all that
+Words are all you need
+Please ship APIs, not AI
+Retries don't fix eventual consistency
+Where Six AI Coding CLIs Store Your Session Logs
+Tell the Agent to Write Its Scripts in Ruby
+How to run DeepSeek V4 Flash locally (Mac, Linux, Windows)
+RomM 5: self-host your retro game library on a mini PC
+Kimi K3 torrent: download the 2.8T open weights
+Best Frigate NVR hardware in 2026 (post-Coral edition)
+My experience with Hack Club Horizons Europa
+Building a pkg.go.dev TUI explorer
+Speculative Short Volatility & Neglectful Short Volatility
+Canon 3X: Explore/Expand/Extract
+How Do You Know That?
+Long Vol: What is Volatility?
+Severance
+Negative resistance
+My falling-out with the rationalist community
+keyv and cacheable npm compromise: 400+ packages
+Joyfill npm Packages Compromised with Blockchain C2 Loader
+mrmustard PyPI Package Trojanized to Steal Credentials
+@copilot-mcp/apex: A macOS Infostealer Re-Published on npm After Takedown
+GetMOBILE article on benchmarking micro-NPUs now out
+.plan-26-31: Sorting out Tessera and Evidence TAP infrastructure
+.plan-26-30: Bananas ripen, models open, and OxCaml releases
 Make an Extraordinary Effort
 Why Google App Engine is broken and what Google must do to fix it.
 Bank Robber Recruits Accomplices With Fake Job Ad on Craigslist
@@ -118014,7 +118350,6 @@ Flint: A visualization language for the AI era
 Exploring Hierarchical Interest Representation For Meta Ads Deep Funnel Optimization
 Modernizing the Meta Ads Service With an Open-Source Kernel Scheduler
 Name that Ware, June 2026
-Ethical NBA Championships, Ranked
 In-House LLM Serving at Netflix
 Building Service Topology at Scale: Architecture, Challenges, and Lessons Learned
 GenPage: Towards End-to-End Generative Homepage Construction at Netflix
@@ -118354,6 +118689,7 @@ Did aliens really talk to us in "binary code" at Rendlesham Forest?
 The Balanced Scorecard for the AI Era
 Post-mortem GPU crash debugging with LLMs
 EU-hosted analytics isn’t the same as EU-owned analytics
+Basis Universal v2.50 has shipped with ASTC in-loop deblocking, XUBC7, and universal .DDS transcoding
 KiCad helpers and caliper improvements
 Val Town supports AGENTS.md
 Investor Update – June 2026
@@ -118406,6 +118742,7 @@ explaining myself through stories
 Is one vantage point enough? IPv6 across the top million web hosts
 JRuby at RubyConf 2026
 Postgres in Production Special Series: Configuring pg_stat_statements to Reduce Deallocations (Part 5)
+Joy & Curiosity #92
 Joy & Curiosity #91
 Ownership
 Joy & Curiosity #90
@@ -119738,6 +120075,32 @@ GSoC 2026 Midterm Update: Improving Evaluation and Retrieval for the Jenkins AI 
 GSoC 2026 Midterm Update - Jenkins Email Notifications using Outlook SMTP with OAuth
 Introducing Smart Retry: Safer retries for transient Jenkins failures.
 JSter #257: Libraries and more
+Reverse-engineering NVIDIA's cuda-checkpoint for faster cold starts
+Width vs. depth: speculating on the margin
+The swarm that designs itself
+The one where Codex brushes my teeth
+GraphQL: The leakiest of abstractions
+Redis Cluster Support, Without Writing Code
+Reverse Engineering the iPod Classic's Undocumented Mikey Chip
+Sanctuary: the browser-based Kindle jailbreak
+Waterfox Android 1.2.5 - Gecko 152 update
+AIO Ep22. PVE 主机配置 port mirroring 及 Suricata IDS 防火墙
+Linux From Scratch 安装小记
+Review the actual change, not the file list
+My thoughts on the future of Go in the AI era
+Summary of alarming AI safety findings
+Work in progress: expert_aesthetics.md
+Long Volatility Development
+The Beginnings of an Idea: XP is Long Volatility
+When Complaints Are Good News
+Air Traffic Control
+Tech note: making your own V-I plots at home
+Panel meter calculator with floating point
+Cursed circuits #6: reverse avalanche oscillator
+Cursed circuits #5: capacitance multiplier
+Maak: The power of Lisp that powers your trusty command runner and the enlightments
+Hacking Freedom: Compiling GNU Emacs from Source
+Hacking is Just Bugs
 C++ is a horrible language, says Linus Torvalds
 Wanna learn JavaScript? Here are 15 video lectures (with key ideas written out)
 Let's all grow up
@@ -120729,6 +121092,7 @@ Quickly apply LUTs (color grading) with ffmpeg
 The Goldilocks Principle in Fantasy Strategy
 Doing everyone else's job
 Why the West stopped making land
+Ethical NBA Championships, Ranked
 5,000 Restaurant Menus, Years 1880-1920
 Toward More Controllable AI Video Editing: An Early Research Exploration at Netflix
 The future of Siri, or: why private inference isn’t private enough
@@ -120987,6 +121351,10 @@ New AMD Radeon Developer Tool Suite update brings shader source code, Extended P
 Do ad blockers block Plausible Analytics?
 What is PII? Meaning and examples of personal data you shouldn’t send to analytics
 How to investigate a spike in your website traffic?
+Basis Universal library .DDS support coming in v2.5
+XUBC7/XBC7: Trellis quantization added
+XBC7 planning
+XBC7/XUBC7 (supercompressed weight grid residual DCT+endpoint DPCM+Zstd) prototype is done
 Zusammenfassung Fossilfrei
 An interface change for flake schemas
 Introducing Nixpkgs cooldowns
@@ -121565,6 +121933,7 @@ Recognized Among the World’s Most Sustainable Companies 2026
 Packaging Council Inaugural Election Dates
 Mitigated API authentication bypass for python.org download metadata
 Python 3.15.0 beta 3 is here!
+Python 3.14.6 and 3.13.14 are now available!
 How Claude Code's documentation team makes feedback actionable with Mintlify
 Eschewing An Established Convention Because We Can
 Agentic Workflows Can Use Local Inference
@@ -122096,8 +122465,8 @@ The Giant Test Kitchen Where Cooks Battle A.I. Slop
 Sinceerly: AI to Mess Up Your Writing
 Jakob Nielsen: ‘Buy the Book Already’
 Power of Ten: Josh Clark and Veronika Kindred
-Sentient Design Is Here
 Our new product strategy for Wagtail
+Comparing open weight AI models and providers
 A Rousseauian Analysis of Free Software
 Πρὸς μία Φιλοσοφία Γλωσσικῆς Προόδου
 L’amitié et l’amour
@@ -122202,6 +122571,30 @@ I owe my life to a 1913 road rage incident
 Triple Shockwave from Sun Crossing Rocket
 Fire And Ice Copper Lists
 Plugin of the Month – June 2026: Build Discarder Plugin
+The Flat Curve Society
+What happens when you run a CUDA kernel
+Anatomy of a Diffusion Language Model
+FlashOffload: 7x Cheaper Prefills with Offloading
+Steam Machine alternatives: mini PCs that game for less
+Oracle Cloud free tier 2026: 4 OCPU/24GB cut to 2 OCPU/12GB
+How to Create Your Own Free VPN Server Using Oracle Cloud (2025 Guide)
+Set Up a Free Minecraft PE Server Using Oracle Cloud in 2025
+Run Gemma 4 on a mini PC, no GPU required
+What I learned from two days of hanging out with AI experts
+Wagtail Space NL 2026 vibes and photos 🧡
+How you can use Wagtail to optimize your images
+Waterfox 6.6.15 - Security follow-up release
+AIO Ep21. 关于什么是 Linux swap, 以及你是否应该启用它
+高通安卓手机 Gunyah 虚拟化运行 Linux/Windows on ARM (Debian/Windows 虚拟机 on 8 Elite)
+自己在家开运营商 PH II (DN42): 每个人都应该实现自己的互联网(x)
+Why So Literal?
+Smalltalk Genie
+Receipts Space 3.6
+All logic, no bite
+AI children's books, body horror edition
+The 100,000 whys of AI
+jointhefreeworld - A Style Guide for Documentation
+The Late Show
 Bill Gates demos Xobni
 Introducing YOS 1.0 - live today
 20 Excellent AJAX Effects You Should Know
@@ -123401,7 +123794,6 @@ Copying Remote Command Output to Your macOS Clipboard
 FediMeteo, timezones, and the art of not breaking what already works
 Arcan: 10 Years of Online Obscurity
 Notes on Bakhtin
-Love is about being invested in someone’s continual expansion
 What Do Humans Need From Docs?
 Agentic Supplier Management with MongoDB Atlas, Voyage AI, and Multi-Modal Search
 Vulnerability and malware checks in uv
@@ -124387,6 +124779,7 @@ The documentation black hole
 The Pilot Stress Test Project
 Appearing on the Software Engineering Radio Podcast
 My Remaining Use for Pen and Paper
+Sentient Design Is Here
 Productive Magic on the Rosenfeld Review
 Design Better AMA: Josh Clark and Veronika Kindred
 PGConf.dev 2026: Why It Remains My Favorite PostgreSQL Conference
@@ -124478,6 +124871,25 @@ Nested layout for pipeline graph view
 Meet Mohammed Faheem - GSoC 2026 Contributor Working on Jenkins Email Notifications using Outlook SMTP with OAuth
 Bitcoin Optech Newsletter #406 Recap Podcast
 JSter #256: Libraries and more
+The Last Technical Interview
+Python 3.15.0 beta 2 is here!
+Waterfox 6.6.14 - Web compatibility and ad blocker refinements
+Waterfox Android 1.2.4 - Gecko 151 update
+Building an Agent with the Cline SDK
+The Filesystem Is the API (with TigerFS)
+Persistent multiplayer state without chaos
+Voilà PDFify 5.0 — sharper OCR, smarter compression, bonjour French
+Returning to Work After Maternity Leave: Day 5
+Returning to Work After Maternity Leave: Day 4
+Returning to Work After Maternity Leave: Day 3
+Returning to Work After Maternity Leave: Day 2
+Returning to Work After Maternity Leave: Day 1 as a New Mom and Remote Tech Worker
+Back from maternity leave
+Weekend trivia: your process' memory is a file
+Scriba v0.3.3 - Structured Logging in Lisp
+Manifesto for Agile Software Development
+jointhefreeworld - AI Policy
+Vibe Jam 2026: Astropilot VR
 Code Free or Die(): Why Hackers Are so Often Libertarians
 Early Retirement is a False Idol
 Standing versus Sitting
@@ -125176,6 +125588,7 @@ Bug: true and false are not Posix (2016)
 My self-published book: 11,000 copies, $19,000 royalties, only $3,000 profit!?
 Behind the Technology That Makes Facebook 3D Photos Possible
 Python Interview Questions – Senior
+Readiness protocol problems with Unix dæmons (2015)
 The state of UI testing at Mixpanel
 Storj releases 90 page v3 white paper
 Core_bench: better micro-benchmarks through linear regression (2014)
@@ -125600,6 +126013,7 @@ When did the bug start?
 Bun v1.3.14
 FediMeteo, HAProxy, and the art of not wasting snac threads
 Monitor your devices with LibreNMS on FreeBSD
+Love is about being invested in someone’s continual expansion
 The world reveals itself to those who travel by foot
 The Cost of Overfitting the Harness
 Cutting Snowflakes and Prime Factorization
@@ -125920,7 +126334,6 @@ Winter in Bavaria
 Trying Out OpenCode To Avoid Claude Code Lock-in
 People and Animals are Conscious
 Dogs Do Not Know Things
-A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens
 LibrePCB 2.1.0 Released
 Designing microkernel IPC
 Medium Access Control Protocols
@@ -126558,6 +126971,19 @@ Agent-to-agent issue resolution, with humans at the edges
 From memory to nervous system
 OpenSats Work-Log 9
 JSter #255: Libraries and more
+Stats from two months of agent-first development using backoffs
+My Arduino spins faster when Claude burns more tokens
+Python 3.14.5 is out!
+Python 3.15.0 beta 1 is here!
+Python 3.14.5 release candidate
+Wagtail accessibility statistics for GAAD 2026
+Our four contributors for Google Summer of Code 2026
+Results of the 2026 Wagtail DX with AI survey
+Join us for Wagtail Space NL 2026
+Waterfox 6.6.13 - Default ad blocker & search updates
+Git 仓库迁移小记 - (尝试)逃离中心化的 GitHub
+Mitigating ongoing registry supply chain attacks
+MATS 9 Retrospective & Advice
 India's SMS GupShup Has 3x The Usage Of Twitter And No Downtime
 Eliezer Yudkowsky: That Alien Message
 AOL acquires Bebo for 850 million
@@ -127353,6 +127779,7 @@ Electroplating Carbon Fibers Can Have Interesting Results
 German OSB Alliance warns: Microsoft Cloud threatens digital sovereignty
 Multicore OCaml: September 2021, effect handlers will be in OCaml 5.0
 Accessing the Internet by Email (2002)
+Ways I handled my OutOfMemoryErrors
 GNU Wget2 2.0.0 Released
 Backchannel: A relationship-based digital identity system
 Hyperparameter Optimization with Argo
@@ -127548,7 +127975,6 @@ PyPy v7.3.22 release
 Death by Scrolling Consoles
 Cybersikkerhed: Vejen til tryg digital drift og robust værtskap
 AI features now run on-premise
-Will AI kill SaaS helpdesks?
 Hitting a Reverted Breaking Change in Rust
 Syntonic Dentiforms redux
 Canvas-ing the Web
@@ -128257,9 +128683,6 @@ PostGIS Patch Releases
 Changes in TagSpaces 6.11: Free Descriptions, Search Redesign, and AI-Ready Indexing
 Ubuntu 26.04 LTS LXC Template for Proxmox 8 and 9 – Download
 A Grafana Dashboard for PegaProx Prometheus Exporter
-Scaling Marketing Campaign Forecasting with Generative AI
-Balancing Speed and Accuracy in Digital Order Fulfillment: The Next-Gen Solution
-What If Your Page Layout Could Learn? Optimizing with Bandits
 Hidden Technical Debt of AI Systems: Agent Runtime
 Why I Don't Link DHCP + DNS (3 ways to update DNS)
 Linebender in 2026 Q1
@@ -128419,6 +128842,16 @@ Plancast wasn't early, it needed agents with a proper substrate and mesh
 RAG in Go: A Vulnerability Research Tool
 BIP-54: Block propagation and validation duration during slow-to-validate blocks on Signet
 processx 3.9.0
+Welcome to Gas City
+Waterfox Android 1.2.3 - Gecko 150 update
+Waterfox 6.6.12 - Security fixes and ad blocker improvements
+AIO Ep20. 忒修斯的 HomeLab 之升级到 270K Plus 平台
+Me, the AI, and Our Sandbox
+Blog Component Zoo
+Adding Stack Traces to C++ Exceptions
+How to bring up the Linux Kernel on a new platform
+Functional repository pattern in Scheme? Decoupling and abstracting the data layer in Lisp
+Proxies all the way down.
 Awesome BlueprintCSS framework hits 0.7
 PG: Clarification about Character Sets
 Are short methods actually worse?
@@ -129479,6 +129912,7 @@ April Fools' 2026
 February in Servo: faster layout, pause and resume scripts, and more!
 Opdag HP 953: Kvalitet og Effektivitet i Printverdenen
 Williams Sinistar Arcade Documentary
+Will AI kill SaaS helpdesks?
 How We Replaced Our Entire Search Engine (with an AI writing half the code)
 Using Perfetto in ZJIT
 Burrow, a new Gopher client in the browser
@@ -130199,6 +130633,9 @@ Using TagSpaces as a PKM Tool for AI Context Management
 Introducing tscmd — The TagSpaces Command Line Tool
 Changes in TagSpaces 6.10
 Centralized Logging for Proxmox VE Clusters with PegaProx
+Scaling Marketing Campaign Forecasting with Generative AI
+Balancing Speed and Accuracy in Digital Order Fulfillment: The Next-Gen Solution
+What If Your Page Layout Could Learn? Optimizing with Bandits
 "Determinism" is the Biggest Cope in AI Adoption
 A Taxonomy of RL Environments for LLM Agents
 Tải App 88M Để Hòa Mình Vào Không Gian Giải Trí Hàng Đầu
@@ -130357,6 +130794,21 @@ BIP-54 demo stream: Slow block validation on Signet
 JSter #254: Libraries and more
 tabpfn 0.1.0
 2026 Posit Internships
+Gas Town: From Clown Show to v1.0
+Vibe Maintainer
+Rust for CPython Progress Update April 2026
+Python 3.15.0a8, 3.14.4 and 3.13.13 are out!
+Python 3.15's JIT is now back on track
+Waterfox 6.6.11 - Security fixes and feature preview
+Waterfox 6.6.10 - Discord compatibility and security fixes
+Waterfox Android 1.2.2 - Stability and cleanup
+[解决] 关于我的 GitHub 账号 @lyc8503 被无故 suspend 的说明及进展更新
+AI Coding Tools in a Sandbox: Why Your File System Needs Protection
+Everything must be high-value added work. But.
+And Suddenly Spring
+USB for Software Developers: An introduction to writing userspace USB drivers
+Doing My Taxes By Hand, with AI!
+Vibe Coding From My Phone with OpenClaw
 Y Combinator
 An Engineer's View of Venture Capitalists
 Rails 2.0 Released
@@ -131232,7 +131684,6 @@ Parallel Agents ❤️ Sapling
 AI-assisted programming for spmd_types
 Silent BC Breaking Changes
 You can't always fix it
-Bot Forensics
 From Hacker News to TikTok - How Algorithms Learned to Hook Us
 Stop telling people to sanitize user input
 Dinit, the init system systemd should have been
@@ -131343,7 +131794,6 @@ Weighing up Zngur and CXX for Rust/C++ Interop
 An Idea for Bypassing Linux Age Verification
 Do Not Use Sectorlink
 Your Mac and a Canon Printer
-Hoot 0.8.0 released!
 Megalopolis
 Towards Model-based Verification of a Key-Value Storage Engine
 Innovating with MongoDB | Customer Successes, February 2026
@@ -131495,7 +131945,6 @@ How AI Data Quality Issues Derail Intelligent Agents (and How to Fix Them)
 The Best Work Partners Are a Little Bit Annoying
 How do terminal progress bars actually work?
 Unlocking Wagtail’s StreamField: Fast Cross-Page Queries with JSONField
-An update on SVG in GTK
 Rama matches CockroachDB’s TPC-C performance at 40% less AWS cost
 The Most Organized Threat Actors Use Your ITSM (BMC FootPrints Pre-Auth Remote Code Execution Chains)
 Things to try if you're new to Claude Code
@@ -131684,7 +132133,6 @@ Meta has an answer to Youtube Face
 Learning Claude Code, Part 1
 State of the Browser 2026
 Scour - February Update
-Great RSS Feeds That Are Too Noisy to Read Manually
 Search the Past
 Upcoming Windows 11 Supports 5000 Hz Display Refresh Rate
 Update on array API adoption in scikit-learn
@@ -131854,7 +132302,6 @@ Extensible named types in Fir
 JRuby 10.0.4.0 Released
 Link Preview Manifest: A Proposal for the Fediverse
 The Wallis Product for Pi on the C64
-Enigma Ring Settings on the Commodore 64
 Robot-mediated haptic feedback outperforms vision in violin duo coordination
 Live Verify
 I have Thoughts on the Dungeon Crawler Carl Series
@@ -132129,6 +132576,20 @@ localprobe: detect Bitcoin nodes running on the same machine as your (Firefox) b
 Recap: A network wide DoS bug in Bitcoin Core
 JSter #253: Libraries and more
 orbital 0.5.0
+Welcome to the Wasteland: A Thousand Gas Towns
+Reviewing agent sessions
+Build more slop
+BEAM Metrics in ClickHouse
+Python 3.15.0 alpha 7
+CPython: 36 Years of Source Code
+Python 3.12.13, 3.11.15 and 3.10.20 are now available!
+The Python Insider Blog Has Moved!
+Waterfox Android 1.2.1 - Stability and cleanup
+用"古典"机器学习检测 LLM 生成的网文 (AIGC 文本检测)
+Winning the Hack Club Campfire hackathon
+No you can't build it in a day
+Six Weeks
+Self-hosting UnifiedPush with Conversations as Distributor
 Why I Program In Ruby (And Maybe Why You Shouldn't)
 Aaron Swartz:  Perfectionism (and his new startup, Jottit)
 My name is not a URL
@@ -133020,6 +133481,7 @@ Binding port 0 to avoid port collisions
 TIL: Docker log rotation
 URLs with trailing punctuation
 The E-Commerce Critical Path Checklist
+Bot Forensics
 Claws
 Evidence of absence
 Notes: The Universal Paperclip Clicker
@@ -133095,6 +133557,7 @@ snakes.run: rendering 100M pixels a second over ssh
 How to prompt Seedream 5.0
 Recraft V4: image generation with design taste
 What's next after soulbound NFTs? Self-willed NFTs via zkML
+Hoot 0.8.0 released!
 Building a Movie Recommendation Engine with Hugging Face and Voyage AI
 Edge AI Made Easy: MongoDB and ObjectBox Data Synchronization
 Four Years of Momentum: Craig Newmark Philanthropies and the Future of Memory Safety
@@ -133248,6 +133711,7 @@ Enduring AI Businesses
 Building an AI Director for Continuous Video Generation
 Numbers in context − Chinese EV’s: Is 3% significant?
 The anti-polling pattern for Step Functions
+An update on SVG in GTK
 GTK hackfest, 2026 edition
 Talk: Grats - Bringing Implementation-First GraphQL to TypeScript
 Review and Teardown of Creative Midi Blaster MB-10 synthesizer
@@ -133404,6 +133868,7 @@ Here’s how to instruct a LLM to reference the ARIA Authoring Practices Guide
 You probably shouldn’t be annotating focus order
 Ben Died
 Shortcutie + Setapp = ❤️
+Great RSS Feeds That Are Too Noisy to Read Manually
 Redlining, or Value Over Artifacts
 Thanks for All the Frames: Rust GUI Observations
 Building a Slack Agent with Pi on Vercel
@@ -133524,6 +133989,7 @@ Meet Erica Horn, Manager, Sales Development, at Plotly
 Elektroid 3.3 released
 Trenchant Exec Who Sold His Employer's Zero-Day Exploits to Russian Buyer Sentenced to 7 Years in Prison
 Firefox’s AI Kill Switch is a Trap: How Mozilla Made AI Your Problem
+Enigma Ring Settings on the Commodore 64
 Breaking Enigma on the Commodore 64
 Enigma Emulator on the Commodore 64
 os-test talk @ FOSDEM (recording)
@@ -133785,6 +134251,18 @@ mirai 2.6.0
 `dplyr::if_else()` and `dplyr::case_when()` are up to 30x faster
 nanonext 1.8.0
 dplyr 1.2.0
+The AI Vampire
+The Anthropic Hive Mind
+Better agent memory
+Claude Has First-Party Agent Orchestration
+Join the Python Security Response Team!
+Waterfox 6.6.9 - Security and stability improvements
+The Shipwrecked hackathon by Hack Club
+Building an Astro blog
+Your fingers are snitching on you
+FMC Card For MIPI TX/RX Camera CSI and Display DSI Emulation
+Don’t Reward the Best Firefighter
+Security teams are not a lottery ticket
 Behold WordPress, Destroyer of CPUs
 Mark Pilgrim on Joel Spolsky’s “Martian Headsets”
 Prism, a new experiment from Mozilla Labs, lets users split web applications out of the browser
@@ -134431,6 +134909,7 @@ Aggregators and Jobs-to-be-Done
 Stack(age): History, philosophy, and future
 Chrome: Closing the capability gap between the web and native
 Compartmentalized computing with CLIP OS
+Python 3.6.7 and Python 3.7.1 are now available
 The State of the TclQuadcode compiler (2017) [pdf]
 3D printing a programming jig and embedding pogo pins
 The decentralization of the web is unlikely
@@ -134951,7 +135430,6 @@ Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529
 Bypassing Windows Administrator Protection
 A 0-click exploit chain for the Pixel 9 Part 3: Where do we go from here?
 A 0-click exploit chain for the Pixel 9 Part 2: Cracking the Sandbox with a Big Wave
-A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby
 LibrePCB 2.0.0 Released
 LibrePCB 2.0.0 RC1 Released
 Landing in Shanghai
@@ -135445,6 +135923,21 @@ Kubernetes Memory Limits and Go
 OpenSats Work-Log 8
 ragnar 0.3.0
 plumber2 0.2.0
+Software Survival 3.0
+BAGS and the Creator Economy
+Gas Town Emergency User Manual
+LLM-isms
+Memory Safety for Skeptics
+Rust's Culture of Semantic Precision
+Gas Town is not Urbit
+Gas Town Decoded
+Passkey PRFs and the Passkey Loss Blast Radius
+自己在家开运营商 PH I (DN42): 加入 DN42 网络及 Nixify 我的 VPS
+初探 Vibe Reverse Engineering 及 Rust 逆向
+EU funding for open source software through a performance-based platform
+Receipts Space 3.0
+Dotfiles Secrets in Chezmoi, Without Password Headaches
+You should publish your work!
 Scaling a startup from 0 to 40 hits per second in 3 days
 So Apple is 'flailing,' eh? (re: TechCrunch story)
 Howto: Make Money While Hacking On Open Source Projects
@@ -137051,6 +137544,12 @@ Organizing an 18-player Pirate Role Playing Game - Part 1: Scenario
 Everything You Wanted to Ask About Rust – Answered by Herbert Wolverson
 JSter #251: Libraries and more
 orbital 0.4.0
+The Future of Coding Agents
+Quantified Self • 2025
+FPGA FMC NVMe Drive SSD, NVMe SSD Drive on PCIe M.2 Adapter FMC HPC FPGA
+Stop inventorying keys.
+LLM's shouldn't always land the plane.
+Don't Get Hacked: How to self-host Coolify on Hetzner
 Android developer challenge ($10 million in awards)
 The Genius is in the Details
 Vote: How to Detect the Social Sites Your Visitors Use
@@ -138151,7 +138650,6 @@ CLN Developer Series #2: The CCAN Utilities
 Interloper and Artistry in Impressionistic Horror
 Fandom and The Freedom Motif
 Multiplying matrices in C++
-Universally Unique Lexicographically Sortable Identifiers (ULIDs)
 The Most Expensive Wall in Software
 Please Fund My Continued Accessibility Work on GNOME!
 What's new in VIRTIO 1.4
@@ -138568,6 +139066,12 @@ Two Years of Building AI in Firefox
 First Impressions on the Godot Game Engine
 ClamAV Signature Retirement
 JSter #250: Libraries and more
+We're gonna hold a talk at the 39c3!
+2025 Year in Review
+Going on maternity leave
+FPGA FMC 4x MIPI CSI Camera, MIPI DSI Display Breakout Adapter , V4L2 Linux Media Pipeline Ultrascale+
+WeekEndJams - a retrospective. Help me define `#wejcore`
+Most Technical Problems are People Problems
 Tiny projects keep it new
 Good Advice on Keeping Your Database Simple and Fast
 The Importance of the Facebook Redesign
@@ -138805,6 +139309,7 @@ Why do programmers hate Microsoft?
 Write A Function To Determine If A Number Is A Power Of 2
 World according to San Francisco
 Stuxnet
+Compiling OCaml directly to a new cloud operating system
 Redesigned: The new 37signals.com
 Functional Programming, from Java to Scala, D. Wall
 Pricing is weird
@@ -138848,6 +139353,7 @@ PySmell - intellisense for python
 HAML: the unforgivable sin
 Weekly Badass JavaScript Roundup
 Why The Supreme Court's 'Grokster' Decision Led To More P2P Filesharing
+OCZ scales up SSD Production in response to hard drive shortage.
 Wrapping My Head Around Optional Typing (in Dart)
 Business Still Needs Sysadmins
 Haskell's Fixed Point Combinator
@@ -139514,6 +140020,7 @@ Exceptions in Cranelift and Wasmtime
 How To Become a DevOps Engineer
 Programming Languages in the Age of AI Agents
 Try-catch-finally in Java is Cursed
+Universally Unique Lexicographically Sortable Identifiers (ULIDs)
 The Breaker Box Economy
 Headlamp: Discover Plugins: A New Section on the Headlamp Website
 Headlamp: Headlamp in 2025: Project Highlights
@@ -139905,6 +140412,9 @@ WebNN is the future of browsers AI
 My friends are starting blogs
 ClamAV Signature Retirement Announcement
 Quick change detection with geospatial embeddings
+AIO Ep19. 联想 HR630x(HR650x) 服务器装机日志 - 1300 元的双路 8259CL 与超大碗 Optane 内存
+Can it ever be the way it was?
+Simple Rust Guix Emacs development environment
 Stallman doesn't use a web browser
 Clever method of near duplicate detection
 No Secret Software!
@@ -140890,7 +141400,6 @@ AI Interview Success: An Interviewer's Inside Guide
 Active Storage Internals: How has_one_attached DSL Works
 Active Storage Domain Model: Blobs and Attachments
 The Best Way to Learn Might Be Starting at the End: Writing a Proof in Lean
-YesNotice
 BioMenace Remastered Dev Log #1
 Jami survival kit: Internet down? Keep talking!
 86Box v5.2
@@ -141280,6 +141789,8 @@ Symfony Of Suffering: Part 2 - No pain no gain
 Getting Friendly With CPU Caches
 ClamAV 1.5.1 patch version published
 JSter #249: Libraries and more
+Git Riddance
+Hexagon of Doom - The Cost of Over-Abstraction and Indirection
 How Samba was written
 Opera releases new JavaScript engine named Carakan
 Remember the strop
@@ -142225,6 +142736,7 @@ Doing More Customer Interviews Won't Make You Better At Them
 Agent: Customer Development Coach for Feedback
 Three ways I learn with AI
 Lab notes #074 Focused in a direction
+YesNotice
 Manifesto 2025: the freedom to communicate belongs to all of us
 Atlas: Jami’s biggest step toward reliable communication
 Understanding Tax Brackets: Interactive Income Tax Visualization and Calculator
@@ -142596,6 +143108,10 @@ Why Good Summaries are Important to a Pull Request
 Kubernetes CPU Limits and Go
 ClamAV 1.5.0 released!
 JSter #248: Libraries and more
+Reading a zip file from a Cloudflare Worker
+Resolving "FOREIGN KEY constraint failed" with Cloudflare SQLite
+Automatically documenting a Durable Object's SQLite schema
+Fix for google search console 'sitemap could not be read'
 Lisp-generated movie box office visualization
 I had that idea years ago
 Working with web developers in India: why, whom, and how
@@ -143216,7 +143732,6 @@ Testing the compiler optimizations your code relies on
 A look at a P2P camera (LookCam app)
 Voices of VR Interview 2023 & MicroLED-AR/VR Connect Conference 2025
 Hacking Workshop for October 2025
-Icepath: a 2D Programming Language
 What we've been reading in August (2025)
 What kills motivation?
 Time machine
@@ -143255,7 +143770,6 @@ Semlib: Semantic Data Processing
 One Size Does Not Fit All
 FB19914338
 Spritely Goblins v0.16.1 released!
-Featured on People & Blogs
 Rustls Joins Rust Foundation's Rust Innovation Lab
 Cognition: The Devin is in the Details
 You Suck as a Design Leader
@@ -143287,7 +143801,6 @@ Circuits Updates — August 2025
 Custom CPU simulation and testing
 Running Go tools in a browser
 RTL generation for custom CPU Mrav
-Do not disrespect the fractal
 When Google Takeout Fails
 Protovalidate is now v1.0
 Sort Lines in Source Code
@@ -143328,7 +143841,6 @@ Deno 2.5: Permissions in the config file
 Fresh 2.0 Graduates to Beta, Adds Vite Support
 A friend in need ...
 Chasing Signatures: Verifying ChatGPT Requests in Kubernetes Gateway API
-Resilient Container Builds in CI with Buildkit-Operator
 You should be rewriting your prompts
 I have seen the future through AR glasses
 Virtualizor: Fixing the "Required number of IPv4 : 1 and I support : 0" Error
@@ -143407,7 +143919,6 @@ How to present to executives
 How We Solved Multi-Language SDK Documentation Chaos without LLMs
 Half my work is adding a cache
 Books That Changed The Way I See The World
-Bun engine
 Preview of LibrePCB 2.0's Next-Gen UI
 Building a global WireGuard mesh “backbone” network with OSPF
 A secure and privacy friendly offline digital euro
@@ -143425,7 +143936,6 @@ Tripping around REPL
 I'm shutting down The Sample
 My Game of Thrones Ending
 Connecting my Raw Thoughts to Claude with Obsidian
-Introducing builtwithhare.org
 The Jujutsu Effect
 Rails on Localhost: Secure Context and Local HTTPS with Caddy
 The Hidden Scaffolding Behind Production Vibe Coding
@@ -143467,7 +143977,6 @@ Trigger crossbar
 These weeks in Veloren 249
 New UCM-desktop release and UCM updates
 📓 Revving up your research
-Unreal Engine isn't ready for AI
 Supporting color schemes with modern CSS
 What if Humanity?
 Why is my kitchen so clean?
@@ -143507,7 +144016,6 @@ Vibe coding art
 Betting Against the Models
 Prompt API color sensitivity
 Why We Build
-The First MoQ App: hang.live
 Kernel-hack-drill and a new approach to exploiting CVE-2024-50264 in the Linux kernel
 What I've been up to in 2025
 Quickly switching between git status files buffers in Emacs
@@ -143572,7 +144080,6 @@ Four Billion Installs?
 Step‑by‑Step Guide: Install Steam on openSUSE Leap 16
 Coding is deciding
 Two Kinds of Shells
-The Work Task Variation Problem
 🎥 New (Video) Podcast: "Navigating the World of Web Accessibility with Sara Soueidan", with Kevin Powell
 My first CVE
 Playing Adventure (a.k.a. Colossal Cave) on the HP 1000 Computer System
@@ -143607,7 +144114,6 @@ Love & Ponystep (is a banger album)
 happy birthday! (cake style sandwich)
 Physics-Defying Marketing: Review of a Misleading Vendor Article, and a VNA Calibration Primer
 Repairing my Windows bootloader after Omarchy
-Avoiding the Shiny Object Syndrome: When “Good Enough” Is Actually Perfect
 Remote, hybrid, office? Yes.
 A Quick Introduction to Kafka Streams
 Using Claude Code SDK to Reduce E2E Test Time by 84%
@@ -143704,7 +144210,6 @@ Mapping Control and Escape to Capslock
 I Accidentally Wrote a Novella
 Fiction: Growth and Decay
 Weeknotes 41
-Weeknotes 40
 Catan Probability Calculator
 JavaScript Promises from Scratch
 Using Coolify for subdomain direct redirect without a app resource
@@ -143735,6 +144240,10 @@ GAMLSS, NHANES, and my own personal hell
 Splines, B-splines, P-splines, and a disapproving kitten
 Sega’s One-Sided Story
 Garbage Collection In Go : Part III - GC Pacing
+RFSTAMP44 RF Signal Generator ADF4351 35M to 4.4Ghz Stamp size castellated
+How to build Custom FSBL for Zynq Ultrascale+ FPGA on new Vitis 2024.2
+DISTISO6 Isolated Distribution Amplifier for GPSDO
+Revocation ain't no thang.
 Signs You're a Crappy Programmer (and don't know it)
 Computer Science: Smart People Have Weird Hangups
 Emergency Elisp
@@ -144341,6 +144850,7 @@ How Do Committees Fail To Invent?
 Amazon Promotes Malphas to Senior Vice President of Bad Decisions, Unveils 17th Leadership Principle
 No more dependency management headaches
 Hacking Workshop for September 2025
+Icepath: a 2D Programming Language
 Optimizing My Disk Usage Program
 Maybe the Fastest Disk Usage Program on macOS
 What we've been reading in July (2025)
@@ -144372,6 +144882,7 @@ Spritely Goblins v0.16.0 released!
 Spritely presented spirited speeches spanning the planet
 5 to 18: Why Your Count Might Be Off by One
 Show Candidates Your Cap Table.
+Featured on People & Blogs
 Opportunistic Encryption Is Coming to Hickory DNS
 My 2025 New Mac Setup
 The new phishing: How to spot email scams in 2025
@@ -144408,6 +144919,7 @@ Creating an assembler for a custom CPU
 Making a custom CPU
 Falcon 9 Block 5 | Crew-11
 SO_KEEPALIVE Slow (?) on macOS
+Do not disrespect the fractal
 darktable 5.2.1 released
 Separating the Chrome Browser From Google Could Be Terrible for Billions of Users
 In the War Between the Federal Government and States Against Drone Maker DJI, Americans Are at Risk
@@ -144463,6 +144975,7 @@ The product design talent crisis
 Bun v1.2.20
 Some pretty cool git tools to save your sanity and your kids
 Xeno Computer 0.1: Labor
+Resilient Container Builds in CI with Buildkit-Operator
 Checkpoint: When IAM Breaks Developer Experience
 Open Sourcing Fastly TLS Operator: Automate Fastly TLS Certificate Management
 Training Neural Audio Effects
@@ -144549,6 +145062,7 @@ Shipping an AI Agent that Lies to Production: Lessons Learned
 How to be a better abuser
 Lithe, less analysis with Datalog
 What does the government think an algorithm is?
+Bun engine
 My Experience with Publishing an Extension for All VS Code IDEs
 Building Income Through LibrePCB: A Personal Story
 Enabling highly available global anycast DNS modifications with Galera
@@ -144577,6 +145091,7 @@ Please Create Debuggable Systems
 How I made ad-hoc analytics with Reveal
 Programming is magic, or how I wrote a Kalaha solver
 Designing for Mastery in Roguelikes (w/Roguelike Radio)
+Introducing builtwithhare.org
 Upcoming changes to Hare's event loop library
 From Intern Project to Production: How I Shipped the Draw Tool for Canva's Present Mode
 Tools for the era of experience
@@ -144589,7 +145104,6 @@ unplug - a tool to test input devices via uinput
 Ten Years Later
 'Our app supports Markdown' and other lies apps tell
 The time I literally dropped a server
-Energy Driven Development
 Numeric Utilities
 Linear Algebra
 Array Operations
@@ -144625,6 +145139,7 @@ New App: Short Run
 scikit-learn Completes the GitHub Secure Open Source Training
 How We’re Working, 2025
 InterpreterPoolExecutor - We Need PEP 734
+Unreal Engine isn't ready for AI
 We lost something along the way
 Building Native Plugin Systems with WebAssembly Components
 Hotwire Native at Rails World
@@ -144669,6 +145184,7 @@ organizing-terraform-configurations
 Pixel 7 Pro screen replacement
 我想做个对跖点App，但最终农场悟道
 Issue counts always go up
+The First MoQ App: hang.live
 TLS and QUIC: A Masochist's Guide
 Modos Developer Kit Now Live on Crowd Supply!
 Building a Custom Tabline in Neovim with Lua
@@ -144751,6 +145267,7 @@ Updated Biography
 The Ivy Lee Method: A 100-Year-Old Productivity Hack That Still Works
 From Stress Test to Skills Test: A Smarter Approach to Technical Interviews
 Mind the Gap
+The Work Task Variation Problem
 On Benchmarking MiniZinc and the LinkedIn Queens Problem
 CSS-only scrollspy effect using scroll-marker-group and :target-current
 Leaver Experience
@@ -144778,6 +145295,7 @@ The serial TX path seems to be down
 GPT-5 feels like writing on the wall
 Stable, Mutable References
 Code Reviews That Actually Improve Frontend Quality
+Avoiding the Shiny Object Syndrome: When “Good Enough” Is Actually Perfect
 From Code That Works to Code That Matters: A PDF Security Feature Story
 My advice to the new generation of software engineers
 Not going full circle with class names
@@ -144863,6 +145381,7 @@ Notes on building Arch packages on openSUSE Build Service
 Zero-Bullshit Take on LLM Optimization
 What is My New Word?
 HighGo’s Patch to Bring GB18030-2022 to PostgreSQL
+Weeknotes 40
 Crit
 Cake
 Weeknotes 39
@@ -144889,6 +145408,9 @@ French coast and back in an EV camper
 The Box-Cox power exponential distribution
 AI Coding Tools are Junior Programmers
 ClamAV 1.5.0 release candidate now available!
+The Kilopixel recap - season one
+KLIP30 Fast Pulse Generator for TDR, Impedance and Bandwidth Measurement
+RFGEN44 Open Source 4.4Ghz USB RF Signal Generator
 How I Use My Mac
 Questions for Co-Founders (Gabor Cselle)
 12 Killer Ways to Make Extra Income On the Web
@@ -145668,6 +146190,7 @@ n8n vs Zapier vs Workato vs Tray.io
 Assembling a Retro Chip Tester Pro
 ZX Spectrum+ Toastrack Part 2
 Brony Musicians Seize The Means of Production: My Eyewitness Account to BABSCon 2025
+Energy Driven Development
 The Linux Foundation Announces Keynote Speakers for Open Source Summit India 2025
 Posts
 Multiple Windows in Electron apps
@@ -145934,6 +146457,9 @@ My Experience with Liquid Glass so Far
 Generating quarto syntax within R
 Permissive vs Copyleft Open Source
 Garbage Collection In Go : Part II - GC Traces
+Germany's private internet censorship organization gives up
+Generating Image Placeholders on Cloudflare Workers
+Sandboxes? In my process? It's more likely than you think.
 Debugging Django
 On object-oriented programming: "That which obscures my code is bad."
 Israel: a country too far from Mike Arrington’s house
@@ -147049,6 +147575,9 @@ Run a local LLM via Llama.cpp
 Garbage Collection In Go : Part I - Semantics
 ClamAV 1.4.3 and 1.0.9 security patch versions published
 Can multi-sensor foundation models be more than the sum of their parts?
+Vibe Coding in The World's Largest Hackathon: Building GPXTrack.xyz
+Building a security product is not the same thing as security engineering
+How to fix the thermostat on a bar shower
 List of Datasets on the Web
 11 Tips on Hiring a Rails Developer
 Jeremy Zawodny: There is no Web Operating System (or WebOS)
@@ -147931,7 +148460,6 @@ New York city
 From Assumed to Assured — SSAB Validates ICS Segmentation with Beacon
 I have Unfinished Business
 GNU Octave 10.2.0 Released
-I Was Wrong About Tailwind CSS
 May Progress Update
 Workflows All the Way Down
 A quick introduction to OpenType
@@ -148054,6 +148582,8 @@ Fixing errors installing the charlock_holmes ruby gem redux
 urllib3 Origin Story
 Want Clean Code? Just Use Functions.
 JSON - The Fine Print: Part 3 - Zero vs Missing Values
+Optimizing Zsh Init with ZProf (and Switching to Mise)
+How to Dual-Boot Ubuntu 25.04+ and Windows 11 with Encryption
 Scale Your Website Like YouTube - A Look at YouTube's Architecture
 Secure Programming for Unix
 Failure is overrated, a redux
@@ -148867,6 +149397,7 @@ Release Notes v1.2.0
 My Plan, Document, Act, Review flow for Agentic Software Development
 LLM Sampling Parameters Guide
 how indian colleges casually violate human rights
+I Was Wrong About Tailwind CSS
 How Long Would You Live?
 Toying Around With Xv6 X86
 "Introducing our new and updated user experience"
@@ -148990,6 +149521,10 @@ BSidesSF 2025: bug-me (hard reversing challenge)
 OTP Authentication in Laravel & Vue.js for Secure Transactions
 Hanlon-Clarke Corollary
 A quick first look at GPU programming in Mojo
+How to Async Tests in Elixir
+How to Install Ubuntu Linux on a Nimo Laptop
+Laptop Review: Nimo N153 R5 6600H
+Is open-world design making games worse, or am I just getting old?
 Growing Up is Hard
 Apple 'Netbooks', Eh?
 Startups and Work: Europe vs the US
@@ -149707,7 +150242,6 @@ A crash course in package management, Node, and Yarn v2
 Step One: How2 Z3
 Shut Up and Hack: November 2024 to March 2025 newsletter recap
 JSON Compilation Database with non-cmake projects
-How Front-end Developers Can Participate in Content Management and Architecture
 SSH is exciting
 A shortcut to create Google Docs
 FrontierNav Update: 24 March 2025
@@ -149921,6 +150455,10 @@ How can open social protocols fail us in 2025
 ClamAV 1.5.0 beta now available!
 Advance notice: End of Life for ClamAV 0.103 database updates
 String interpolation in Lua
+Tracking Software ID Schemes
+German ISPs are apparently forced to block Pornhub (again)
+Beyond Snippets: Where Are AI's Software Masterpieces?
+The Dev Metrics Game
 Announcing Django Crawler and django-test-utils
 C++ for the next decade
 A Million-user Comet Application with Mochiweb, Part 3
@@ -150522,6 +151060,7 @@ Pressing pause
 A new blog
 How to Automatically Start or Reattach to a tmux Session with SSH
 Automated OpenBSD Package Updates with AWS Systems Manager
+How Front-end Developers Can Participate in Content Management and Architecture
 A love letter to Opera Mini
 Setting up an LG OLED TV as a PC monitor
 FrontierNav Update: 21 February 2025
@@ -150710,6 +151249,11 @@ The Weirdest MSVC Address Sanitizer Bug
 Dynamic font-lock for Fennel
 Blog - fifth anniversary
 deps.fnl 0.2.2 released
+The Best Monad Tutorial Ever Written
+Jujutsu is the Future
+UnplugTrump
+On the Joy of Hacking
+Scaling Postgres for Dynamic Schema Search on Billions of Rows
 Resig: jQuery.embrace().extend();
 Ditching the Semantic Web
 Sharecropping in the Orchard: Everything old is new again
@@ -151412,6 +151956,12 @@ Post-Growth
 Conditioning
 What You Need to Know when Optimizations Changes the Behavior of Your C++ 😱
 ClamAV 1.4.2 and 1.0.8 security patch versions published
+Postscript on “Open Source Software and Corporate Influence”
+Safety Hygiene
+A photo a day for 30 days
+E-Invoice Space
+Rethinking MTTR
+How to get DigitalOcean Spaces Presigned Uploads Working (In SvelteKit or any JS frontend)
 The Elephant: Why is JRuby such a polarizing issue?
 Pitfalls to avoid when designing forms
 "Chuck Norris"-ing code
@@ -152028,6 +152578,12 @@ Saving Nanocap Speculators From Themselves
 deps.fnl - a new dependency manager for Fennel projects
 Tiny OOP in Lua
 2024 Recap
+Tech I Use • 2024
+First major internet block in Germany for terrorist propaganda
+Exposing the CUII
+Write your first e-invoice...
+Recovering Data from a 2015 Mac SSD with a $5 Adapter from AliExpress
+Ghostty on Ubuntu: First Impressions and How to Install
 Introducing Uniffi for React Native: Rust-Powered Turbo Modules
 Importing a frontend Javascript library without a build system
 Android privacy improvements break key attestation
@@ -152520,6 +153076,9 @@ New copy stack trace button for Crash Reporting
 New URL tester for Real User Monitoring's path segment rules
 Raygun's Christmas Bug Bashapalooza
 Doing things blindly
+Building howtall.is
+Fully automatic updating Spotify status... without JavaScript?
+On OpenTelemetry and the value of Standards
 Llamafile v0.8.14: a new UI, performance gains, and more
 Booklets
 pizauth: HTTPS redirects
@@ -152965,12 +153524,12 @@ Nico heid an android seekbar for your mediaplayer
 Extending JSON encoder with custom types
 Streaming and receiving chunked multipart data with fnl-http
 Lazy Sequences and Java Streams
+XML2Invoice
 Webcam randomly pausing in OBS, Discord, and websites - LSVCam and TikTok Studio
 Flexing the Windows RRAS BGP implementation
 Quick synthesizer with harmonics
 Developer education at Jane Street
 Intro To 'reboot' Command In Linux
-Why Ember is Different: Running Browser Tests in a Browser
 End of the Road for Google Drive in Transmit
 Tagged Union Subsets with Comptime in Zig
 Wallops 2.1 Released
@@ -153373,6 +153932,8 @@ Using Proxies in Web Scraping – All You Need to Know
 Throwing Exceptions From Coroutines
 Game Tuning  2
 Building your own personal ghostwriter
+The Problem is New Code
+Psst! Want to see a cool bug?
 Watching sunsets
 Hypercard in the World
 Seamlessly use your passwords and addresses in Chrome across all devices
@@ -153387,6 +153948,7 @@ Generating infinite, age-appropriate Cat Crimes puzzles
 What's Missing From LLM Chatbots: A Sense of Purpose
 The Startup Designer
 Racket v8.14
+Why Ember is Different: Running Browser Tests in a Browser
 Exploring Ember Polaris: CSS Modules Without Addons
 Exploring Ember Polaris: A Fresh Take on the Component Format
 Sublime Text 4 Build 4180
@@ -153840,6 +154402,9 @@ Changelog
 Get multiple mentors
 Third Wave (Commercial) Open Source
 Interactive game development with LÖVE
+Reducing Compile-Time Dependencies in Gettext for Elixir
+The Art of Pairing with Strangers - Over Engineered Podcast
+PDFify 4.0
 0Din: A GenAI Bug Bounty Program – Securing Tomorrow’s AI Together
 Toolbox languages
 Likelihood-ratio inference on differences in quantiles
@@ -154288,6 +154853,9 @@ The European Union must keep funding free software
 Final robot photos
 You should use the Ruby on Rails logger block syntax
 Monster Molecules
+Just how old is a 45 year old soup (and would you eat it)
+Growing Into a Leadership Role, and Pairing With Strangers - The Business of Laravel Podcast
+When You Don't Know How Your App Works
 Snapshots for IPC Fuzzing
 Sponsoring sqlite-vec to enable more powerful Local AI applications
 How Chrome achieved the highest score ever on Speedometer 3
@@ -154709,6 +155277,9 @@ Simplify Regular Expressions with RegExpBuilderJS
 Glorious Parramatta Autumn, 2024
 Let’s Rescue CMake Presets
 Custom Agent with Memory in Langchain
+Timezone Management in Laravel - for Laravel News
+Blog Post by Messica Arson
+PDF Tales - Extracting Text You Can't See
 Experimenting with local alt text generation in Firefox Nightly
 Kafka 101
 Multi-tasking with Minimized Custom Tabs
@@ -155146,6 +155717,9 @@ BSidesSF 2024 Writeups: Turing Complete (Reversing / exploitation)
 Emacspeak 60.0 (DreamDog) Unleashed!
 Announcing Emacspeak 60.0 (DreamDog)
 Why Blockchain?
+How to Dual-Boot Ubuntu 24.04 - 24.10 and Windows (10 or 11) with Encryption
+Lack of post-quantum security is not plaintext
+Money for nothing, commits for free
 Open Sourcing DOS 4
 Capturing A Billion Emo(j)i-ons
 Managers have no human rights
@@ -155569,6 +156143,10 @@ Progress?
 Profiling apps installed from apt-get
 Just Use a (Managed) VPS
 Mojo’s standard library goes open source
+Pairing with Strangers (the Pair-amid Scheme)
+Migrating from Homebrew MySQL/Meilisearch/Redis to Laravel Herd Pro Services
+Stop trying to make CTO happen
+Bank Statement Converter Book
 Updating to .NET 8, updating to IHostBuilder, and running Playwright Tests within NUnit headless or headed on any OS
 Brief History of Scaling Uber
 Behind AWS S3’s Massive Scale
@@ -155693,7 +156271,6 @@ Navigating Memory in C++: A Guide to Using std::uintptr_t for Address Handling
 Nuitka Release 2.1
 Haunt 0.3.0 released
 Generative transformer from first principles in Julia
-For Your Reference: RefTeX in Org Mode
 All Roads Lead to Robotics
 Decoding UTF8 with Parallel Extract
 Life after The List
@@ -155996,6 +156573,7 @@ Achieving Design Collegiality While Maintaining Psychological Safety
 I Did a Full Workday as a Software Engineer on an Android Phone
 Advanced Tokenization Techniques in NLP
 Quantization in Large language models
+Sabotage 101: Company Culture Meltdown
 First Token Cutoff LLM sampling
 How the DevTeam conquered the iPhone
 Appreciation of automated IX Quarantine LAN testing
@@ -156124,6 +156702,7 @@ One less Un*xy option for 32-bit PowerPC
 A journey recovering my genuine play-through of Parasite Eve on PS1
 Getting Started with GDB on OCaml
 Impact-based performance evaluation in big tech is terrible
+For Your Reference: RefTeX in Org Mode
 January 2024 Projects
 “Scaleway’s infrastructure was made available to us in just a few hours” - how Région Guadeloupe moved to the cloud in 10 days
 Why adopt Green IT, and how? - panel report
@@ -156463,6 +157042,11 @@ Model Compression vs Model Quantization
 Weight Pruning in Neural Networks
 Unleashing the Power of Gelu Activation: Exploring Its Uses, Applications, and Implementation in Python
 BLEU Score – Bilingual Evaluation Understudy
+Fluently removing global scopes with Laravel's new ScopedBy Attribute
+Mapping a Hyper key on MacOS with Karabiner Elements (the easy way)
+Processing Shopify Webhooks with Laravel Queues
+How to deploy a SvelteKit app to Heroku
+How to get svelte to save a JWT cookie
 Making SSH host certificates more usable
 NPS, the good parts
 RethinkDB 2.4.4 Released
@@ -156898,6 +157482,8 @@ Emacspeak: Hidden Holiday Gems
 Emacs: Hidden Holiday Gems
 An intuitive introduction to pansharpening
 Mojo 0.6.0, now with traits and better Python like string wrangling.
+Death by configuration parameters - Where to place complexity?
+Must classes be small? Wrong question.
 The bash book to rule them all
 0x4 reasons to write and publish
 I Fight For The Users
@@ -157289,6 +157875,10 @@ Announcing Emacspeak 59.0 (VirtualDog)
 Trustless
 Mojo 0.5.0 and SIMD
 Parameters in Mojo
+Verifying JWTs from Apple's App Store
+Tactical vs Strategic Developers
+Mandalas and Tidal Cycles
+Garduino: The Basics
 Interesting
 Chrome support for passkeys in iCloud Keychain
 Unicorn Market Cap 2023: Rise of AI
@@ -157334,7 +157924,6 @@ Embed only the video from another post on X or Twitter
 Increment only numbers matching regex in Vim
 tcpproxy 0.4 released
 jank development update - Module loading
-Cracking Playfair Ciphers
 Supercharge your app: latency and rendering optimizations in Phoenix LiveView
 Installing windows 11 on unsupported systems
 Bus Sniffing the IBM 5150: Part 2: Writing a 8088 sigrok Decoder
@@ -157554,7 +158143,6 @@ Kudzu
 Meeting philosophy
 Android users, listen up!
 Domain structured programming (UK ATC meltdown)
-UK ATC meltdown and swiss cheese
 The Overuse of Language, Realizing Humor, and Psychedelics
 Thirty bees version 1.5 released
 I don't want to know IPs: encryption in TORRENTDYNE
@@ -157647,9 +158235,7 @@ On Company Values
 Gluten Free Cheeseburgers with Almond Flour Buns
 Adventures in network repair
 A Group Chat Called 'The Toilet'
-Apple Is Putting Out Fires, Instead Of Preventing Them
 Comité de l’intelligence artificielle: vision et stratégie nationale
-The Checklist for Deploying a Scary Change
 Thinking for Yourself in the Face of AI - post-mortem on my post-mortem
 "The Economics of Programming Languages - Evan Czaplicki"
 Launch and Environment Constraints Deep Dive
@@ -157672,6 +158258,11 @@ Together: The Old And New Work Much Better!
 Augment With Zoxide
 A Game Engine
 Stereo vision and disparity maps (in Julia)
+Tidal Profile - GEIKHA
+Tidal Blog Info
+Tidal Profile - Viola He
+Tidal Playlist - Eclectic
+A new project! Automating a home hydroponic garden
 The Swedbank Outage shows that Change Controls don't work
 Breaking a Bit
 Giving the Bird the Bird
@@ -157713,6 +158304,7 @@ CallerArgumentExpression and extension methods don’t mix
 Wrapping Up Support for FAT
 Building DOS-Compatible Hard Disks
 A deluge of data
+Cracking Playfair Ciphers
 Mach v0.2 released - Zig game engine & graphics toolkit
 The 8088MPH CPU Test
 How to write a renderer for modern graphics APIs
@@ -157934,6 +158526,7 @@ E2EE on the web: isolating plaintext
 Complaints about program committees
 The Spectrum of Openness
 Deploying Django with Kamal
+UK ATC meltdown and swiss cheese
 Elevators, Subways, and Rocket Launchers: The Unpredictable Path of Software Development
 South Wind, Clear Sky
 Brain dump on the diversity of AI risk
@@ -157993,8 +158586,10 @@ PicoLisp Explored: Discrete Event Simulation
 Linguistic Entropy and Chinese Whispers
 Quartex Pascal: Dynamic JS structures
 Quartex Pascal: Status and progress
+Apple Is Putting Out Fires, Instead Of Preventing Them
 Big Game Developer Is Not Where To Look
 Abstract nonsense
+The Checklist for Deploying a Scary Change
 Leaving one's comfort zone - post-mortem on my wiki converter project
 Understanding Wasm, Part 3: You Are Here
 Understanding Wasm, Part 3: A System Interface
@@ -158377,6 +158972,9 @@ My first month as an Engineer doing Product Management
 Ergonomic Buffer Selection On The Emacs Audio Desktop
 Is this obvious scam a scam?
 Let's enumerate the UB
+Tidal Profile - Ghales
+Tidal Music - Xuixo EP by Relyt R
+Tidal Visualization with Didactic Pattern Visualizer
 Journey to the Invisible Planet
 From Where the Sun Now Stands
 New developments at Opensource.com
@@ -158744,6 +159342,9 @@ We are Rotten Flesh™
 Query your Gmail account by hand using IMAP
 Fitting two hard drives and an SSD in a Dell OptiPlex 7010 SFF
 Sideboarding with Pioneer UR Phoenix
+Tidal Profile - Helen Papaioannou
+QBRNTHSS - making a live coding album
+Manufacturing engineers should use git
 GitHub Copilot for CLI for PowerShell
 Tips for running virtual, in-person, and hybrid events
 Generate web pages from Markdown with Docsify-This
@@ -159571,6 +160172,7 @@ Early ‘Pokemon Trading Card Game’ Design Review
 Early Yu-Gi-Oh! Was Weird
 How to make browsing fandom.com not suck
 How To Add the “Add Media” Button When Using wp.editor.initialize()
+Week 101 - February Sales Numbers
 This is Dang Interesting
 Why Not Mars
 RethinkDB 2.4.3 Released
@@ -159976,6 +160578,8 @@ Identify chemicals with radio frequencies - Nuclear Quadrupole Resonance (MRI wi
 How Visual Studio Became Unusable to Me
 Project Rants
 How We Made Computer Game Conversions
+Protohackers in Elixir
+Week 97 - Revenue Numbers
 Drastically Reducing Our Powerbill
 What is Cloud Computing? According to ChatGPT.
 Stuff The Internet Says On Scalability For December 2nd, 2022
@@ -160362,6 +160966,8 @@ Onboarding Quickly
 WordPress Hook Order
 Exploring Clangs Enum implementation and How we Catch Undefined Behavior
 Enums In C++, Choice is Oft Beguiled
+Advent of Code 2022
+Get Rid of Your Old Database Migrations
 The Cloud is Not a Railroad - An Argument Against the Vertical Separation of Cloud Providers
 The Rube’s Dilemma
 First look at Microsoft PC Manager and its conflicting interests
@@ -160678,6 +161284,10 @@ Will's YouTube sailing channel recommendations
 Hello world!
 PC Project 1
 C++ initialization, arrays and lambdas oh my!
+A tale of a simple Apple kernel bug
+Week 84 - October Sales Review
+Week 83 - $5000 Monthly Recurring Revenue
+Week 82 - Referral Feature
 Formulas for Bootstrapping Sample Medians
 Student Loan Breach Exposes 2.5M Records
 Watering Hole Attacks Push ScanBox Keylogger
@@ -162409,6 +163019,7 @@ To my teachers
 Decentralization
 Monitoring CUBRID through Scouter
 Using Azure AD authentication for a Go API
+Testing AWS in Elixir
 The Week in Tech: Amazon Muscles In on Seattle Election
 Crypto design challenges
 Journalists: stop selling NFTs that you don't understand
@@ -163407,6 +164018,8 @@ CUBRID's Development Culture: The Development Process and Improvements Behind
 TDE (Transparent Data Encryption) in CUBRID 11
 Twitter Account Suspended
 Building a new snapshot fuzzer & fuzzing IDA
+Variant analysis of the 'Sequoia' bug
+A story about an Apple and two fetches
 COVID19 Predictions for 2021
 llvm-reduce
 Contribution and abundance
@@ -163761,6 +164374,7 @@ Wraiths
 Peaceful disagreement
 Terminology Glossary
 Reverse-engineering tcpip.sys: mechanics of a packet of the death (CVE-2021-24086)
+Thermal Printer BLE Protocol reverse engineering
 The Fortune 500 CEOs with the Best (and Worst) Headshots
 The Companies Where Employees Most Often Get Payday Loans
 The Places with the Best (and Worst) Nursing Homes in America
@@ -163979,7 +164593,6 @@ How-To Guides
 Install
 Reference
 The Why of technology
-Emacs: from catching up to getting ahead
 Artwork for the Tokyo Demo Fest lightning talks
 Building a new personal website
 Posts
@@ -164060,7 +164673,6 @@ Modelling my brain
 Units: the forgotten half of the statistic
 Language Tour
 The Complete Guide to Feature Flags
-Hello, world!
 Notes on A Year of Remote Work
 Notes on Teams, Trust and Object Lessons
 Back From the Dead
@@ -164187,6 +164799,8 @@ After 20+ years in IT .. I finally discovered this useful command
 how to not cheat
 The Strength of the Record
 How does DeFi yield?
+Setting Up a Kernel Debugging Environment
+An introduction to Kernel Exploitation Part 1
 My Friends the Complot Theory Believers
 The New Jersey Single Family Home Price Boom
 Bias in word embeddings
@@ -164436,6 +165050,7 @@ Lava Devanagari, Kannada, and Telugu
 A Pi cluster parts list
 Static websites.
 Gatsby after-action review, moved to Hugo
+Emacs: from catching up to getting ahead
 Cathedrals, Bazaars, and Fusion Reactors
 What's good about staying inside Emacs?
 A-Frame Blink Controls
@@ -164505,6 +165120,7 @@ Networked Follysystem
 scanlime051 – Four Buttons
 Debugging Reinforcement Learning Systems
 pip is working! 🎉 🎉
+Hello, world!
 Why Pipes has new Timeouts and a new Pricing Plan, Incident Report
 Processing CodeBlocks in Hakyll
 Setting the tone in a group is very important
@@ -165524,6 +166140,8 @@ Commodore Super PET 9000 Technical manual
 Understanding type aliases
 Understanding F# applicatives and custom operators
 Daleks Everywhere
+Reverse Engineering the Surface Book 2's proprietary IOCTL commands
+Getting a home-made OS running on a STM32MP1 based development board
 Alyse Galvin on Coronavirus in Alaska
 Stressing the network when it's already down
 How to dump the GOSSAFUNC graph for a method
@@ -166002,6 +166620,8 @@ Understanding F# map/bind
 Feature Management in F#/Giraffe/ASP.NET Core
 Goodbye NancyFX, Hello F#!
 Apparent Intelligence
+Boot Process of the GCW0, RG350 and similar devices
+ImGui Game Overlays using DLL injection
 Introducing Voice Boost 2: Remaster your podcasts
 Covid-19, a Retrospective
 Please don't lie
@@ -166428,7 +167048,6 @@ Does the F.B.I. Need Apple to Hack Into iPhones?
 This Week in Tech: What on Earth Is a Quantum Computer?
 The Week in Tech: A.I.’s Threat to White-Collar Jobs
 The Week in Tech: TikTok Is in Trouble
-The Week in Tech: WhatsApp’s Spyware Fight Is at Least Good P.R.
 Inside-out vs. outside-in: the adoption of new technologies
 Leysin Winter sprint 2020: Feb 29 - March 8th
 HPy kick-off sprint report
@@ -166831,6 +167450,7 @@ Ethical Software For Everyone
 Hacker Villages
 Podcast: DjangoChat Ep. 45
 Tempesta Technologies blog
+The Week in Tech: WhatsApp’s Spyware Fight Is at Least Good P.R.
 The Week in Tech: Are You Ready for Facebook’s Future?
 The Week in Tech: Facebook’s First Step Toward Treating Our Data Better
 The Week in Tech: Are Lawmakers Too Eager to Weaken Big Tech’s Legal Shield?
@@ -167189,6 +167809,7 @@ Research Update
 Compassion For Donald
 I started meditating... now what?
 Talk: Python, Government, and Contracts
+Multiple Vulnerabilities found in Dino
 Overcast summer update
 A second life for the Sandbox
 Doubling the Sorting Speed of Postgres Network Types with Abbreviated Keys
@@ -167871,6 +168492,7 @@ Xfce apps – In the land of Tux, where the shadows lie
 AI for Theorem-Proving 2019
 Reading the news…
 Circumventing Chrome's hardening of typer bugs
+A pathway to a well regulated instant messaging market
 Overcast 5.1 with Instant Search
 The 2018 iPad Pro
 Who will control the software that powers the Internet?
@@ -169445,6 +170067,9 @@ Running osquery on CoreOS
 HTTP Requests Proxying
 Modifying EC2 security groups via AWS Lambda functions
 beVX challenge on the operation table
+Here lies the Sliding Pane Layout. RIP
+The rocky road to OMEMO by default
+Converse.js leaking information about which rooms are bookmarked
 Email delivery is stuck on IPv4
 PostgreSQL Domain Integrity In Depth
 Congratulations to Nobel Laureate Richard Thaler!
@@ -171080,6 +171705,8 @@ Kubernetes resource graphing with Heapster, InfluxDB and Grafana
 Running an application using Kubernetes on AWS
 Creating EC2 and Route 53 resources with Terraform
 Meanwhile ...
+An Objection to ‘The ecosystem is moving’
+Blind Trust Before Verification
 Eleven Reasons To Be Excited About The Future of Technology
 “Steve Jobs supposedly said, returning to Apple, that his plan was to stay alive and grab onto the…
 Hiring (self-driving algos, HLL compiler research)
@@ -171461,6 +172088,7 @@ Blog moved to codeahoy.com
 Tempesta FW: First Installation
 Docker orchestration with Rancher
 A Transpiled JS Limbo
+The State of Mobile XMPP in 2016
 The Future of Technology Is In Your Ear
 Recursive Midpoint Displacement
 Ludum Dare 34 Postmortem
@@ -171882,6 +172510,7 @@ How to serve Images on Web
 new JS book finally published
 Playing with Sockets and Geolocation
 The missing analysis in JavaScript "Real" Mixins
+Gajim Roster Push Attack / Message Interception
 What the Hell are Permutation Patterns?
 Introducing “Question of the Day,” a New Dubner Podcast
 Quite Possibly the Most Flattering E-Mail Ever
@@ -173148,7 +173777,6 @@ A neat trick for partially closed type families
 lens you an applicative for great haskell?
 I got lenses in my Functors
 Distributed systems theory for the distributed systems engineer
-General Questions
 Introducing packagecloud.io
 Interface Moss
 Hollow Icons
@@ -173548,6 +174176,7 @@ Time To Leave Your Keys At Home Or Better Yet Trash Them Forever
 Usability Review: Dropbox API
 APIdays speaker highlight: Leah Culver
 APIdays speaker highlight: Jordi Romero
+Conversations: A Mission Statement
 Paperclip vulnerability leading to XSS or RCE.
 Turbo API: How to use CORS without Preflights
 Two "WontFix" vulnerabilities in Facebook Connect
@@ -173579,6 +174208,7 @@ Manual Delivery
 Increasing Brand-Value of Mailinator.com with a Web Comic
 jQuery Mobile 1.4.2 Released
 Testing exit values in Bash
+General Questions
 Pipelining
 Security
 Introduction to the Mill CPU Programming Model
