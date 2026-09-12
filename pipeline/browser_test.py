@@ -59,6 +59,23 @@ def launch(p):
     return p.chromium.launch(executable_path=exe, args=["--no-sandbox"])
 
 
+def expected_source_counts():
+    """Posts per source, read straight out of posts.bin.
+
+    Ground truth the UI did not produce, so an assertion against it cannot be
+    satisfied by a filter that does nothing."""
+    import struct
+    meta = json.loads((ROOT / "data/meta.json").read_text())
+    n = meta["n_posts"]
+    buf = (ROOT / "data/posts.bin").read_bytes()
+    ks = struct.unpack_from(f"<{n}B", buf, n * 10)
+    out = {s["name"]: 0 for s in meta["sources"]}
+    names = [s["name"] for s in meta["sources"]]
+    for k in ks:
+        out[names[k >> 3]] += 1
+    return out
+
+
 def check(ok, label, detail=""):
     print(("  ok   " if ok else "  FAIL ") + label + (f"  [{detail}]" if detail else ""))
     if not ok:
@@ -442,12 +459,22 @@ def main():
         check("Institution" not in src_names,
               "empty source classes get no chip", ", ".join(src_names))
 
+        # Assert the exact post count for each source, computed from the index
+        # itself. The first version of this block checked "no Newsroom tag is
+        # visible" and "the count is > 0", and BOTH pass with source filtering
+        # entirely disabled: postRow only renders a source tag for sources
+        # hidden by default, and a no-op filter falls through to hideNews and
+        # returns the whole 144k corpus, which is still greater than zero. It
+        # printed the opposite of what it claimed and passed.
+        want = expected_source_counts()
+        total_shown = lambda: page.evaluate(
+            "() => +document.querySelector('.status .hl').textContent.replace(/,/g,'')")
+
         page.click('#sources .chip:has-text("Personal")')
         page.wait_for_timeout(600)
-        srcs = page.evaluate(
-            "() => [...document.querySelectorAll('#results .r-tag')].map(e => e.textContent)")
-        check(not ({"Newsroom", "Vendor"} & set(srcs)),
-              "Personal-only excludes hidden sources", ", ".join(sorted(set(srcs)))[:60])
+        got = total_shown()
+        check(got == want["Personal"], "Personal-only returns exactly the Personal posts",
+              f"{got:,} shown vs {want['Personal']:,} in the index")
         check("src=" in page.url, "source filter is in the URL", page.url[-40:])
 
         # An explicit source must beat the newsroom toggle, or asking for
@@ -455,10 +482,10 @@ def main():
         page.click('#sources .chip:has-text("Personal")')   # off
         page.click('#sources .chip:has-text("Newsroom")')
         page.wait_for_timeout(600)
-        n_news = page.evaluate(
-            "() => +document.querySelector('.status .hl').textContent.replace(/,/g,'')")
-        check(n_news > 0, "Newsroom-only works despite the hide toggle",
-              f"{n_news:,} posts")
+        got = total_shown()
+        check(got == want["Newsroom"],
+              "Newsroom-only returns exactly the Newsroom posts, despite the hide toggle",
+              f"{got:,} shown vs {want['Newsroom']:,} in the index")
         check(page.evaluate("() => document.querySelector('#hide-news').disabled"),
               "the newsroom toggle is disabled while a source is chosen")
         page.click("#reset")
@@ -595,8 +622,17 @@ def main():
         page.wait_for_timeout(150)
         mid = page.evaluate(
             "() => +document.querySelector('.status .hl').textContent.replace(/,/g,'')")
-        check(not page.locator("#load-note").is_hidden() or mid >= 0,
-              "load progress is disclosed while the corpus streams")
+        # `or mid >= 0` made this unconditionally true -- .hl only ever holds a
+        # non-negative count -- so the real assertion was never evaluated. At
+        # 3 Mbps the corpus takes many seconds, so the note MUST have appeared.
+        try:
+            page.wait_for_selector("#load-note:not([hidden])", timeout=20000)
+            seen_note = True
+        except Exception:
+            seen_note = False
+        check(seen_note, "load progress is disclosed while the corpus streams",
+              "#load-note appeared" if seen_note
+              else "#load-note never became visible under 3 Mbps throttling")
         cdp.send("Network.emulateNetworkConditions", {
             "offline": False, "latency": 0,
             "downloadThroughput": -1, "uploadThroughput": -1})
@@ -684,6 +720,67 @@ def main():
         n_same = sum(1 for c in cf if c.endswith("cloudflare.com"))
         check(n_same <= 1, "at most one sibling property is recommended",
               f"{n_same} of {len(cf)}: {', '.join(cf)}")
+
+        # --- streaming must not steal the keyboard cursor or flood the live region ---
+        #
+        # Search goes live on the first chunk, so the reader is arrowing through
+        # results while the corpus is still arriving. Each streaming tick
+        # re-runs the query, and render() empties the list and calls
+        # selectRow(-1) -- which moves real DOM focus. Three times a second.
+        page.goto("about:blank")
+        cdp2 = page.context.new_cdp_session(page)
+        cdp2.send("Network.emulateNetworkConditions", {
+            "offline": False, "latency": 40,
+            "downloadThroughput": 3_000_000 / 8, "uploadThroughput": 3_000_000 / 8})
+        page.goto(base, wait_until="commit")
+        page.wait_for_function("() => !document.querySelector('#q').disabled", timeout=120000)
+        page.wait_for_selector("#results > li", timeout=60000)
+        live_while_loading = page.evaluate(
+            "() => document.querySelector('#status').getAttribute('aria-live')")
+        check(live_while_loading == "off",
+              "the live region is silenced while the corpus streams",
+              f"aria-live={live_while_loading!r}")
+        page.keyboard.press("ArrowDown")
+        page.keyboard.press("ArrowDown")
+        before = page.evaluate(
+            "() => [...document.querySelectorAll('#results > li')].findIndex(l => l.classList.contains('sel'))")
+        page.wait_for_timeout(1800)      # several streaming ticks
+        after = page.evaluate("""() => ({
+            sel: [...document.querySelectorAll('#results > li')].findIndex(l => l.classList.contains('sel')),
+            focusInResults: document.querySelector('#results').contains(document.activeElement),
+        })""")
+        check(before >= 0 and after["sel"] >= 0,
+              "the keyboard cursor survives streaming re-runs",
+              f"row {before} -> row {after['sel']}")
+        check(after["focusInResults"],
+              "focus stays inside the results while streaming",
+              f"activeElement in #results: {after['focusInResults']}")
+        cdp2.send("Network.emulateNetworkConditions", {
+            "offline": False, "latency": 0,
+            "downloadThroughput": -1, "uploadThroughput": -1})
+        page.wait_for_function("() => document.querySelector('#load-note').hidden", timeout=120000)
+        page.wait_for_timeout(700)
+        live_after = page.evaluate(
+            "() => document.querySelector('#status').getAttribute('aria-live')")
+        check(live_after == "polite", "the live region goes polite once loaded",
+              f"aria-live={live_after!r}")
+
+        # --- segmented controls expose their selection ---
+        page.goto(base + "?sort=points&since=3", wait_until="load")
+        page.wait_for_function("() => !document.querySelector('#q').disabled", timeout=60000)
+        page.wait_for_selector("#results > li", timeout=20000)
+        page.wait_for_timeout(300)
+        seg = page.evaluate("""() => {
+            const grab = (sel) => [...document.querySelectorAll(sel)].map(b => [
+                b.textContent.trim(), b.getAttribute('aria-pressed'), b.classList.contains('active')]);
+            return {sort: grab('[data-sort]'), since: grab('[data-since]')};
+        }""")
+        for name, rows in seg.items():
+            marked = [r for r in rows if r[1] == "true"]
+            agrees = all((r[1] == "true") == r[2] for r in rows)
+            check(len(marked) == 1 and agrees,
+                  f"the {name} control announces exactly one selection",
+                  f"{[r[0] for r in marked]} pressed, class/aria agree: {agrees}")
 
         # --- mobile ---
         page.set_viewport_size({"width": 390, "height": 844})

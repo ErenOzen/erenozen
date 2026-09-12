@@ -57,16 +57,16 @@ worker.onmessage = (e) => {
     state.loaded = m.loaded;
     state.nPosts = m.total;
     showLoadNote();
-    if (state.ready) run(true);
+    if (state.ready) rerunKeepingCursor();
   } else if (m.type === "titles-complete") {
     state.loaded = m.loaded;
     state.nPosts = m.total;
     state.loadingCorpus = false;
     showLoadNote();
-    if (state.ready) run(true);
+    if (state.ready) rerunKeepingCursor();
   } else if (m.type === "paths-ready" || m.type === "hn-ready") {
     // Re-run so rows pick up their exact article URL, then their HN thread.
-    if (state.ready) run(true);
+    if (state.ready) rerunKeepingCursor();
   } else if (m.type === "similar") {
     if (m.blog === state.blog) renderSimilar(m.rows);
   } else if (m.type === "export") {
@@ -99,6 +99,7 @@ function onIndexReady() {
   $("#stat-built").textContent =
     "index built " + new Date(m.built * 1000).toISOString().slice(0, 10);
 
+  syncSegs();   // stamp the initial aria-pressed values
   buildChips($("#topics"), m.topics, state.topics, "topic");
   // Collapsed on phones, where the taxonomy alone pushed every result below
   // the fold. Any active topic filter forces it open so the state stays visible.
@@ -202,6 +203,19 @@ function filters() {
   };
 }
 
+/* A re-run the reader did not ask for.
+ *
+ * render() empties the list and calls selectRow(-1), which moves real DOM
+ * focus. Streaming fires one of these every 400ms for the whole download, and
+ * the entire point of streaming is that the reader is already reading: arrowing
+ * into the results had their focused row deleted from under them, focus dropped
+ * to <body>, and the cursor reset, three times a second. render() already knows
+ * how to restore a row; nothing was telling it to. */
+function rerunKeepingCursor() {
+  if (sel >= 0) pendingFocusRow = sel;
+  run(true);
+}
+
 let timer = null;
 function run(immediate) {
   clearTimeout(timer);
@@ -299,6 +313,12 @@ function render(m) {
   };
   // Timing lives OUTSIDE the live region: it changes on every keystroke and
   // would queue an announcement per character that differs only in the ms.
+  // Silence the live region while the corpus streams. The count legitimately
+  // changes on every one of those 400ms ticks, and announcing each one buries
+  // the answer the reader asked for -- the same reason the load note was kept
+  // out of this region in the first place. The settled count is announced once
+  // when streaming ends and the region goes polite again.
+  status.setAttribute("aria-live", state.loadingCorpus ? "off" : "polite");
   status.innerHTML =
     `<span class="hl">${m.total.toLocaleString()}</span> ${mode === "blogs" ? "blogs" : "posts"}` +
     ` · ${ORDER[state.sort]}`;
@@ -678,8 +698,12 @@ function segGroup(attr, apply) {
   const btns = [...document.querySelectorAll(`[data-${attr}]`)];
   btns.forEach((b) => {
     b.addEventListener("click", () => {
-      btns.forEach((x) => x.classList.remove("active"));
+      btns.forEach((x) => {
+        x.classList.remove("active");
+        x.setAttribute("aria-pressed", "false");
+      });
       b.classList.add("active");
+      b.setAttribute("aria-pressed", "true");
       apply(b.dataset[attr]);
       state.limit = PAGE;
       run(true);
@@ -847,11 +871,18 @@ function syncNewsToggle() {
  * restore, which otherwise leave the buttons showing the previous selection
  * while the results follow the new one. */
 function syncSegs() {
+  // aria-pressed, not just a class. Sort and Since are the only two controls in
+  // the filter panel that conveyed their selection to sighted users alone --
+  // the chips beside them have carried aria-pressed all along.
+  const mark = (b, on) => {
+    b.classList.toggle("active", on);
+    b.setAttribute("aria-pressed", String(on));
+  };
   document.querySelectorAll("[data-sort]").forEach((b) =>
-    b.classList.toggle("active", b.dataset.sort === state.sort),
+    mark(b, b.dataset.sort === state.sort),
   );
   document.querySelectorAll("[data-since]").forEach((b) =>
-    b.classList.toggle("active", +b.dataset.since === state.since),
+    mark(b, +b.dataset.since === state.since),
   );
 }
 
