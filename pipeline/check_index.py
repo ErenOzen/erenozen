@@ -63,6 +63,8 @@ def main():
     check(n > 10_000, f"post count plausible ({n:,} > 10,000)")
     check(nb > 500, f"blog count plausible ({nb:,} > 500)")
     check(len(blogs) == nb, f"blogs.json rows == meta.n_blogs ({len(blogs)} vs {nb})")
+    dotted = [b["n"] for b in blogs if b["n"].split("/")[0].endswith(".")]
+    check(not dotted, "no blog host ends in a dot" + (f" (e.g. {dotted[0]})" if dotted else ""))
 
     with open(os.path.join(d, "titles.txt"), encoding="utf-8") as f:
         titles = f.read().split("\n")
@@ -71,6 +73,41 @@ def main():
     check(len(titles) == n, f"titles.txt lines == n_posts ({len(titles)} vs {n})")
     check(len(paths) == n, f"paths.txt lines == n_posts ({len(paths)} vs {n})")
     check(all(t.strip() for t in titles), "no empty titles")
+
+    # Every path is rooted ("/x", relative to the blog home) or a full URL (a
+    # post on another host). Anything else is concatenated straight onto the
+    # home -- 99 rows shipped as https://mchav.github.iomchav.github.io/...
+    # ...and a full URL must be on a public host a reader can load. Checking label
+    # syntax was not enough: "localhost", "tinyclouds" and "ai.html" are all
+    # well-formed, and the first version of this check passed 69 such URLs --
+    # links to the reader's own machine among them.
+    import ipaddress
+    from urllib.parse import urlparse as _up
+    from publicsuffix2 import get_sld
+    _label = re.compile(r"^[a-z0-9_](?:[a-z0-9_-]{0,61}[a-z0-9_])?$")
+    _reserved = (".local", ".localhost", ".test", ".example", ".invalid", ".internal",
+                 ".lan", ".home.arpa")
+
+    def _loadable(u):
+        try:
+            h = (_up(u).hostname or "").rstrip(".")
+            h = h.encode("idna").decode("ascii").lower()
+        except (UnicodeError, ValueError):
+            return False
+        if not h or h == "localhost" or h.endswith(_reserved):
+            return False
+        if not all(_label.match(x) for x in h.split(".")):
+            return False
+        try:
+            return ipaddress.ip_address(h).is_global
+        except ValueError:
+            return get_sld(h, strict=True) is not None
+    unloadable = [x for x in paths if x.startswith(("http://", "https://")) and not _loadable(x)]
+    check(not unloadable, "every full URL is on a public host a reader can load" +
+          (f" ({len(unloadable)} are not, e.g. {unloadable[0][:50]!r})" if unloadable else ""))
+    neither = [x for x in paths if not x.startswith(("/", "http://", "https://"))]
+    check(not neither, "every path is rooted or a full URL" +
+          (f" ({len(neither)} are neither, e.g. {neither[0][:40]!r})" if neither else ""))
 
     # Titles render through textContent, so an undecoded entity is shown to the
     # reader verbatim: "Embellishing the donut&#58;", "A story about &lt;input&gt;".
@@ -97,6 +134,22 @@ def main():
     hn = struct.unpack_from(f"<{n}I", hbuf, 0)
 
     check(max(blog_ids) < nb, f"all blogId in range (max {max(blog_ids)} < {nb})")
+
+    # Path-platform blogs keep the author in the home (medium.com/@bellmar). A
+    # stored path that starts with that segment renders it twice -- 1,525 posts
+    # linked to medium.com/@bellmar/@bellmar/... and 42.9% of them were badged
+    # dead because the crawler probed the same wrong URL.
+    from urllib.parse import urlparse
+    hp = [urlparse(b["h"]).path.rstrip("/") for b in blogs]
+    hh = [urlparse(b["h"]).netloc.lower().removeprefix("www.") for b in blogs]
+    dbl = sum(1 for i in range(n)
+              if hp[blog_ids[i]] and paths[i].startswith(hp[blog_ids[i]] + "/"))
+    check(dbl == 0, f"no path repeats its blog's home path ({dbl} do)")
+    # A full URL on the blog's own host means post_path failed to relativize it.
+    own = sum(1 for i in range(n) if paths[i].startswith(("http://", "https://"))
+              and urlparse(paths[i]).netloc.lower().removeprefix("www.") == hh[blog_ids[i]]
+              and not hp[blog_ids[i]])
+    check(own == 0, f"full URLs only for posts on another host ({own} are on their own)")
     # Feed-sourced posts carry no HN score, so the bar applies to HN posts only.
     hn_pts = [p for p, t in zip(pts, tm) if not (t & (1 << 13))]
     check(min(hn_pts) >= 25,

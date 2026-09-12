@@ -87,7 +87,10 @@ def blog_key(url):
         return None
     if p.scheme not in ("http", "https") or not p.netloc:
         return None
-    host = p.netloc.lower().split(":")[0].removeprefix("www.")
+    # rstrip("."): a fully-qualified name keeps its root dot, and without this
+    # homepage.ntlworld.com. was indexed as a second blog beside
+    # homepage.ntlworld.com.
+    host = p.netloc.lower().split(":")[0].rstrip(".").removeprefix("www.")
     if not host or "." not in host:
         return None
 
@@ -134,7 +137,7 @@ def denied(key):
 def main():
     src, out = sys.argv[1], sys.argv[2]
     MIN_STORIES = int(sys.argv[3]) if len(sys.argv) > 3 else 3
-    blogs = defaultdict(lambda: {"stories": [], "home": None})
+    blogs = defaultdict(lambda: {"stories": [], "home": None, "www": 0})
     total = skipped = 0
 
     with open(src) as f:
@@ -158,6 +161,8 @@ def main():
             b = blogs[key]
             b["home"] = home
             b["stories"].append(s)
+            if urlparse(s["url"]).netloc.lower().startswith("www."):
+                b["www"] += 1
 
     rows = []
     for key, b in blogs.items():
@@ -169,7 +174,14 @@ def main():
         top = sorted(st, key=lambda s: -(s["points"] or 0))[:5]
         rows.append({
             "key": key,
-            "home": b["home"],
+            # The home keeps the host form the blog's own URLs use. blog_key
+            # drops "www." so that a blog has one identity, but building every
+            # link from the bare host broke 41 blogs whose bare domain has no
+            # address at all -- stephendiehl.com and vim.org among them -- and
+            # the crawler duly reported 303 of their posts dead. The key stays
+            # www-free; only the URL handed to readers changes.
+            "home": (f"https://www.{key}" if "/" not in key and b["www"] * 2 > len(st)
+                     else b["home"]),
             "n_stories": len(st),
             "total_points": sum(pts),
             "median_points": int(statistics.median(pts)),

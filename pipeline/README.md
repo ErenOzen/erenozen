@@ -35,8 +35,22 @@ by an LLM, and the UI hides `newsroom`/`vendor`/`institution` behind one toggle.
 never crawl candidates that were never going to be indexed.
 
 `check_links.py` is stage 0 of nothing — it runs by hand, HEAD-checks every
-indexed URL (154k, ~10h) and produces `dead_urls.txt`, which `build_index.py`
-takes as an optional last argument. 12% of the corpus no longer resolves, decaying
+indexed URL (154k, ~10h) and writes raw results to `work/linkcheck.jsonl`;
+`distill_dead_urls.py` turns those into `dead_urls.txt`, which `build_index.py`
+takes as an optional last argument.
+
+The distiller only trusts evidence about the article. A 404/410/451 is dead. A
+connection failure is evidence about the *host*, seen from one machine -- the one
+that just sent it hundreds of requests: rachelbythebay.com banned the crawler and
+refused all 213. So a refusal becomes a dead link only when the host is gone for
+everyone: public DNS -- two DNS-over-HTTPS providers that must agree, never this
+machine's resolver, which is a home router that called blog.openai.com
+nonexistent -- says the name does not exist or has no address (certain); or it
+refuses here AND it served
+no page during the crawl, published nothing in the last year, does not answer its
+home page now, and the Wayback Machine -- a vantage point the crawl cannot poison
+-- has not reached it within the year. Evidence that cannot be gathered flags
+nothing. Every host's verdict and reason is written to `work/dead_hosts.json`. 12% of the corpus no longer resolves, decaying
 from 32% of 2009 posts to 4% of 2025. Far too slow for CI, so the distilled list
 is committed and replayed; link rot only goes one way, so replaying is accurate
 between crawls.
@@ -73,13 +87,23 @@ the UI happily renders one post's title beside another's URL.
 | `blogs.json` | per-blog name, home, feed, topics, quality | blocking |
 | `posts.bin` | 12 B/post: blogId u32, points u16, day u16, topicMask u16, kindSource u8, score u8 | blocking |
 | `titles.txt` | one title per line | streamed; search goes live on chunk 1 |
-| `paths.txt` | one URL path per line | deferred |
+| `paths.txt` | per post: a path relative to the blog home, or a full URL for a post on another host | deferred |
 | `hn.bin` | 4 B/post: HN item id | deferred, after `paths.txt` |
 
 Every column is ordered by **descending score**, which is what makes streaming
 titles useful: the first bytes off the wire are the best posts, not arbitrary
 ones. `check_index.py` holds eight (HN id → title) pairs verified against the live
 Algolia API, because a permutation bug here is otherwise invisible.
+
+A path is joined to its blog's home by `post_url()` in `build_index.py` -- the
+renderer and `check_links.py` apply the same rule, and `dead_urls.txt` is keyed
+on its output. Two things make that non-obvious. Path-platform blogs keep the
+author in the home (`medium.com/@bellmar`), so the stored path is relative to
+it, not to the host. And 11.9% of feed entries link to *another* host -- a blog
+that moved domains, a link post, a sibling subdomain -- which cannot be written
+as home + path, so those rows store the full URL. Feed links are resolved by
+`resolve_link()` against the feed's own URL first, because feeds emit relative,
+protocol-relative and scheme-less links and feedparser is given no base.
 
 `topicMask` also carries flags: bit 13 feed-sourced, bit 14 kind-came-from-a-rule,
 bit 15 link-is-dead.
@@ -139,6 +163,8 @@ valid because dead links do not come back):
 
 ```bash
 .venv/bin/python pipeline/check_links.py blogs/data work/linkcheck.jsonl 96
+.venv/bin/python pipeline/distill_dead_urls.py work/linkcheck.jsonl blogs/data \
+    pipeline/dead_urls.txt work/dead_hosts.json
 ```
 
 It is resumable and keyed by URL, so it can be killed and restarted freely.

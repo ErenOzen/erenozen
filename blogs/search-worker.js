@@ -19,6 +19,7 @@ let titles = [];      // string[] -- the haystack
 let paths = [];       // string[] -- url path per post, parallel to titles
 let blogId, points, day, topicMask, kindSource, score; // typed arrays
 let hnId = null;      // deferred: hn.bin arrives after paths.txt
+let deadCount = 0;    // posts whose link is flagged dead, for the UI tooltip
 let blogs = [];       // per-blog metadata
 let ready = false;
 
@@ -69,6 +70,8 @@ async function load(base) {
   topicMask = new Uint16Array(buf, o, n); o += n * 2;
   kindSource = new Uint8Array(buf, o, n); o += n;
   score = new Uint8Array(buf, o, n);
+  deadCount = 0;
+  for (let i = 0; i < n; i++) if ((topicMask[i] >> 15) & 1) deadCount++;
 
   // Stream the titles instead of awaiting all 3.2MB of them.
   //
@@ -110,7 +113,7 @@ async function streamTitles(res, meta, n) {
   const announce = () => {
     if (ready) return;
     ready = true;
-    postMessage({ type: "ready", meta, nTitles: titles.length, blogs });
+    postMessage({ type: "ready", meta, nTitles: titles.length, blogs, nDead: deadCount });
   };
   const grew = () => {
     // Any cached match set is now missing the titles that just arrived, and
@@ -473,10 +476,40 @@ const popcount = (x) => {
   return c;
 };
 
-/* Same organisation: blog.cloudflare.com, cloudflare.com and
- * radar.cloudflare.com are one publisher, and filling the list with a company's
- * own properties is not a recommendation. */
-const org = (name) => name.split("/")[0].split(".").slice(-2).join(".");
+/* Same publisher: blog.cloudflare.com, cloudflare.com and radar.cloudflare.com
+ * are one company, and filling the list with its own properties is not a
+ * recommendation. The identity is computed at build time against the Public
+ * Suffix List and shipped as blogs[i].g for publishers with more than one blog;
+ * a blog without g is its own publisher.
+ *
+ * It used to be the last two labels of the hostname, which made github.io
+ * (441 blogs), blogspot.com (213), wordpress.com (123) and co.uk (106) each a
+ * single "organisation" -- so gchq.github.io lost usablica.github.io,
+ * facebookincubator.github.io and google.github.io as siblings of one another. */
+const orgOf = (i) => (blogs[i].g !== undefined ? blogs[i].g : -1 - i);
+
+/* Post indices grouped by blog (CSR layout), built once on first use. */
+let postsByBlog = null;
+function postsOf(j) {
+  if (!postsByBlog) {
+    const n = blogId.length, nb = blogs.length;
+    const start = new Uint32Array(nb + 1);
+    for (let i = 0; i < n; i++) start[blogId[i] + 1]++;
+    for (let b = 0; b < nb; b++) start[b + 1] += start[b];
+    const fill = start.slice(0, nb);
+    const flat = new Uint32Array(n);
+    for (let i = 0; i < n; i++) flat[fill[blogId[i]]++] = i;
+    postsByBlog = { start, flat };
+  }
+  return postsByBlog.flat.subarray(postsByBlog.start[j], postsByBlog.start[j + 1]);
+}
+
+/* Would pinning blog j show at least one post under these filters? */
+function reachable(j, f) {
+  const g = { ...f, blogId: j };
+  for (const i of postsOf(j)) if (passes(i, g)) return true;
+  return false;
+}
 
 function similarBlogs(i, k, f) {
   buildSimilarity();
@@ -507,7 +540,7 @@ function similarBlogs(i, k, f) {
       shared.set(j, (shared.get(j) || 0) + 1);
     }
   }
-  const bi = blogs[i], myOrg = org(bi.n);
+  const bi = blogs[i], myOrg = orgOf(i);
   const out = [];
   for (const [j, raw] of score) {
     if ((shared.get(j) || 0) < 2) continue;
@@ -516,12 +549,18 @@ function similarBlogs(i, k, f) {
     const inter = popcount(bi.tm & bj.tm), union = popcount(bi.tm | bj.tm) || 1;
     let sc = raw * (0.55 + (0.45 * inter) / union);
     if (bi.s === bj.s) sc *= 1.12;
-    out.push({ j, sc, same: org(bj.n) === myOrg });
+    out.push({ j, sc, same: orgOf(j) === myOrg });
   }
   out.sort((a, b) => b.sc - a.sc);
   const kept = [];
   let sameOrg = 0;
   for (const r of out) {
+    // A chip must lead somewhere. A pinned blog ignores the source cuts, but
+    // topic, date, kind and hide-dead still apply to it, and pinning keeps them.
+    // With Security selected, four of blog.cloudflare.com's five chips opened a
+    // pinned page with zero posts; across every blog and topic, 36% did. Checked
+    // lazily, so only the candidates actually considered are scanned.
+    if (f && !reachable(r.j, f)) continue;
     if (r.same && ++sameOrg > 1) continue;   // one sibling property at most
     kept.push({ i: r.j, ...blogs[r.j] });
     if (kept.length === k) break;
@@ -570,6 +609,30 @@ function searchBlogs(q, f, limit, sortMode) {
   };
 }
 
+/* Bound the query before uFuzzy sees it.
+ *
+ * uFuzzy compiles the needle into one regex with an unbounded gap between
+ * terms. Single-character terms match nearly every title, and past roughly 30
+ * of them the match backtracks catastrophically: "a a a ... a" at 30 terms took
+ * 105ms and at 34 did not finish in 120 seconds. The worker is single-threaded,
+ * so it never answered again -- no error, no result, every later keystroke
+ * queued behind it -- and pasting a paragraph into the box, or opening a long
+ * ?q= link, was enough. Twelve terms is already far more specific than any real
+ * search, and single-character terms add almost nothing past the first few.
+ */
+const MAX_TERMS = 12, MAX_SHORT_TERMS = 4, MAX_QUERY_CHARS = 160;
+function capQuery(q) {
+  const out = [];
+  let short = 0;
+  for (const t of String(q || "").slice(0, MAX_QUERY_CHARS).split(/\s+/)) {
+    if (!t) continue;
+    if (t.length === 1 && ++short > MAX_SHORT_TERMS) continue;
+    out.push(t);
+    if (out.length === MAX_TERMS) break;
+  }
+  return out.join(" ");
+}
+
 onmessage = (e) => {
   const m = e.data;
   if (m.type === "load") {
@@ -591,7 +654,7 @@ onmessage = (e) => {
     // would silently be a fraction of what the filters describe. Ranked by
     // quality and capped, because no one imports 3,000 feeds into a reader.
     const f = { ...m.filters, needFeed: true };
-    const r = searchBlogs(m.q, f, m.cap, "quality");
+    const r = searchBlogs(capQuery(m.q), f, m.cap, "quality");
     postMessage({
       type: "export",
       total: r.total,
@@ -603,8 +666,8 @@ onmessage = (e) => {
     const t0 = performance.now();
     const r =
       m.mode === "blogs"
-        ? searchBlogs(m.q, m.filters, m.limit, m.sort)
-        : searchPosts(m.q, m.filters, m.limit, m.sort);
+        ? searchBlogs(capQuery(m.q), m.filters, m.limit, m.sort)
+        : searchPosts(capQuery(m.q), m.filters, m.limit, m.sort);
     postMessage({
       type: "results",
       seq: m.seq,

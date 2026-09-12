@@ -46,6 +46,7 @@ jobs:
           restore-keys: hn-corpus-
 
       - name: Pull Hacker News stories
+        id: pull
         env:
           THRESHOLD: "25"
           OUT: work/hn_stories.jsonl
@@ -56,10 +57,16 @@ jobs:
           mkdir -p work
           python pipeline/pull_hn.py
 
-      # Saved even on failure, for the same reason as the feed cache: a run that
-      # fails downstream must not throw away 510 requests' worth of pull.
+      # Saved when the PULL succeeded, even if a later step fails -- a downstream
+      # failure must not throw away 510 requests' worth of pull. But never when
+      # the pull itself failed: pull_hn.py walks backwards from now and appends
+      # as it goes, so a pull that dies midway leaves only the NEWEST stories.
+      # restore-keys picks the most recently created cache, so that truncated
+      # file would win over an older complete one -- and STOP_AFTER_SEEN then
+      # stops the next run long before it reaches the gap. The hole would be
+      # permanent.
       - name: Save HN corpus cache
-        if: always()
+        if: always() && steps.pull.outcome == 'success'
         uses: actions/cache/save@v4
         with:
           path: work/hn_stories.jsonl

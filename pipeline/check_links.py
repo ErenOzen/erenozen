@@ -37,7 +37,12 @@ def load_index(d):
     out = []
     for i in range(n):
         b = blogs[blog_ids[i]]
-        out.append((i, b["h"].rstrip("/") + paths[i], day[i]))
+        # A path is relative to the blog home, or a full URL for a post on
+        # another host -- the same rule as build_index.post_url, which is what
+        # dead_urls.txt is joined against.
+        p = paths[i]
+        url = p if p.startswith(("http://", "https://")) else b["h"].rstrip("/") + p
+        out.append((i, url, day[i]))
     return out
 
 

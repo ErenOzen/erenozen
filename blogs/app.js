@@ -44,6 +44,7 @@ worker.onmessage = (e) => {
   if (m.type === "ready") {
     state.meta = m.meta;
     state.blogs = m.blogs;
+    state.nDead = m.nDead || 0;
     state.ready = true;
     onIndexReady();
   } else if (m.type === "results") {
@@ -100,13 +101,15 @@ function onIndexReady() {
     "index built " + new Date(m.built * 1000).toISOString().slice(0, 10);
 
   syncSegs();   // stamp the initial aria-pressed values
-  buildChips($("#topics"), m.topics, state.topics, "topic");
-  // Collapsed on phones, where the taxonomy alone pushed every result below
-  // the fold. Any active topic filter forces it open so the state stays visible.
-  const wrap = $("#topic-wrap");
-  if (window.matchMedia("(max-width: 560px)").matches && !state.topics.size) {
-    wrap.open = false;
+  // Computed from the index. It shipped hardcoded as "12% ... almost all
+  // pre-2015" and drifted: the refreshed index flags 10.2%, and 57% of those
+  // are 2015 or later. Nothing tied the sentence to the data.
+  if (state.nDead) {
+    $("#hide-dead").closest(".toggle").querySelector("span").title =
+      `${state.nDead.toLocaleString()} posts (${((100 * state.nDead) / m.n_posts).toFixed(1)}%) ` +
+      "link to pages that did not respond when last checked. Each still offers an archived copy.";
   }
+  buildChips($("#topics"), m.topics, state.topics, "topic");
   buildChips($("#kinds"), m.kinds, state.kinds, "kind");
   // Only sources that actually have blogs. "Institution" is declared in the
   // taxonomy and classifies nothing, and a chip that can only ever return
@@ -135,6 +138,15 @@ function onIndexReady() {
   const q = $("#q");
   q.disabled = false;
   readURL();
+  // Collapsed on phones, where the taxonomy alone pushed every result below
+  // the fold -- but decided only once readURL has run, and only if no filter
+  // living inside the panel is active. It used to run before readURL populated
+  // anything, so a shared ?t=4&src=1&since=1 link opened with every restored
+  // filter folded out of sight and no visible reason for 912 results.
+  if (window.matchMedia("(max-width: 560px)").matches &&
+      !state.topics.size && !state.kinds.size && !state.sources.size && !state.since) {
+    $("#topic-wrap").open = false;
+  }
   q.value = state.q;
   q.focus();
   run();
@@ -165,6 +177,7 @@ function buildChips(host, items, set, kind, include) {
       set.has(i) ? set.delete(i) : set.add(i);
       b.setAttribute("aria-pressed", String(set.has(i)));
       if (kind === "source") syncNewsToggle();
+      invalidateSimilar();
       state.limit = PAGE;
       run();
     });
@@ -212,7 +225,12 @@ function filters() {
  * to <body>, and the cursor reset, three times a second. render() already knows
  * how to restore a row; nothing was telling it to. */
 function rerunKeepingCursor() {
-  if (sel >= 0) pendingFocusRow = sel;
+  // Only while the reader is still in the results (or focus fell to <body>
+  // because their row was just replaced). After arrowing down and then
+  // clicking back into the search box, sel is still >= 0, and restoring it
+  // yanked focus out of the box mid-word on the next streaming tick.
+  const a = document.activeElement;
+  if (sel >= 0 && (a === document.body || $("#results").contains(a))) pendingFocusRow = sel;
   run(true);
 }
 
@@ -283,9 +301,20 @@ function render(m) {
   const list = $("#results");
   list.textContent = "";
   const status = $("#status");
+  // Silence the live region while the corpus streams. The count legitimately
+  // changes on every one of those 400ms ticks, and announcing each one buries
+  // the answer the reader asked for -- the same reason the load note was kept
+  // out of this region in the first place. The settled count is announced once
+  // streaming ends. Set here, before the empty-answer branch: it used to live
+  // only on the non-empty path, so a no-match typed during streaming left the
+  // region silent for good.
+  status.setAttribute("aria-live", state.loadingCorpus ? "off" : "polite");
+  syncModeControls();
+  const postsMode = mode !== "blogs";
   const anyFilter =
-    state.topics.size || state.kinds.size || state.sources.size || !state.hideNews ||
-    state.since || state.hideDead || state.q.trim() || state.blog >= 0;
+    state.topics.size || (postsMode && state.kinds.size) || state.sources.size ||
+    !state.hideNews || state.since || (postsMode && state.hideDead) ||
+    state.q.trim() || state.blog >= 0;
   $("#reset").hidden = !anyFilter;
 
   if (!m.rows.length) {
@@ -313,12 +342,6 @@ function render(m) {
   };
   // Timing lives OUTSIDE the live region: it changes on every keystroke and
   // would queue an announcement per character that differs only in the ms.
-  // Silence the live region while the corpus streams. The count legitimately
-  // changes on every one of those 400ms ticks, and announcing each one buries
-  // the answer the reader asked for -- the same reason the load note was kept
-  // out of this region in the first place. The settled count is announced once
-  // when streaming ends and the region goes polite again.
-  status.setAttribute("aria-live", state.loadingCorpus ? "off" : "polite");
   status.innerHTML =
     `<span class="hl">${m.total.toLocaleString()}</span> ${mode === "blogs" ? "blogs" : "posts"}` +
     ` · ${ORDER[state.sort]}`;
@@ -346,7 +369,11 @@ function postRow(r) {
   const b = state.blogs[r.b] || { n: "?", h: "#" };
   const li = el("li", "post-li");
   const a = el("a", "row");
-  a.href = r.u ? b.h.replace(/\/$/, "") + r.u : b.h;
+  // A path relative to the blog home, or a full URL when the post lives on
+  // another host. Grafting a foreign post's path onto this blog's home put
+  // 7,475 feed posts on the wrong host. Anchored to http(s) so nothing else in
+  // paths.txt can ever become a live href.
+  a.href = !r.u ? b.h : /^https?:\/\//.test(r.u) ? r.u : b.h.replace(/\/$/, "") + r.u;
   a.target = "_blank";
   a.rel = "noopener noreferrer";
   a.tabIndex = -1;   // reachable by arrow keys; not a tab stop
@@ -551,6 +578,13 @@ function renderPin() {
 let simFor = -1;
 let simRows = null;
 
+/* Recommendations are filtered by everything that decides whether a pinned blog
+ * shows any posts, so a change to any of those makes the cached row stale. */
+function invalidateSimilar() {
+  simFor = -1;
+  simRows = null;
+}
+
 function renderSimilar(rows) {
   simRows = rows;
   const slot = $("#pin .pin-similar");
@@ -581,9 +615,16 @@ function noResults() {
   const q = state.q.trim();
   box.appendChild(el("h3", null, q ? `No matches for “${q}”` : "Nothing matches these filters"));
   const ul = el("ul");
-  if (state.topics.size || state.kinds.size)
+  if (state.topics.size || (state.mode !== "blogs" && state.kinds.size))
     ul.appendChild(el("li", null, "Your topic/kind filters may be too narrow — try clearing them."));
-  if (state.hideNews)
+  // Name the newsroom toggle only while it is live. A Source chip or a pinned
+  // blog makes it inert, and the advice then pointed at a disabled control --
+  // with Source = Vendor it claimed vendor posts were hidden while they were
+  // the only ones shown.
+  // A pinned blog ignores both source cuts, so neither piece of advice applies.
+  if (state.blog < 0 && state.sources.size)
+    ul.appendChild(el("li", null, "A Source filter is active — add another source, or clear it."));
+  else if (state.blog < 0 && state.hideNews)
     ul.appendChild(el("li", null, "Newsrooms and vendor posts are hidden; unticking that widens the corpus a lot."));
   if (q && q.length > 18)
     ul.appendChild(el("li", null, "Long queries match less — try two or three distinctive words."));
@@ -711,20 +752,23 @@ function segGroup(attr, apply) {
   });
 }
 segGroup("sort", (v) => (state.sort = v));
-segGroup("since", (v) => (state.since = +v));
+segGroup("since", (v) => {
+  state.since = +v;
+  invalidateSimilar();
+});
 
 $("#hide-news").addEventListener("change", (e) => {
   state.hideNews = e.target.checked;
   // Recommendations are filtered by this too, and the pin survives the toggle,
   // so the cached row would keep showing results from the old setting.
-  simFor = -1;
-  simRows = null;
+  invalidateSimilar();
   state.limit = PAGE;
   run(true);
 });
 
 $("#hide-dead").addEventListener("change", (e) => {
   state.hideDead = e.target.checked;
+  invalidateSimilar();
   state.limit = PAGE;
   run(true);
 });
@@ -841,6 +885,7 @@ $("#reset").addEventListener("click", () => {
   state.kinds.clear();
   state.sources.clear();
   syncNewsToggle();
+  invalidateSimilar();
   state.blog = -1;
   state.sort = "relevance";
   state.since = 0;
@@ -855,6 +900,23 @@ $("#reset").addEventListener("click", () => {
   state.limit = PAGE;
   run(true);
 });
+
+/* Kind and Hide-dead describe posts; the blog list has neither, so in Blogs
+ * mode they were live, clickable controls that changed nothing -- yet still
+ * lit up "clear filters". Disable them there instead of letting them lie. */
+function syncModeControls() {
+  const blogs = state.mode === "blogs";
+  const note = blogs ? "Applies to posts, not to the blog list" : "";
+  document.querySelectorAll("#kinds .chip").forEach((c) => {
+    c.disabled = blogs;
+    c.title = note;
+  });
+  const box = $("#hide-dead");
+  box.disabled = blogs;
+  const wrap = box.closest(".toggle");
+  wrap.classList.toggle("disabled", blogs);
+  wrap.title = note;
+}
 
 /* The newsroom toggle does nothing while an explicit source is chosen, so say
  * so rather than leaving a live-looking control that has no effect. */
@@ -926,11 +988,17 @@ function readURL() {
       .split(",")
       .filter((x) => x !== "")
       .forEach((x) => {
-        const i = +x;
-        if (!Number.isNaN(i)) {
-          set.add(i);
-          const c = host.querySelector(`[data-idx="${i}"]`);
-          if (c) c.setAttribute("aria-pressed", "true");
+        // Accept only an index that names a chip on the page. The old guard was
+        // !isNaN, and JavaScript masks shift counts to 5 bits: 1 << 999 is
+        // 1 << 7, so ?t=999 silently filtered by Graphics & Games while no chip
+        // showed as pressed -- wrong results with nothing visibly amiss. ?t=1.5
+        // became Languages; ?t=-1 set the sign bit and matched nothing. A chip
+        // lookup rejects out-of-range, negative, fractional and empty classes
+        // (Institution has no chip) in one step.
+        const c = /^\d+$/.test(x) ? host.querySelector(`[data-idx="${+x}"]`) : null;
+        if (c) {
+          set.add(+x);
+          c.setAttribute("aria-pressed", "true");
         }
       });
   };

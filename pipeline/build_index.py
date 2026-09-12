@@ -15,9 +15,11 @@ posts.bin (little-endian, n = meta.n_posts), in this exact order:
     score      Uint8Array(n)    baked rank, 0-255
     hnId       Uint32Array(n)   HN objectID -> news.ycombinator.com/item?id=
 """
-import html, json, math, os, re, struct, sys, time
+import html, ipaddress, json, math, os, re, struct, sys, time
 from collections import defaultdict
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
+
+from publicsuffix2 import get_sld
 
 TOPICS = [
     ("systems", "Systems"), ("languages", "Languages"), ("web", "Web & Frontend"),
@@ -92,6 +94,202 @@ FIREHOSE_WINDOW_DAYS = 7
 HIDDEN_MIN_POINTS = int(os.environ.get("HIDDEN_MIN_POINTS", "150"))
 
 
+_HOSTLIKE = re.compile(r"^(?:[a-z0-9-]+\.)+[a-z]{2,}(?::\d+)?$", re.I)
+_FILEEXT = re.compile(r"\.(?:html?|php|aspx?|xml|md|txt|pdf|jsp|cgi|shtml|json|rss|atom)$", re.I)
+
+
+def _host(netloc):
+    # rstrip("."): "ncase.me." is ncase.me. Without it a fully-qualified name read
+    # as a DIFFERENT host, and the post was stored as a full URL on "ncase.me.".
+    return netloc.lower().rsplit("@", 1)[-1].split(":")[0].rstrip(".").removeprefix("www.")
+
+
+_LABEL = re.compile(r"^[a-z0-9_](?:[a-z0-9_-]{0,61}[a-z0-9_])?$")
+
+
+def _valid_host(name):
+    name = name.rstrip(".")
+    if not name or len(name) > 253:
+        return False
+    try:
+        name = name.encode("idna").decode("ascii").lower()
+    except UnicodeError:
+        return False
+    return all(_LABEL.match(label) for label in name.split("."))
+
+
+_RESERVED = (".local", ".localhost", ".test", ".example", ".invalid", ".internal",
+             ".lan", ".home.arpa")
+# Feed proxies republish a site's feed from their own host, and a root-relative
+# "/2014/4/13/x.html" in such a feed means the SITE. Resolved against the proxy,
+# every jamesgolick.com post landed on feeds.feedburner.com, which 404s.
+_FEED_PROXIES = ("feedburner.com", "feedproxy.google.com", "feedpress.me",
+                 "feedblitz.com", "feedsportal.com")
+
+
+def _public(host):
+    """A host a reader's browser can reach: well-formed, not loopback, private or
+    reserved, and under a suffix the Public Suffix List knows -- or a public IP.
+    Syntax alone is not enough: "localhost", "tinyclouds" and "ai.html" are all
+    perfectly well-formed labels."""
+    h = host.lower().rstrip(".")
+    if not _valid_host(h) or h == "localhost" or h.endswith(_RESERVED):
+        return False
+    try:
+        return ipaddress.ip_address(h).is_global
+    except ValueError:
+        pass
+    try:
+        return get_sld(h.encode("idna").decode("ascii"), strict=True) is not None
+    except UnicodeError:
+        return False
+
+
+def resolve_link(link, base, home=None):
+    """Turn a feed entry's link into the absolute URL its author meant, or "".
+
+    parse_feed hands feedparser raw bytes with no base URL, so relative links
+    arrive unresolved -- and feedparser's own resolution is no better: given a
+    base it turns the scheme-less "example.com/z/" into
+    "example.com/blog/example.com/z/". Feeds emit root-relative ("/y/"),
+    relative ("blog/x.html"), protocol-relative ("//host/x") and scheme-less
+    ("host.tld/x") links; each is resolved the way its author meant it.
+
+    Then the host must be one a reader can load, and feeds get that wrong in
+    recurring ways:
+      * a dev server baked in -- static-site generators build feeds with
+        http://localhost:1313/ or :8000 (notesbylex.com, on every entry);
+      * an unqualified or bogus host -- "https://tinyclouds/humans/", "//ai.html"
+        (a root-relative link with one slash too many), or a scheme pasted twice,
+        "https://https//gjstein.github.io/...";
+      * host and path glued with no slash -- "blog.francoismaillet.comepic-...".
+    In every one the PATH is right and only the host is wrong, so the path goes
+    onto the blog's own host. That is what the old code did for every link, and
+    for these it is what loaded.
+    """
+    link = (link or "").strip()
+    if not link:
+        return ""
+    try:
+        u = urlparse(link)
+    except ValueError:
+        return ""
+    # A scheme pasted twice: "https://https//host/x" parses with host "https".
+    if (u.scheme in ("http", "https") and u.netloc.rstrip(":").lower() in ("http", "https")
+            and u.path.startswith("//")):
+        link = "https:" + u.path
+        u = urlparse(link)
+    if home and base and urlparse(base).netloc.lower().endswith(_FEED_PROXIES):
+        base = home
+    first = link.split("/", 1)[0]
+    if u.scheme in ("http", "https"):
+        out = link
+    elif link.startswith("//"):
+        out = "https:" + link
+    elif _HOSTLIKE.match(first) and not _FILEEXT.search(first):
+        out = "https://" + link              # a host missing its scheme
+    elif u.scheme:
+        return ""                            # javascript:, mailto:, data: -- not an article
+    else:
+        out = urljoin(base, link)
+    try:
+        o = urlparse(out)
+    except ValueError:
+        return ""
+    raw = o.netloc.rsplit("@", 1)[-1].split(":")[0]
+    host = raw.lower().rstrip(".")
+    if _public(host):
+        return out
+    if not home:
+        return ""
+    hu = urlparse(home)
+    own = hu.netloc.lower().rstrip(".")
+    tail = (("?" + o.query) if o.query else "") + (("#" + o.fragment) if o.fragment else "")
+    if own and host.startswith(own) and len(host) > len(own) and host[len(own)] not in ".:":
+        path = "/" + raw[len(own):] + o.path            # glued: the rest of the "host" is path
+    elif link.startswith("//"):
+        path = "/" + link[2:].split("?", 1)[0].split("#", 1)[0].lstrip("/")   # "//ai.html" meant "/ai.html"
+    else:
+        path = o.path or "/"                             # a dev server or bare name: keep the path
+    return f"{hu.scheme or 'https'}://{hu.netloc}{path}{tail}"
+
+
+def dead_key(url):
+    """The form dead-link lists are matched in: host lowercased, "www." dropped,
+    scheme dropped.
+
+    Blog homes used to drop "www.", so the crawl probed https://nytimes.com/x,
+    followed its redirect, and reported on the page at www.nytimes.com/x. Now
+    that a home keeps the host form its own URLs use, matching on the bare host
+    keeps every one of those genuine 404s instead of silently discarding them.
+    """
+    try:
+        u = urlparse(url)
+    except ValueError:
+        return url
+    key = u.netloc.lower().removeprefix("www.") + u.path
+    if u.query:
+        key += "?" + u.query
+    if u.fragment:
+        key += "#" + u.fragment
+    return key
+
+
+def post_url(home, path):
+    """Inverse of post_path: the article URL a stored path stands for."""
+    return path if path.startswith(("http://", "https://")) else home.rstrip("/") + path
+
+
+def post_path(home, url, keep_fragment=False):
+    """What to store for a post: a path relative to the blog home when the post
+    lives under it, otherwise the post's full URL. post_url() reverses it.
+
+    Every consumer builds the article URL from this, and three ways it broke:
+
+    1. Path-platform blogs keep the author in the home (medium.com/@bellmar),
+       while the URL path starts with that same segment. Concatenating gave
+       medium.com/@bellmar/@bellmar/... for 1,525 posts -- and the dead-link
+       crawler probed that doubled URL, so 42.9% of path-platform posts were
+       badged dead against 10.2% corpus-wide. It also defeated feed dedup, so
+       69 articles were indexed twice.
+    2. Feeds emit relative and scheme-less links; urlparse puts the whole string
+       in .path with no leading slash, giving https://mchav.github.iomchav...
+    3. 11.9% of feed entries link to ANOTHER host -- a blog that moved domains
+       (rosenzweig.io's feed points at alyssarosenzweig.ca), a link post, or a
+       sibling subdomain. Grafting their path onto this blog's home put 7,475
+       posts on the wrong host. Old domains often redirect, which hid it, but
+       in a 16-link sample 3 grafted links were hard 404s that the real link
+       resolves. Those are stored as full URLs.
+    """
+    hu = urlparse(home)
+    pu = urlparse(url)
+    path = pu.path or "/"
+    if not pu.scheme and not pu.netloc:
+        # A scheme-less link that leads with this blog's own host: the host is
+        # not part of the path.
+        if path == hu.netloc or path.startswith(hu.netloc + "/"):
+            path = path[len(hu.netloc):] or "/"
+    if pu.query:
+        path += "?" + pu.query
+    if keep_fragment and pu.fragment:
+        path += "#" + pu.fragment
+    path = path.replace("\n", "").replace("\r", "").strip()
+    if not path.startswith("/"):
+        path = "/" + path
+    absolute = f"{pu.scheme or 'https'}://{pu.netloc}{path}".replace("\n", "").replace("\r", "")
+    if pu.netloc and _host(pu.netloc) != _host(hu.netloc):
+        return absolute
+    hp = hu.path.rstrip("/")
+    if hp:
+        if path == hp:
+            path = "/"
+        elif path.startswith(hp + "/"):
+            path = path[len(hp):]
+        elif pu.netloc:
+            return absolute                  # same host, not under this author
+    return path
+
+
 def blog_quality(median, n):
     """Shrunk log-median: a blog with 3 posts at median 400 should not outrank
     one with 200 posts at median 150. k=8 against the corpus prior."""
@@ -123,7 +321,7 @@ def main():
             if not line or line.startswith("#"):
                 continue
             if not line.startswith("{"):
-                dead_urls.add(line)
+                dead_urls.add(dead_key(line))
                 continue
             try:
                 r = json.loads(line)
@@ -132,7 +330,7 @@ def main():
             checked += 1
             st = r.get("status", 0)
             if st in GONE or st < 0:
-                dead_urls.add(r.get("url"))
+                dead_urls.add(dead_key(r.get("url") or ""))
         if checked:
             print(f"link check: {checked:,} urls checked, {len(dead_urls):,} unreachable")
         else:
@@ -229,6 +427,47 @@ def main():
             "q": round(blog_quality(st["median_points"], st["n_stories"]), 3),
         })
 
+    # ---- publisher identity, for the recommendation sibling cap ----
+    #
+    # The client caps "Similar" at one blog per publisher, so that pinning
+    # blog.cloudflare.com does not recommend cloudflare.com and
+    # radar.cloudflare.com. It used to take the last two hostname labels, which
+    # made github.io, blogspot.com, wordpress.com and co.uk each ONE publisher.
+    # The Public Suffix List alone is not enough either: it files x.substack.com
+    # under substack.com and every medium.com/@author under medium.com. The
+    # platform knowledge that decides blog identity decides this too.
+    from aggregate_domains import SUBDOMAIN_PLATFORMS
+    from publicsuffix2 import get_sld
+
+    # Hosts where every subdomain is a different person. Neither list above knows
+    # them all: grouping by registrable domain made 10 unrelated posterous.com
+    # blogs, 6 on typepad.com and 4 on dreamwidth.org each "one publisher".
+    # (Several subdomains of one person's own domain -- simonwillison.net and
+    # til.simonwillison.net -- ARE one publisher, and stay grouped.)
+    PERSONAL_HOSTS = {
+        "posterous.com", "typepad.com", "blogs.com", "dreamwidth.org",
+        "livejournal.com", "itch.io", "bitbucket.io", "gitbooks.io",
+        "free.fr", "ntlworld.com", "blogspot.com", "github.io", "gitlab.io",
+        "wixsite.com", "weebly.com", "over-blog.com", "sourceforge.net",
+    }
+
+    def publisher(key):
+        if "/" in key:
+            return key                       # medium.com/@x: the author is the publisher
+        sld = get_sld(key) or key
+        return key if (sld in SUBDOMAIN_PLATFORMS or sld in PERSONAL_HOSTS) else sld
+
+    groups = defaultdict(list)
+    for i, b in enumerate(blogs_json):
+        groups[publisher(b["n"])].append(i)
+    shared = sorted((g for g in groups.items() if len(g[1]) > 1), key=lambda g: (-len(g[1]), g[0]))
+    for gid, (_, members) in enumerate(shared):
+        for i in members:
+            blogs_json[i]["g"] = gid        # only shared publishers carry g
+    print(f"publishers with more than one blog: {len(shared)} "
+          f"({sum(len(m) for _, m in shared)} blogs); largest: " +
+          ", ".join(f"{pub}={len(m)}" for pub, m in shared[:8]))
+
     # ---- feed URLs ----
     #
     # Carried into blogs.json so the UI can offer a subscribe link and an OPML
@@ -281,9 +520,12 @@ def main():
             p = urlparse(s.get("canonical_url") or s["url"])
         except ValueError:
             continue
-        path = (p.path or "/") + (("?" + p.query) if p.query else "") + \
-               (("#" + p.fragment) if p.fragment else "")
-        path = path.replace("\n", "").replace("\r", "").strip()
+        # cands[key], NOT a loop variable: `st` in scope here is left over from the
+        # blogs loop above and would join every post against the last blog's
+        # home. And canonical_url, as before -- it is what the dead-link crawl
+        # was keyed on.
+        path = post_path(cands[key]["home"], s.get("canonical_url") or s["url"],
+                         keep_fragment=True)
 
         pts = min(s.get("points") or 0, 65535)
 
@@ -322,7 +564,7 @@ def main():
         col_day.append(day)
         dead_flag = FLAG_DEAD if (
             dead_urls and
-            (cands[key]["home"].rstrip("/") + path) in dead_urls) else 0
+            dead_key(post_url(cands[key]["home"], path)) in dead_urls) else 0
         col_tm.append((blog_topic_mask[key] & TOPIC_BITS) | kind_flag | dead_flag)
         col_ks.append((blog_source[key] << 3) | kind)
         try:
@@ -345,7 +587,7 @@ def main():
         from dedupe import canonical_url
         have = set()
         for i in range(n_hn):
-            have.add(canonical_url(blogs_json[col_blog[i]]["h"].rstrip("/") + paths[i]))
+            have.add(canonical_url(post_url(blogs_json[col_blog[i]]["h"], paths[i])))
 
         # Merge records by blog before capping.
         #
@@ -416,15 +658,14 @@ def main():
                 if not title or REPLY_TITLE.search(title):   # search, not match: the
                     # commit marker "(tags: trunk)" sits at the END of the title
                     continue
-                cu = canonical_url(e["url"])
+                link = resolve_link(e.get("url"), r.get("feed") or cands[key]["home"],
+                                    cands[key]["home"])
+                if not link:
+                    continue
+                cu = canonical_url(link)
                 if not cu or cu in have:
                     continue
-                try:
-                    pu = urlparse(e["url"])
-                except ValueError:
-                    continue
-                path = (pu.path or "/") + (("?" + pu.query) if pu.query else "")
-                path = path.replace("\n", "").replace("\r", "").strip()
+                path = post_path(cands[key]["home"], link)
                 have.add(cu)
                 taken += 1
                 yr = time.gmtime(ts).tm_year
@@ -453,7 +694,7 @@ def main():
                 col_day.append(max(0, min(int((ts - DAY0) / 86400), 65535)))
                 dead_flag = FLAG_DEAD if (
                     dead_urls and
-                    (cands[key]["home"].rstrip("/") + path) in dead_urls) else 0
+                    dead_key(post_url(cands[key]["home"], path)) in dead_urls) else 0
                 col_tm.append((blog_topic_mask[key] & TOPIC_BITS) | kind_flag
                               | FLAG_FEED | dead_flag)
                 col_ks.append((blog_source[key] << 3) | kind)

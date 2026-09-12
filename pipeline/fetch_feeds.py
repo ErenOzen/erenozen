@@ -213,8 +213,17 @@ def main():
         if total > len(by_key):
             with open(out_path, "w") as f:
                 for rows in by_key.values():
-                    rows.sort(key=lambda r: r.get("fetched_at") or 0)
-                    f.write(json.dumps(rows[-1], ensure_ascii=False) + "\n")
+                    # Keep the newest record that HAS entries; fall back to the
+                    # newest only when no generation has any. handle() writes an
+                    # empty record for every failure -- a 500, a rate limit, a
+                    # timeout -- and stamps it with a fresh fetched_at, so
+                    # "newest" alone kept the failure and deleted the last good
+                    # generation, before the run could replace it. build_index
+                    # skips empty records, so the blog's feed posts and its
+                    # subscribe link vanished on one transient error.
+                    best = max(rows, key=lambda r: (bool(r.get("entries")),
+                                                    r.get("fetched_at") or 0))
+                    f.write(json.dumps(best, ensure_ascii=False) + "\n")
             print(f"compacted: {total} records -> {len(by_key)}", flush=True)
 
     fetched_at = {}

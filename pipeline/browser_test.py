@@ -10,7 +10,9 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parent.parent / "blogs"
+# BLOGS_ROOT lets a candidate build be tested from a scratch copy of the site
+# without overwriting the committed index in the working tree.
+ROOT = Path(os.environ.get("BLOGS_ROOT") or Path(__file__).resolve().parent.parent / "blogs")
 PORT = 8731
 
 failures = []
@@ -156,7 +158,10 @@ def main():
               "result links to a real URL", str(href)[:80])
 
         # --- HN discussion link ---
-        hn = page.locator("#results li a.hn-link").first
+        # Select the HN link itself: the archive fallback on a dead row shares the
+        # .hn-link class, so ".hn-link first" silently tested the archive link
+        # whenever the top row happened to be flagged dead.
+        hn = page.locator('#results li a.hn-link[href*="news.ycombinator.com"]').first
         hn_href = hn.get_attribute("href") if hn.count() else None
         check(bool(hn_href) and "news.ycombinator.com/item?id=" in hn_href
               and not hn_href.endswith("id=0"), "HN discussion link is valid",
@@ -781,6 +786,202 @@ def main():
             check(len(marked) == 1 and agrees,
                   f"the {name} control announces exactly one selection",
                   f"{[r[0] for r in marked]} pressed, class/aria agree: {agrees}")
+
+        # --- hostile URLs: a facet index must name a real chip or be ignored ---
+        #
+        # JavaScript masks shift counts to 5 bits, so the old !isNaN guard let
+        # ?t=999 through as 1 << 7: the page filtered by Graphics & Games while
+        # no chip showed as pressed -- wrong results with nothing visibly amiss.
+        def ready(url):
+            page.goto(base + url, wait_until="load")
+            page.wait_for_function("() => !document.querySelector('#q').disabled", timeout=60000)
+            page.wait_for_function("() => document.querySelector('#load-note').hidden", timeout=120000)
+            page.wait_for_timeout(500)
+        count_now = lambda: page.evaluate(
+            "() => +document.querySelector('.status .hl').textContent.replace(/,/g,'')")
+        ready("")
+        unfiltered = count_now()
+        for qs in ("?t=999", "?t=1.5", "?t=-1", "?t=32", "?t=abc", "?k=9", "?src=6"):
+            ready(qs)
+            got = count_now()
+            pressed = page.evaluate(
+                "() => document.querySelectorAll('.filters [aria-pressed=\"true\"].chip').length")
+            check(got == unfiltered and pressed == 0,
+                  f"{qs} is ignored rather than silently filtering",
+                  f"{got:,} vs {unfiltered:,} unfiltered, {pressed} chips pressed")
+
+        # --- runaway queries: the worker must always answer ---
+        #
+        # uFuzzy backtracks catastrophically on many single-character terms:
+        # 30 took 105ms, 34 did not finish in 120s. The worker never answered
+        # again, silently, and every later keystroke queued behind it.
+        for label, q in (("a pasted 2,000-char paragraph", "a " * 1000),
+                         ("50 single letters", "a " * 50),
+                         ("a 400-word query", "lorem ipsum " * 200)):
+            ready("")
+            t0 = time.time()
+            page.fill("#q", q.strip())
+            try:
+                page.wait_for_function(
+                    "() => /best match|No matches/.test(document.querySelector('#status').textContent)",
+                    timeout=15000)
+                answered = time.time() - t0
+            except Exception:
+                answered = None
+            page.fill("#q", "rust")
+            try:
+                # Wait for the NEW answer. The status already read "best match"
+                # for the runaway query, so waiting on that text passed on stale
+                # results -- even against a worker patched never to answer again.
+                page.wait_for_function(
+                    "() => [...document.querySelectorAll('#results .r-title')].slice(0, 3)"
+                    ".some(t => /rust/i.test(t.textContent))", timeout=15000)
+                alive = True
+            except Exception:
+                alive = False
+            check(answered is not None and alive,
+                  f"the worker survives {label}",
+                  (f"answered in {answered:.2f}s, next query answered" if answered is not None
+                   else "no answer within 15s") + ("" if alive else ", follow-up query hung"))
+
+        # --- a post on another host links to that host ---
+        #
+        # 6,188 feed posts live on a different host from their blog's home (a
+        # blog that moved domains, a link post, a sibling subdomain). Grafting
+        # their path onto the home put them on the wrong host.
+        import struct
+        from urllib.parse import quote
+        _m = json.loads((ROOT / "data/meta.json").read_text())
+        _n = _m["n_posts"]
+        _paths = (ROOT / "data/paths.txt").read_text(encoding="utf-8").split("\n")
+        _titles = (ROOT / "data/titles.txt").read_text(encoding="utf-8").split("\n")
+        _ks = struct.unpack_from(f"<{_n}B", (ROOT / "data/posts.bin").read_bytes(), _n * 10)
+        _hidden = _m["hidden_source_mask"]
+        pick = next((i for i in range(_n) if _paths[i].startswith("https://")
+                     and not (_hidden >> (_ks[i] >> 3)) & 1 and len(_titles[i]) > 12), None)
+        if pick is None:
+            print("  note: this index has no full-URL paths; cross-host rendering not exercised")
+        else:
+            ready("?q=" + quote(_titles[pick][:70]))
+            page.wait_for_timeout(1500)       # let paths.txt land so hrefs are exact
+            hrefs = page.evaluate("() => [...document.querySelectorAll('#results a.row')].map(a => a.href)")
+            want_href = page.evaluate("(u) => new URL(u).href", _paths[pick])
+            check(want_href in hrefs,
+                  "a post on another host links to that host, not grafted onto the blog",
+                  want_href[:70])
+
+        # --- the empty state never points at an inert control ---
+        ready("?src=5")        # Vendor only: the newsroom toggle is disabled
+        page.fill("#q", "zzqqxxnothingmatchesthis")
+        page.wait_for_function(
+            "() => /No matches/.test(document.querySelector('#status').textContent)", timeout=15000)
+        advice = page.evaluate(
+            "() => (document.querySelector('.empty') || {}).textContent || ''")
+        check("unticking" not in advice,
+              "the empty state does not point at the disabled newsroom toggle", advice[:90])
+
+        # --- posts-only controls are inert in Blogs mode, and say so ---
+        ready("?mode=blogs")
+        st = page.evaluate("""() => ({dead: document.querySelector('#hide-dead').disabled,
+            kinds: [...document.querySelectorAll('#kinds .chip')].every(c => c.disabled)})""")
+        check(st["dead"] and st["kinds"], "Kind and Hide-dead are disabled in Blogs mode", str(st))
+        page.click('.mode-switch button[data-mode="posts"]')
+        page.wait_for_timeout(600)
+        st = page.evaluate("""() => ({dead: document.querySelector('#hide-dead').disabled,
+            kinds: [...document.querySelectorAll('#kinds .chip')].some(c => c.disabled)})""")
+        check(not st["dead"] and not st["kinds"], "and live again in Posts mode", str(st))
+
+        # --- the dead-link tooltip is the index's own count, not a hardcoded claim ---
+        _tm = struct.unpack_from(f"<{_n}H", (ROOT / "data/posts.bin").read_bytes(), _n * 8)
+        n_dead = sum(1 for x in _tm if (x >> 15) & 1)
+        tip = page.evaluate(
+            "() => document.querySelector('#hide-dead').closest('.toggle').querySelector('span').title")
+        check(f"{n_dead:,}" in tip, "the dead-link tooltip states the index's own count", tip[:90])
+
+        # --- a shared link's restored filters stay visible on a phone ---
+        page.set_viewport_size({"width": 390, "height": 844})
+        ready("?t=4&src=1&since=1")
+        opened = page.evaluate("() => document.querySelector('#topic-wrap').open")
+        check(opened, "URL-restored filters are not folded out of sight on a phone", f"open={opened}")
+        ready("")
+        opened = page.evaluate("() => document.querySelector('#topic-wrap').open")
+        check(not opened, "with nothing restored the panel still collapses on a phone", f"open={opened}")
+        page.set_viewport_size({"width": 1280, "height": 900})
+
+        # --- blogs on a shared host are not one publisher ---
+        _names = {b["n"] for b in json.loads((ROOT / "data/blogs.json").read_text())}
+        if "gchq.github.io" in _names:
+            ready("?b=gchq.github.io")
+            page.wait_for_selector(".pin-similar .sim-chip", timeout=20000)
+            page.wait_for_timeout(400)
+            recs = page.evaluate("() => [...document.querySelectorAll('.sim-chip')].map(e => e.textContent)")
+            n_gh = sum(1 for r in recs if r.endswith(".github.io"))
+            check(n_gh >= 2, "unrelated github.io blogs are not capped as one publisher",
+                  ", ".join(recs))
+        else:
+            print("  note: gchq.github.io not in this index; shared-host check not exercised")
+
+        count_or_zero = lambda: page.evaluate(
+            "() => { const e = document.querySelector('.status .hl');"
+            " return e ? +e.textContent.replace(/,/g, '') : 0; }")
+
+        # --- every "Similar" chip leads to a page with posts ---
+        # Pinning keeps the topic filter, and recommendations ignored it: with
+        # Security on, four of blog.cloudflare.com's five chips opened empty pages.
+        ready("?t=5&b=blog.cloudflare.com")
+        page.wait_for_selector(".pin-similar", timeout=20000)
+        page.wait_for_timeout(500)
+        sims = page.evaluate("() => [...document.querySelectorAll('.sim-chip')].map(e => e.textContent)")
+        empty = []
+        for name in sims:
+            ready(f"?t=5&b={name}")
+            if count_or_zero() == 0:
+                empty.append(name)
+        check(bool(sims) and not empty,
+              "every Similar chip leads to a page with posts (topic filter on)",
+              f"{len(sims)} chips; empty: {empty}")
+
+        # --- a background re-run never pulls focus out of the search box ---
+        ready("")
+        page.keyboard.press("ArrowDown")
+        page.keyboard.press("ArrowDown")
+        page.click("#q")
+        page.evaluate("() => rerunKeepingCursor()")
+        page.wait_for_timeout(700)
+        page.keyboard.type("go")
+        where = page.evaluate(
+            "() => ({id: document.activeElement.id, val: document.querySelector('#q').value})")
+        check(where["id"] == "q" and where["val"].endswith("go"),
+              "a streaming re-run does not steal focus from the search box", str(where))
+
+        # --- a pinned blog's empty state never blames the inert Source filter ---
+        ready("?b=blog.cloudflare.com&src=0")
+        page.fill("#q", "zzqqxxnothingmatchesthis")
+        page.wait_for_function(
+            "() => /No matches/.test(document.querySelector('#status').textContent)", timeout=15000)
+        advice = page.evaluate("() => (document.querySelector('.empty') || {}).textContent || ''")
+        check("Source filter" not in advice,
+              "a pinned blog's empty state does not blame the Source filter", advice[:90])
+
+        # --- a no-match typed WHILE streaming is still announced once loaded ---
+        page.goto("about:blank")
+        cdp3 = page.context.new_cdp_session(page)
+        cdp3.send("Network.emulateNetworkConditions", {
+            "offline": False, "latency": 40,
+            "downloadThroughput": 3_000_000 / 8, "uploadThroughput": 3_000_000 / 8})
+        page.goto(base, wait_until="commit")
+        page.wait_for_function("() => !document.querySelector('#q').disabled", timeout=120000)
+        page.fill("#q", "zzqqxxnothingmatchesthis")
+        page.wait_for_function(
+            "() => /No matches/.test(document.querySelector('#status').textContent)", timeout=30000)
+        cdp3.send("Network.emulateNetworkConditions", {
+            "offline": False, "latency": 0, "downloadThroughput": -1, "uploadThroughput": -1})
+        page.wait_for_function("() => document.querySelector('#load-note').hidden", timeout=120000)
+        page.wait_for_timeout(1500)
+        live = page.evaluate("() => document.querySelector('#status').getAttribute('aria-live')")
+        check(live == "polite",
+              "a no-match typed during streaming is announced once the corpus loads",
+              f"aria-live={live!r}")
 
         # --- mobile ---
         page.set_viewport_size({"width": 390, "height": 844})

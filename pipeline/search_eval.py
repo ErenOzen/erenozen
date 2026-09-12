@@ -20,7 +20,9 @@ import http.server, json, os, re, socketserver, sys, threading
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 
-ROOT = Path(__file__).resolve().parent.parent / "blogs"
+# BLOGS_ROOT lets a candidate build be tested from a scratch copy of the site
+# without overwriting the committed index in the working tree.
+ROOT = Path(os.environ.get("BLOGS_ROOT") or Path(__file__).resolve().parent.parent / "blogs")
 PORT = 8801
 QUERIES = [
     # one strong match
