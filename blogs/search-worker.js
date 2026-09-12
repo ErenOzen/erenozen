@@ -220,10 +220,19 @@ function passes(i, f) {
   // An explicit source choice wins over the newsroom toggle. Otherwise asking
   // for Newsroom while newsrooms are hidden would return nothing, and the
   // reader would have to notice a second control to explain the first.
-  if (f.sourceMask) {
-    if (!((f.sourceMask >> (ks >> 3)) & 1)) return false;
-  } else if (f.blogId < 0 && f.hideNews && (f.hiddenSourceMask >> (ks >> 3)) & 1) {
-    return false;
+  // Both source cuts are skipped for a pinned blog: the pin IS the filter, and
+  // the reader is looking at one named publisher. Without the blogId guard a
+  // Source chip that excludes that publisher emptied the pinned view entirely
+  // -- header, description and recommendations above zero posts.
+  if (f.blogId < 0) {
+    // An explicit source choice wins over the newsroom toggle. Otherwise asking
+    // for Newsroom while newsrooms are hidden would return nothing, and the
+    // reader would have to notice a second control to explain the first.
+    if (f.sourceMask) {
+      if (!((f.sourceMask >> (ks >> 3)) & 1)) return false;
+    } else if (f.hideNews && (f.hiddenSourceMask >> (ks >> 3)) & 1) {
+      return false;
+    }
   }
   if (f.kindMask && !((f.kindMask >> (ks & 7)) & 1)) return false;
   return true;
@@ -250,6 +259,11 @@ function emit(ordered, total) {
 function searchPosts(q, f, limit, sortMode) {
   let idxs;
   if (!q) {
+    // Clear the union weights from the PREVIOUS query. They are module state
+    // and browse mode used to never read them, so a stale map was invisible --
+    // until the explicit sorts started tiering on it and an emptied search box
+    // produced points order that was not descending.
+    termHits = null;
     idxs = null; // browse mode -- rank everything by baked score
   } else {
     const extend = lastQuery && q.startsWith(lastQuery) && lastIdxs;
@@ -309,19 +323,34 @@ function searchPosts(q, f, limit, sortMode) {
   const total = pool.length;
   if (!total) return { rows: [], total: 0 };
 
-  // Explicit sorts bypass relevance ranking entirely: if you asked for "most
-  // upvoted", match quality must not reorder the answer. uFuzzy already decided
-  // membership; sort only decides order.
+  // Explicit sorts decide ORDER, never membership -- but when the per-term
+  // union has widened the pool, its members are not equal matches, and sorting
+  // them as if they were buries the ones that matched the whole query.
+  //
+  // "writing a compiler" widens to 1,815 posts. Sorted purely by points, the
+  // top rows became "Firefox's new streaming and tiering compiler" and
+  // "Writing one sentence per line" -- each matching one word -- while
+  // "Writing a C compiler in 500 lines of Python" fell off the page. Sorting
+  // by date was worse: "Bookmarks - llm, music, writing, synth".
+  //
+  // So sort within match tier: every post matching more of the query outranks
+  // every post matching less, and the chosen sort orders each tier. Asking for
+  // "most upvoted" still means most upvoted -- among the posts that actually
+  // match. TIER is larger than any points or day value (both u16).
+  const TIER = 1 << 17;
+  const tier = termHits ? (i) => (termHits.get(i) || 0) * TIER : () => 0;
   const cap = f.blogId >= 0 ? Infinity : 3;
   const wide = cap === Infinity ? limit : limit * 5;
   if (sortMode === "points") {
-    return emit(diversify(topN(pool, (i) => points[i], wide), cap, limit), total);
+    return emit(diversify(topN(pool, (i) => tier(i) + points[i], wide), cap, limit), total);
   }
   if (sortMode === "date") {
-    return emit(diversify(topN(pool, (i) => day[i], wide), cap, limit), total);
+    return emit(diversify(topN(pool, (i) => tier(i) + day[i], wide), cap, limit), total);
   }
   if (sortMode === "oldest") {
-    return emit(diversify(topN(pool, (i) => -day[i], wide), cap, limit), total);
+    // Ascending day inside a descending tier: flip the day, do not negate the
+    // whole key, or a better tier would lose to an older post.
+    return emit(diversify(topN(pool, (i) => tier(i) + (65535 - day[i]), wide), cap, limit), total);
   }
 
   let ordered;
@@ -335,7 +364,16 @@ function searchPosts(q, f, limit, sortMode) {
     const INFO_CAP = 3000;
     let cand = pool;
     if (cand.length > INFO_CAP) {
-      cand = pool.slice().sort((a, b) => score[b] - score[a]).slice(0, INFO_CAP);
+      // Keep the best MATCHES, not merely the highest-scoring rows. On the
+      // widened path the pool holds one-term matches whose baked score can
+      // exceed an every-term match's, so cutting by score alone could discard
+      // the very rows the query is about before ranking ever sees them.
+      cand = termHits
+        ? pool.slice()
+            .sort((a, b) => (termHits.get(b) || 0) - (termHits.get(a) || 0) ||
+                            score[b] - score[a])
+            .slice(0, INFO_CAP)
+        : pool.slice().sort((a, b) => score[b] - score[a]).slice(0, INFO_CAP);
     }
     cand.sort((a, b) => a - b); // info() expects ascending haystack indices
 
@@ -447,10 +485,16 @@ function similarBlogs(i, k, f) {
   // one. The exception is a reader already looking AT a hidden source: they
   // reached it deliberately, and answering "what else is like The Spectator"
   // with nothing at all would be worse than answering it with other magazines.
-  const selfHidden = f && f.hideNews &&
-    ((f.hiddenSourceMask >> blogs[i].s) & 1);
-  const drop = (b) =>
-    f && f.hideNews && !selfHidden && ((f.hiddenSourceMask >> b.s) & 1);
+  // Recommend only blogs the reader could actually reach. A chip pointing at a
+  // blog the current filters exclude leads to a pinned page with zero posts.
+  const selfExcluded = f && (
+    (f.sourceMask && !((f.sourceMask >> blogs[i].s) & 1)) ||
+    (!f.sourceMask && f.hideNews && ((f.hiddenSourceMask >> blogs[i].s) & 1)));
+  const drop = (b) => {
+    if (!f || selfExcluded) return false;   // already looking at an excluded blog
+    if (f.sourceMask) return !((f.sourceMask >> b.s) & 1);
+    return f.hideNews && ((f.hiddenSourceMask >> b.s) & 1);
+  };
   const score = new Map(), shared = new Map();
   for (const [w, x] of simVec[i]) {
     const list = simInv.get(w);

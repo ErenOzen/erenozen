@@ -70,11 +70,11 @@ def main():
                 if (e.data.type === 'results' && pending) { pending(e.data.rows.map(r => r.i)); pending = null; }
             };
             w.postMessage({type: 'load', base: 'data/'});
-            window.__ask = (q) => new Promise(res => {
+            window.__ask = (q, sort) => new Promise(res => {
                 pending = res;
-                w.postMessage({type:'query', seq:1, q, mode:'posts', sort:'relevance',
+                w.postMessage({type:'query', seq:1, q, mode:'posts', sort: sort || 'relevance',
                     limit:40, filters:{topicMask:0,kindMask:0,blogId:-1,hideNews:false,
-                    sinceDay:0,sinceYear:0,hideDead:false,hiddenSourceMask:0}});
+                    sourceMask:0,sinceDay:0,sinceYear:0,hideDead:false,hiddenSourceMask:0}});
             });
         })""")
         print(f"       {'query':22s} {'truth':>6s} {'ret':>5s} {'hit':>5s}  "
@@ -82,7 +82,7 @@ def main():
         for q in QUERIES:
             want = truth(titles, q)
             # news off, so the comparison is against the same corpus the UI shows
-            got = pg.evaluate("(q) => window.__ask(q)", q)
+            got = pg.evaluate("(q) => window.__ask(q, 'relevance')", q)
             hit = len(want & set(got))
             missed = sorted(want - set(got))
             worst = titles[missed[0]][:44] if missed else "-"
@@ -92,6 +92,30 @@ def main():
                            f"matching titles left behind")
             print(("  FAIL " if short else "  ok   ") +
                   f"{q:22s} {len(want):6d} {len(got):5d} {hit:5d}  {worst}")
+        # The explicit sorts take a different path: they return before the
+        # relevance re-rank, so a widened pool reached them as if every member
+        # matched the whole query. "writing a compiler" sorted by points led
+        # with "Firefox's new streaming and tiering compiler" while "Writing a C
+        # compiler in 500 lines of Python" fell off the page. Sorting by date
+        # led with "Bookmarks - llm, music, writing, synth".
+        print()
+        print("       explicit sorts -- does the top of the page still match?")
+        for q in ["writing a compiler", "memory allocator", "type inference",
+                  "distributed consensus"]:
+            terms = [t for t in q.lower().split() if len(t) > 2]
+            for sort in ("points", "date", "oldest"):
+                idxs = pg.evaluate("([q,s]) => window.__ask(q,s)", [q, sort])
+                top = [titles[i] for i in idxs[:8]]
+                n_ok = sum(1 for t in top
+                           if all(re.search(r"\b" + re.escape(w), t.lower()) for w in terms))
+                good = n_ok >= 6
+                if not good:
+                    bad.append(f"{q!r} sorted by {sort}: only {n_ok}/8 top rows "
+                               f"match every term")
+                print(("  FAIL " if not good else "  ok   ") +
+                      f"{q:22s} {sort:9s} {n_ok}/8 match all terms | "
+                      f"{top[0][:36] if top else '-'}")
+
         b.close()
     httpd.shutdown()
     print()

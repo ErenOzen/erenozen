@@ -516,7 +516,10 @@ function renderPin() {
   // Asked for once per pinned blog. renderPin runs on every keystroke while a
   // blog is pinned, and re-requesting each time would rebuild nothing but would
   // make the row flicker as it is replaced with an identical one.
-  if (simFor !== state.blog) {
+  // `|| !simRows` matters: clearing the pin leaves simFor pointing at the blog,
+  // so re-pinning the SAME blog hit the cached branch with simRows already
+  // nulled and rendered nothing at all, permanently, for that blog.
+  if (simFor !== state.blog || !simRows) {
     simFor = state.blog;
     host.appendChild(el("div", "pin-similar", ""));
     worker.postMessage({ type: "similar", blog: state.blog, k: 5, filters: filters() });
@@ -653,6 +656,16 @@ document.querySelectorAll(".mode-switch button").forEach((b) => {
     document.querySelectorAll(".mode-switch button").forEach((x) => x.classList.remove("active"));
     b.classList.add("active");
     state.mode = b.dataset.mode;
+    // A pin is a posts-mode idea: searchBlogs has no blogId filter, so in Blogs
+    // mode the pin header stayed on screen above the full unfiltered blog list,
+    // and writeURL round-tripped ?b=...&mode=blogs -- a shared link that
+    // restored a pin doing nothing.
+    if (state.mode === "blogs" && state.blog >= 0) {
+      state.blog = -1;
+      state.prevMode = null;
+      simRows = null;
+      simFor = -1;
+    }
     state.limit = PAGE;
     run(true);
   });
@@ -892,6 +905,9 @@ function readURL() {
   };
   const bkey = p.get("b");
   state.blog = bkey ? state.blogs.findIndex((x) => x.n === bkey) : -1;
+  // ?b=...&mode=blogs cannot be honoured -- Blogs mode has no per-blog filter.
+  // Older links carry it; show the blog's posts, which is what ?b= meant.
+  if (state.blog >= 0 && state.mode === "blogs") state.mode = "posts";
   apply("t", state.topics, $("#topics"));
   apply("k", state.kinds, $("#kinds"));
   apply("src", state.sources, $("#sources"));
