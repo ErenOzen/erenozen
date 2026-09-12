@@ -39,7 +39,7 @@
 100x.bot	-
 10kloc.wordpress.com	https://10kloc.wordpress.com/feed/
 10maurycy10.github.io	https://maurycyz.com/index.xml
-10zenmonkeys.com	https://www.10zenmonkeys.com/feed/
+10zenmonkeys.com	https://www.10zenmonkeys.com/feed/atom/
 11011110.github.io	https://11011110.github.io/blog/feed
 12challenges.substack.com	https://12challenges.substack.com/feed
 12gramsofcarbon.com	https://12gramsofcarbon.com/feed
@@ -415,6 +415,7 @@ alperenkeles.com	https://alperenkeles.com/atom.xml
 alphr.com	-
 alpinelinux.org	https://alpinelinux.org/atom.xml
 alt-romes.github.io	https://alt-romes.github.io/rss
+altaonline.com	https://www.altaonline.com/rss/default.xml
 altdevblogaday.com	-
 altdevblogaday.org	-
 alteredqualia.com	-
@@ -1087,6 +1088,7 @@ bholley.net	http://bholley.net/feed.xml
 bhorowitz.com	-
 biblioracle.substack.com	https://biblioracle.substack.com/feed
 bicycledutch.wordpress.com	https://bicycledutch.wordpress.com/feed/
+bicycling.com	https://www.bicycling.com/rss/default.xml
 biffweb.com	https://biffweb.com/feed.xml
 bigdanzblog.wordpress.com	https://bigdanzblog.wordpress.com/feed/
 bigdata.2minutestreaming.com	https://bigdata.2minutestreaming.com/feed
@@ -3084,7 +3086,7 @@ community.letsencrypt.org	https://community.letsencrypt.org/posts.rss
 community.rapid7.com	-
 community.signalusers.org	-
 community.ubuntu.com	-
-community.wolfram.com	https://community.wolfram.com/dashboard/-/discussions-list/filtered/all+groups/active/Any+discussions/none/null/feed.rss
+community.wolfram.com	https://community.wolfram.com/posts.rss
 commutative.xyz	-
 comp.nus.edu.sg	-
 compactmag.com	https://www.compactmag.com/rss/
@@ -3122,6 +3124,7 @@ conferences.sigcomm.org	-
 confluent.io	https://www.confluent.io/rss.xml
 connect.mozilla.org	-
 connortumbleson.com	https://connortumbleson.com/rss/
+conorpp.com	-
 consequence.net	https://consequence.net/feed/
 console.dev	https://console.dev/rss.xml
 consortiumnews.com	https://consortiumnews.com/feed/
@@ -3183,6 +3186,7 @@ countbayesie.com	https://www.countbayesie.com/blog?format=rss
 countercomplex.blogspot.com	https://countercomplex.blogspot.com/feeds/posts/default
 counterexamples.org	-
 counternotions.com	-
+counterpunch.org	https://www.counterpunch.org/feed/
 course.fast.ai	-
 course.spacy.io	-
 courthousenews.com	https://courthousenews.com/feed/
@@ -3342,7 +3346,7 @@ cyclingtips.com	https://velo.outsideonline.com/feed
 cyclingweekly.com	https://www.cyclingweekly.com/feeds.xml
 cykod.com	-
 cynicusrex.com	-
-cyphar.com	https://www.cyphar.com/blog/posts.atom
+cyphar.com	https://www.cyphar.com/blog/index.xml
 cypherspace.org	-
 czep.net	https://czep.net/feed.xml
 d2l.ai	-
@@ -3609,6 +3613,7 @@ defensetech.org	-
 defensivecss.dev	https://defensivecss.dev/feed/feed.xml
 deferpanic.com	https://deferpanic.com/feed
 defined.net	https://www.defined.net/blog/rss.xml
+defmacro.org	https://defmacro.org/feed.xml
 defn.io	https://defn.io/index.xml
 defold.com	https://defold.com/feed.xml
 defuse.ca	-
@@ -3666,6 +3671,7 @@ designnotes.blog.gov.uk	https://designnotes.blog.gov.uk/feed/
 designpepper.com	-
 designshack.net	https://designshack.net/feed/
 designtaxi.com	-
+designyoutrust.com	https://designyoutrust.com/feed/
 deskreen.com	-
 desmoinesregister.com	-
 despairlabs.com	https://despairlabs.com/blog/index.xml
@@ -4489,6 +4495,7 @@ evrone.com	https://evrone.com/feed.xml
 ewanvalentine.io	https://qh88.global/feed/
 eweek.com	https://www.eweek.com/feed/
 eweekeurope.co.uk	-
+ewontfix.com	https://ewontfix.com/feed.rss
 ewpratten.com	https://ewpratten.com/rss.xml
 ex-parrot.com	-
 exactlyscience.com	-
@@ -4651,6 +4658,7 @@ fieldandstream.com	https://fieldandstream.com/feed
 fiercebiotech.com	https://www.fiercebiotech.com/rss/Fierce Biotech Homepage/xml
 fiercetelecom.com	https://www.fierce-network.com/rss/Fierce Network Homepage/xml
 fiercewireless.com	https://www.fierce-network.com/rss/Fierce Network Homepage/xml
+fiftytwo.in	https://fiftytwo.in/feed.xml
 figma.com	-
 fil-c.org	-
 filamentgroup.com	-
@@ -4775,7 +4783,7 @@ forteantimes.com	-
 forth.news	-
 forth.org	-
 fortran-lang.discourse.group	https://fortran-lang.discourse.group/posts.rss
-fortran.io	https://hon.in.net/feed/
+fortran.io	https://www.mobileporn.in.net/feed/
 fortressofdoors.com	-
 fortune.com	https://fortune.com/feed/fortune-feeds/?id=3230629
 forum.bitcoin.org	-
@@ -4960,6 +4968,7 @@ gabrielgambetta.com	-
 gabrielsieben.tech	-
 gabrielweinberg.com	https://gabrielweinberg.com/feed
 gadgetreview.com	https://www.gadgetreview.com/feed
+gadgets.boingboing.net	https://boingboing.net/feed
 gadgets.ndtv.com	-
 gadgetwise.blogs.nytimes.com	https://www.nytimes.com/svc/collections/v1/publish/https://www.nytimes.com/section/technology/personaltech/rss.xml
 gadling.com	https://gadling.com/feed/
@@ -5238,6 +5247,7 @@ goodstuff.im	-
 goodui.org	https://goodui.org/blog/feed/
 google-code-updates.blogspot.com	-
 google-engtools.blogspot.com	https://google-engtools.blogspot.com/feeds/posts/default
+google-opensource.blogspot.com	-
 google-research.github.io	-
 google-styleguide.googlecode.com	-
 google.github.io	-
@@ -5379,6 +5389,7 @@ gurwinder.substack.com	https://gurwinder.substack.com/feed
 gus-massa.blogspot.com	https://gus-massa.blogspot.com/feeds/posts/default
 gustedt.gitlabpages.inria.fr	-
 gustedt.wordpress.com	https://gustedt.wordpress.com/feed/
+guzey.com	https://guzey.com/index.xml
 gvisor.dev	https://gvisor.dev/blog/index.xml
 gwan.com	-
 gwern.net	https://gwern.substack.com/feed
@@ -5603,6 +5614,7 @@ holloway.com	-
 hollywoodreporter.com	https://www.hollywoodreporter.com/feed/
 holmea.demon.co.uk	-
 hologram.page	-
+holovaty.com	-
 holykaw.alltop.com	-
 homakov.blogspot.com	https://homakov.blogspot.com/feeds/posts/default
 home-assistant.io	https://www.home-assistant.io/atom.xml
@@ -5630,6 +5642,7 @@ hopsworks.ai	-
 horace.io	-
 horicky.blogspot.com	https://horicky.blogspot.com/feeds/posts/default
 hortonworks.com	-
+host.madison.com	http://madison.com/search/?f=rss&amp;t=article&amp;l=50&amp;s=start_time&amp;sd=desc&amp;k%5B%5D=%23topstory
 hosted.ap.org	-
 hothardware.com	https://hothardware.com/rss/news.aspx
 houstonchronicle.com	-
@@ -5719,6 +5732,7 @@ hytradboi.com	-
 i.blackhat.com	-
 i.gizmodo.com	-
 i.tuaw.com	https://www.tuaw.com/feed/
+i4u.com	-
 ia.acs.org.au	-
 iacr.org	-
 iafisher.com	-
@@ -6773,6 +6787,7 @@ ksat.me	-
 kshb.com	https://www.kshb.com/index.rss
 ksl.com	-
 kstp.com	https://kstp.com/feed/
+kswichit.com	https://www.kswichit.com/feed/
 kswizz.com	-
 ktla.com	https://ktla.com/feed/
 ktvu.com	https://www.ktvu.com/rss.xml
@@ -7015,6 +7030,7 @@ lethain.com	-
 lethalguitar.wordpress.com	https://lethalguitar.wordpress.com/feed/
 letoverlambda.com	-
 letsblock.it	-
+letsdatascience.com	https://letsdatascience.com/feed.xml
 letsencrypt.org	https://letsencrypt.org/feed.xml
 letstalkbitcoin.com	-
 letterstoanewdeveloper.com	https://letterstoanewdeveloper.com/feed/
@@ -8571,6 +8587,7 @@ newsfeed.time.com	-
 newsgrange.com	-
 newshub.co.nz	-
 newsinteractives.cbc.ca	-
+newslaundry.com	https://www.newslaundry.com/stories.rss
 newsletter.eng-leadership.com	https://newsletter.eng-leadership.com/feed
 newsletter.goodtechthings.com	https://newsletter.goodtechthings.com/feed
 newsletter.maartengrootendorst.com	https://newsletter.maartengrootendorst.com/feed
@@ -8587,6 +8604,7 @@ newslttrs.com	-
 newsnationnow.com	https://www.newsnationnow.com/feed/
 newsobserver.com	-
 newsroom.co.nz	https://newsroom.co.nz/feed/
+newstatesman.com	https://www.newstatesman.com/feed
 newswatch.nationalgeographic.com	-
 newsyc.me	-
 newteevee.com	https://gigaom.com/feed/
@@ -8915,6 +8933,7 @@ ollama.com	-
 ollieparanoid.github.io	https://ollieparanoid.github.io/feed.xml
 ollydbg.de	-
 om.co	https://om.co/feed/
+omaha.com	http://omaha.com/search/?f=rss&amp;t=article&amp;l=50&amp;s=start_time&amp;sd=desc&amp;k%5B%5D=%23topstory
 omar.website	https://omar.website/posts/index.xml
 omarabid.com	https://omarabid.com/feed.xml
 omarshehata.me	https://omarshehata.me/rss
@@ -9613,6 +9632,7 @@ prescheme.org	https://prescheme.org/rss.xml
 preshing.com	https://preshing.com/feed
 preslav.me	https://preslav.me/rss
 press.asimov.com	-
+pressgazette.co.uk	https://pressgazette.co.uk/feed/
 pressherald.com	https://www.pressherald.com/feed/
 prestonbyrne.com	https://prestonbyrne.com/feed/
 pretendo.network	https://pretendo.network/blog/feed.xml
@@ -9656,6 +9676,7 @@ programmersatwork.wordpress.com	https://programmersatwork.wordpress.com/feed/
 programming-idioms.org	-
 programming-journal.org	https://programming-journal.org/feed.xml
 programming-language-benchmarks.vercel.app	-
+programming-musings.org	-
 programming.guide	-
 programming.oreilly.com	-
 programmingfonts.org	-
@@ -9748,6 +9769,7 @@ pvk.ca	https://pvk.ca/atom.xml
 pvs-studio.com	-
 pwy.io	https://pwy.io/feed.xml
 pxlnv.com	https://pxlnv.com/feed/
+pybrain.org	-
 pycoders.com	https://pycoders.com/feed/LyL1bdcZ
 pycon.blip.tv	-
 pycon.blogspot.com	https://pycon.blogspot.com/feeds/posts/default
@@ -10038,6 +10060,7 @@ reiner.org	-
 reinterpretcast.com	https://www.reinterpretcast.com/feed.xml
 reinvanderwoerd.nl	https://reinvanderwoerd.nl/feed/
 rekt.news	-
+release.gnome.org	https://release.gnome.org/atom.xml
 releases.llvm.org	-
 releases.ubuntu.com	-
 relistan.com	http://feeds.feedburner.com/RepeatableSystems
@@ -10607,6 +10630,7 @@ semiwiki.com	https://semiwiki.com/feed/
 semver.org	-
 senko.net	-
 sensepost.com	https://sensepost.com/rss.xml
+sensorstechforum.com	-
 sentinelone.com	https://www.sentinelone.com/feed/
 sequoia-pgp.org	https://sequoia-pgp.org/index.xml
 sequoiacapital.tumblr.com	https://sequoiacapital.tumblr.com/rss
@@ -10783,6 +10807,7 @@ singhkays.com	https://singhkays.com/index.xml
 singlelunch.com	https://singlelunch.com/excerpts.xml
 singlepageappbook.com	-
 singlestore.com	https://www.singlestore.com/blog/feed.xml
+singularityhacker.com	https://singularityhacker.com/feed.xml
 singularityhub.com	https://singularityhub.com/feed/
 sinja.io	https://sinja.io/rss
 sircmpwn.github.io	-
@@ -12001,6 +12026,7 @@ thisamericanlife.org	https://www.thisamericanlife.org/podcast/rss.xml
 thisdavej.com	https://thisdavej.com/index.xml
 thisiscolossal.com	https://www.thisiscolossal.com/feed/
 thisisgoingtobebig.com	https://www.thisisgoingtobebig.com/blog?format=rss
+thisisimportant.net	https://thisisimportant.net/feed.xml
 thisismoney.co.uk	https://www.dailymail.com/money/index.rss
 thisismynext.com	-
 tholman.com	https://tholman.com/feed.xml
@@ -12296,7 +12322,7 @@ tunes.org	-
 tunetheweb.com	https://www.tunetheweb.com/rss.xml
 tuple.app	https://tuple.app/rss.xml
 turbopuffer.com	-
-turnkeylinux.org	https://www.turnkeylinux.org/blog/feed
+turnkeylinux.org	https://www.turnkeylinux.org/index.xml
 turso.tech	-
 turtleware.eu	https://turtleware.eu/rss.xml
 tus.io	https://tus.io/rss
@@ -13039,6 +13065,7 @@ wuffs.org	https://wuffs.org/blog.rss
 wundergraph.com	https://wundergraph.com/atom.xml
 wunkolo.github.io	https://wunkolo.github.io/index.xml
 wusa9.com	https://www.wusa9.com/feeds/syndication/rss/news
+wvgazettemail.com	http://www.wvgazettemail.com/search/?f=rss&amp;t=article&amp;l=50&amp;s=start_time&amp;sd=desc&amp;k%5B%5D=%23topstory
 ww2.kqed.org	https://ww2.kqed.org/news/feed/
 wweek.com	-
 www-dyn.cl.cam.ac.uk	-
@@ -13201,7 +13228,7 @@ zarar.dev	https://zarar.dev/feed/
 zayenz.se	https://zayenz.se/rss.xml
 zdimension.fr	https://zdimension.fr/feed.xml
 zdnet.co.uk	-
-zdnet.com	https://www.zdnet.com/news/rss.xml
+zdnet.com	https://www.zdnet.com/rss/all/
 zdnet.com.au	-
 zdziarski.com	https://www.zdziarski.com/blog/?feed=rss2
 zebrium.com	https://sciencelogic.com/feed
