@@ -161,7 +161,16 @@ def main():
         # Select the HN link itself: the archive fallback on a dead row shares the
         # .hn-link class, so ".hn-link first" silently tested the archive link
         # whenever the top row happened to be flagged dead.
-        hn = page.locator('#results li a.hn-link[href*="news.ycombinator.com"]').first
+        # HN ids live in hn.bin, which loads after paths.txt; until it lands the
+        # rows carry no discussion link at all. Reading 700ms after typing
+        # failed this check whenever the machine was busy -- wait for the link,
+        # and let the check below report it if it never comes.
+        sel = '#results li a.hn-link[href*="news.ycombinator.com"]'
+        try:
+            page.wait_for_selector(sel, timeout=15000)
+        except Exception:
+            pass
+        hn = page.locator(sel).first
         hn_href = hn.get_attribute("href") if hn.count() else None
         check(bool(hn_href) and "news.ycombinator.com/item?id=" in hn_href
               and not hn_href.endswith("id=0"), "HN discussion link is valid",

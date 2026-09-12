@@ -55,6 +55,13 @@ jobs:
       - name: Check index consistency
         run: python pipeline/check_index.py blogs/data
 
+      # Where a feed post links, for each blog shape the link-blog rule broke
+      # before a guard was added: crafted feeds through the real parser and
+      # build. The index checks above cannot see this -- a wrong but loadable
+      # URL is perfectly consistent.
+      - name: Check feed post links
+        run: python pipeline/test_feed_links.py
+
       # Recall against ground truth the search did not produce.
       - name: Check search recall
         run: python pipeline/search_eval.py

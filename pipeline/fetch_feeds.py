@@ -73,14 +73,18 @@ def discover_feed(home):
 
 
 def parse_feed(feed_url):
-    """Return (entries, feed_title). Entries are dicts."""
+    """Return (entries, feed_title, final_url). Entries are dicts.
+
+    final_url is where the feed lives after redirects: a blog that moved keeps
+    its old feed URL in the seed, and only the final one says where it went.
+    """
     try:
         r = _get(feed_url)
         if not r.ok:
-            return [], None
+            return [], None, None
         d = feedparser.parse(r.content)
     except (requests.RequestException, Exception):
-        return [], None
+        return [], None, None
 
     out = []
     for e in d.entries[:200]:
@@ -98,9 +102,33 @@ def parse_feed(feed_url):
                 break
         summary = re.sub(r"<[^>]+>", " ", e.get("summary", "") or "")
         summary = re.sub(r"\s+", " ", summary).strip()[:300]
-        out.append({"title": title, "url": link, "published": ts, "summary": summary})
-    return out, (d.feed.get("title") if d.get("feed") else None)
+        # A link blog's entry links to the article it is about; the blog's own
+        # page for the item rides along as rel="related" (daringfireball.net)
+        # or as the id (waxy.org, sebsauvage.net). Keep the candidates and let
+        # build_index choose -- only it knows the blog's home, and a feed can
+        # live on another host entirely (feedburner).
+        alt = []
+        for l in e.get("links") or []:
+            h = l.get("href")
+            if h and h != link and l.get("rel") in ("alternate", "related") and h not in alt:
+                alt.append(h)
+        for k in ("id", "feedburner_origlink"):
+            v = e.get(k)
+            if isinstance(v, str) and v.startswith(("http://", "https://")) \
+                    and v != link and v not in alt:
+                alt.append(v)
+        # Always present, even empty: build_index measures a link blog over the
+        # entries fetched since this field existed, and needs to tell them apart.
+        out.append({"title": title, "url": link, "published": ts, "summary": summary,
+                    "alt": alt[:4]})
+    return out, (d.feed.get("title") if d.get("feed") else None), r.url
 
+
+# Bumped when records gain a field the build needs. A record written by an older
+# version counts as never fetched, so the next run refetches it instead of
+# waiting REFRESH_DAYS for the field to appear. 2: entries carry "alt" and
+# records carry "feed_final".
+FEED_SCHEMA = 2
 
 DEADLINE = None       # set by main() when TIME_BUDGET is given
 KNOWN = {}            # key -> feed URL (or None for "no feed"), from feed_urls.tsv
@@ -145,9 +173,9 @@ def handle(blog):
             return {**blog, "feed": None, "entries": [], "error": "no-feed"}
         seeded = KNOWN.get(blog["key"])
         if seeded:
-            entries, ftitle = parse_feed(seeded)
+            entries, ftitle, final = parse_feed(seeded)
             if entries:
-                return {**blog, "feed": seeded, "feed_title": ftitle,
+                return {**blog, "feed": seeded, "feed_final": final, "feed_title": ftitle,
                         "entries": entries, "error": None}
             # The seeded URL has stopped working -- a blog moved platforms, or
             # dropped its feed. Fall through to a full discovery rather than
@@ -155,8 +183,8 @@ def handle(blog):
         feed_url = discover_feed(home)
         if not feed_url:
             return {**blog, "feed": None, "entries": [], "error": "no-feed"}
-        entries, ftitle = parse_feed(feed_url)
-        return {**blog, "feed": feed_url, "feed_title": ftitle,
+        entries, ftitle, final = parse_feed(feed_url)
+        return {**blog, "feed": feed_url, "feed_final": final, "feed_title": ftitle,
                 "entries": entries, "error": None if entries else "empty"}
     except Exception as e:  # never let one blog kill the crawl
         return {**blog, "feed": None, "entries": [], "error": f"{type(e).__name__}"}
@@ -234,7 +262,7 @@ def main():
             except Exception:
                 continue
             k = r.get("key")
-            if k:
+            if k and r.get("v", 1) >= FEED_SCHEMA:
                 fetched_at[k] = max(fetched_at.get(k, 0), r.get("fetched_at") or 0)
         if fetched_at:
             print(f"resuming: {len(fetched_at)} blogs already fetched", flush=True)
@@ -268,6 +296,7 @@ def main():
             if r["entries"]:
                 ok += 1
             r["fetched_at"] = int(time.time())
+            r["v"] = FEED_SCHEMA
             out.write(json.dumps(r, ensure_ascii=False) + "\n")
             if done % 100 == 0:
                 out.flush()

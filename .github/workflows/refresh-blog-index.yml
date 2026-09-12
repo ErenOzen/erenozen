@@ -107,7 +107,12 @@ jobs:
           # negatives cost none -- so this budget is mostly never spent.
           # Actions minutes are free on a public repo.
           TIME_BUDGET: "7200" # 120 min of a 170 min job
-          REFRESH_DAYS: "30" # a feed fetched last month is not freshness
+          # A feed fetched last month is not freshness -- but "last month" has
+          # to mean under the SHORTEST gap between runs, not 30 days. The cron
+          # fires on the 1st, so after February or any 30-day month every feed
+          # fetched by the previous run was minutes short of 30 days old and
+          # was skipped: five runs a year refetched almost nothing.
+          REFRESH_DAYS: "25"
         run: |
           python pipeline/select_for_feeds.py \
             work/candidates.jsonl pipeline/classified work/feed_targets.jsonl

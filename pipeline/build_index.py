@@ -17,6 +17,7 @@ posts.bin (little-endian, n = meta.n_posts), in this exact order:
 """
 import html, ipaddress, json, math, os, re, struct, sys, time
 from collections import defaultdict
+from collections import Counter
 from urllib.parse import urljoin, urlparse
 
 from publicsuffix2 import get_sld
@@ -91,6 +92,11 @@ FORUM_HOST = re.compile(
 REPLY_TITLE = re.compile(
     r"(^|[•·|»–—-]\s*)(re|aw|fwd)\s*[:：]|\(tags?:\s*[\w./-]+\)", re.I)
 FIREHOSE_WINDOW_DAYS = 7
+# A feed entry that is an advertisement is not something the blog wrote:
+# "[Sponsor] Glyphs 4" on daringfireball.net, "Sponsored: ..." on risky.biz.
+# Feed entries only -- an HN story that cleared 25 points stays.
+SPONSOR_TITLE = re.compile(
+    r"^\s*[\[(]\s*sponsor(?:ed|ship)?\s*[\])]|^\s*sponsored?(?:\s+post)?\s*[:|—–-]", re.I)
 HIDDEN_MIN_POINTS = int(os.environ.get("HIDDEN_MIN_POINTS", "150"))
 
 
@@ -619,7 +625,14 @@ def main():
                 e for e in older["entries"] if e.get("url") not in urls]
             merged[key] = newer
 
-        n_feed = skipped_date = skipped_forum = firehose = prolific = 0
+        n_feed = skipped_date = skipped_forum = firehose = prolific = own_page = 0
+
+        def host_of(u):
+            try:
+                return _host(urlparse(u).netloc)
+            except ValueError:
+                return ""
+
         for r in merged.values():
             key = r["key"]
             if FORUM_HOST.search(key.split("/")[0]):
@@ -660,6 +673,59 @@ def main():
                     else:
                         cap = 0
 
+            # Link blogs -- daringfireball.net, waxy.org, sebsauvage.net -- point
+            # each entry's link at the article they are linking TO. Indexed as
+            # is, the finder listed 9to5mac and NYT stories as Daring Fireball
+            # posts and the reader never saw the commentary. Their entries also
+            # carry the blog's own page for the item (rel="related", or the id),
+            # and that page is the post.
+            #
+            # Each guard below is a blog the swap would otherwise have broken:
+            #   - A host is the blog's own, never a link-out, if it is the home,
+            #     where the feed ended up, or one foreign host carrying half or
+            #     more of the off-site entries. Moved and mirrored blogs look
+            #     like that (hsivonen.iki.fi -> hsivonen.fi, 189 of 192), and a
+            #     moved WordPress blog's ids still name its old domain.
+            #   - An own page must name the item: not the home page, not the
+            #     feed, not a #spot on a shared page, and not a page another
+            #     entry also claims. ericwbailey.website gives every cross-post
+            #     the id "https://ericwbailey.website/".
+            #   - Most of the feed must be such items. jakewharton.com's
+            #     cross-posts carry on-host ids that 404, but they are a quarter
+            #     of its feed; a link blog's are 60-100%. Counted over entries
+            #     fetched since "alt" existed, so older records cannot dilute it.
+            home = cands[key]["home"]
+            home_host = host_of(home)
+            home_path = urlparse(home).path.rstrip("/")
+            home_cu = canonical_url(home)
+            feed_cu = canonical_url(r.get("feed") or "")
+            own_hosts = {home_host, host_of(r.get("feed_final") or r.get("feed") or "")}
+            off = Counter(host_of(e["url"]) for e in r["entries"]
+                          if str(e.get("url") or "").startswith(("http://", "https://")))
+            off.pop(home_host, None)
+            if off:
+                top, top_n = off.most_common(1)[0]
+                if top_n * 2 >= sum(off.values()):
+                    own_hosts.add(top)
+
+            def own_alts(e):
+                return [a for a in e.get("alt") or []
+                        if isinstance(a, str) and a.startswith(("http://", "https://"))
+                        and host_of(a) == home_host
+                        and (urlparse(a).path + "/").startswith(home_path + "/")
+                        and urlparse(a).fragment[:1] in ("", "!", "/")
+                        and canonical_url(a) not in (home_cu, feed_cu)]
+
+            alt_uses = Counter(c for e in r["entries"]
+                               for c in {canonical_url(a) for a in own_alts(e)})
+            with_alt = [e for e in r["entries"] if "alt" in e]
+            linked = sum(1 for e in with_alt
+                         if str(e.get("url") or "").startswith(("http://", "https://"))
+                         and host_of(e["url"]) not in own_hosts
+                         and any(alt_uses[canonical_url(a)] == 1 for a in own_alts(e)))
+            link_blog = (len(set(off) - own_hosts) >= 3 and bool(with_alt)
+                         and linked * 2 >= len(with_alt))
+
             taken = 0
             days = set()
             for ts, e in ents:
@@ -673,10 +739,17 @@ def main():
                 if not title or REPLY_TITLE.search(title):   # search, not match: the
                     # commit marker "(tags: trunk)" sits at the END of the title
                     continue
+                if SPONSOR_TITLE.search(title):
+                    continue
                 link = resolve_link(e.get("url"), r.get("feed") or cands[key]["home"],
                                     cands[key]["home"])
                 if not link:
                     continue
+                if link_blog and host_of(link) not in own_hosts:
+                    own = next((a for a in own_alts(e) if alt_uses[canonical_url(a)] == 1), None)
+                    if own:
+                        link = own
+                        own_page += 1
                 cu = canonical_url(link)
                 if not cu or cu in have:
                     continue
@@ -721,7 +794,8 @@ def main():
               f"{skipped_date:,} skipped for unusable dates, "
               f"{skipped_forum} forum feeds skipped, "
               f"{firehose} firehose feeds throttled, {prolific} of them personal "
-              f"blogs kept to one post a day)")
+              f"blogs kept to one post a day, {own_page} link-blog entries sent "
+              f"to the blog's own page)")
 
     n = len(titles)
     if dead_urls:

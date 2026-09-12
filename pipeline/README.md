@@ -100,8 +100,13 @@ renderer and `check_links.py` apply the same rule, and `dead_urls.txt` is keyed
 on its output. Two things make that non-obvious. Path-platform blogs keep the
 author in the home (`medium.com/@bellmar`), so the stored path is relative to
 it, not to the host. And 11.9% of feed entries link to *another* host -- a blog
-that moved domains, a link post, a sibling subdomain -- which cannot be written
-as home + path, so those rows store the full URL. Feed links are resolved by
+that moved domains, a sibling subdomain, a link post -- which cannot be written
+as home + path, so those rows store the full URL. A link post is the exception
+when its entry also names the blog's own page for the item (`rel="related"` on
+daringfireball.net, the id on waxy.org): for a feed that links out to three or
+more hosts, the build uses that page, so the post is the blog's commentary and
+not the article it points at. A moved blog links to one other host and is never
+switched, because its ids often still name the old domain. Feed links are resolved by
 `resolve_link()` against the feed's own URL first, because feeds emit relative,
 protocol-relative and scheme-less links and feedparser is given no base.
 
@@ -158,6 +163,7 @@ FEED_CAP=12 .venv/bin/python pipeline/build_index.py \
     work/dedup.jsonl work/cand.jsonl pipeline/classified blogs/data \
     work/feeds.jsonl pipeline/dead_urls.txt
 .venv/bin/python pipeline/check_index.py blogs/data
+.venv/bin/python pipeline/test_feed_links.py                 # crafted feeds, no network
 .venv/bin/python pipeline/sync_counts.py
 .venv/bin/python pipeline/search_eval.py                     # needs playwright + chrome
 .venv/bin/python pipeline/browser_test.py                    # needs playwright + chrome
