@@ -619,7 +619,7 @@ def main():
                 e for e in older["entries"] if e.get("url") not in urls]
             merged[key] = newer
 
-        n_feed = skipped_date = skipped_forum = firehose = 0
+        n_feed = skipped_date = skipped_forum = firehose = prolific = 0
         for r in merged.values():
             key = r["key"]
             if FORUM_HOST.search(key.split("/")[0]):
@@ -637,23 +637,38 @@ def main():
             ents.sort(key=lambda x: -x[0])
 
             # Cadence guard: if the most recent FEED_CAP entries all landed
-            # inside a week, this feed is a commit log, forum or status page
-            # rather than a blog. Take a token 2 so the blog still shows some
-            # recency without owning the Newest view.
-            cap = FEED_CAP
+            # inside a week, this feed is a newsroom, commit log, forum or
+            # status page rather than a blog, and it is skipped outright: a
+            # commit log contributes nothing a reader wants, and these blogs
+            # keep all of their upvote-vetted HN posts regardless.
+            #
+            # Except a person. A personal blog that busy is a prolific writer
+            # -- daringfireball.net, simonwillison.net, shkspr.mobi -- and
+            # skipping it removed the most-read personal blogs from Newest, and
+            # only in the months they wrote most: the verdict flips at the
+            # 7-day edge (birchtree.me measured 6.9 days). They keep their
+            # newest post of each day instead, which shows the cadence without
+            # letting one writer own any day of the Newest view.
+            cap, one_per_day = FEED_CAP, False
             if len(ents) >= FEED_CAP:
                 span_days = (ents[0][0] - ents[FEED_CAP - 1][0]) / 86400.0
                 if span_days < FIREHOSE_WINDOW_DAYS:
-                    # Skip outright rather than admitting a token 2: a commit
-                    # log contributes nothing a reader wants, and these blogs
-                    # keep all of their upvote-vetted HN posts regardless.
-                    cap = 0
                     firehose += 1
+                    if keep[key]["source"] == "personal":
+                        one_per_day = True
+                        prolific += 1
+                    else:
+                        cap = 0
 
             taken = 0
+            days = set()
             for ts, e in ents:
                 if taken >= cap:
                     break
+                # Checked against days already TAKEN, so an entry skipped below
+                # as a duplicate leaves its day open for the next one.
+                if one_per_day and ts // 86400 in days:
+                    continue
                 title = html.unescape(e.get("title") or "").replace("\n", " ").strip()
                 if not title or REPLY_TITLE.search(title):   # search, not match: the
                     # commit marker "(tags: trunk)" sits at the END of the title
@@ -668,6 +683,7 @@ def main():
                 path = post_path(cands[key]["home"], link)
                 have.add(cu)
                 taken += 1
+                days.add(ts // 86400)
                 yr = time.gmtime(ts).tm_year
                 if yr > last_feed_year.get(key, 0):
                     last_feed_year[key] = yr
@@ -704,7 +720,8 @@ def main():
         print(f"feed posts added : {n_feed:,} (cap {FEED_CAP}/blog, "
               f"{skipped_date:,} skipped for unusable dates, "
               f"{skipped_forum} forum feeds skipped, "
-              f"{firehose} firehose feeds throttled)")
+              f"{firehose} firehose feeds throttled, {prolific} of them personal "
+              f"blogs kept to one post a day)")
 
     n = len(titles)
     if dead_urls:

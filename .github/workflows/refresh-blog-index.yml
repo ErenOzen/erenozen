@@ -88,6 +88,9 @@ jobs:
       # made a failing run repeat itself forever: the regression guard fails,
       # the job fails, the partial fetch is discarded, and the next run starts
       # from exactly the same cold state.
+      #
+      # GitHub deletes a cache nobody reads for 7 days -- far sooner than this
+      # job comes back -- so keep-caches-warm.yml reads both caches weekly.
       - name: Restore feed cache
         uses: actions/cache/restore@v4
         with:

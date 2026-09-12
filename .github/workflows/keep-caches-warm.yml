@@ -1,0 +1,40 @@
+name: Keep pipeline caches warm
+
+# GitHub deletes any cache nobody has read for 7 days, and the index refresh
+# runs monthly -- so every scheduled refresh started cold. On 2026-09-12 both
+# caches were gone. The HN pull only costs time when that happens, but a cold
+# feed fetch has no earlier generation to fall back on: 25 blogs whose feed
+# failed that day (godotengine.org, chriswhong.com and latex-community.org
+# among them, whose feeds load fine) lost every feed post and their subscribe
+# link for the month. Reading a cache resets its clock.
+
+on:
+  schedule:
+    - cron: "43 6 * * 1" # Mondays; any interval under 7 days works
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  touch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # The paths must match refresh-blog-index.yml exactly: they are part of
+      # the cache version, so a different path would miss every time. The
+      # exact keys never exist; restore-keys selects the newest cache with each
+      # prefix, which is the one the next refresh will restore.
+      - name: Read the HN corpus cache
+        uses: actions/cache/restore@v4
+        with:
+          path: work/hn_stories.jsonl
+          key: hn-corpus-keepalive
+          restore-keys: hn-corpus-
+
+      - name: Read the feed cache
+        uses: actions/cache/restore@v4
+        with:
+          path: work/feeds.jsonl
+          key: feeds-keepalive
+          restore-keys: feeds-

@@ -117,10 +117,15 @@ to wave it through. Pass the previous `meta.json` as a second argument to
 
 ## CI
 
-Two workflows. `refresh-blog-index.yml` rebuilds monthly (and on demand);
-`test.yml` runs the index checks, the search eval and the browser suite on every
-push that touches `blogs/` or `pipeline/` -- including the refresh bot's own
-commits, so a bad index meets the same checks as a bad edit.
+Three workflows. `refresh-blog-index.yml` rebuilds monthly (and on demand) and
+runs the index checks, the search eval and the browser suite on its own output
+before committing it. `test.yml` runs the same suite on every push that touches
+`blogs/` or `pipeline/` -- but not on the refresh bot's commits: GitHub triggers
+no workflows for pushes made with `GITHUB_TOKEN`, which is why the refresh has to
+test itself. `keep-caches-warm.yml` reads the refresh's two caches every week.
+GitHub deletes a cache nobody reads for 7 days, so without it every monthly
+refresh started cold, and a blog whose feed failed that day lost all its feed
+posts until the next month.
 
 ## Classification is deliberately out of band
 

@@ -24,7 +24,8 @@
     "Hosting, social and paste domains the classifier labelled as blogs rather",
     "than skipping. plus.google.com alone carried 437 stories from many unrelated",
     "authors, which is the buttondown.email failure in a different costume.",
-    "Status pages and release-note firehoses: their feeds emit one entry per datacenter per day, which floods the Newest view. Note this cannot be a regex on 'status|changelog' -- changelog.complete.org is John Goerzen's blog and electronupdate.blogspot.com is real teardowns."
+    "Status pages and release-note firehoses: their feeds emit one entry per datacenter per day, which floods the Newest view. Note this cannot be a regex on 'status|changelog' -- changelog.complete.org is John Goerzen's blog and electronupdate.blogspot.com is real teardowns.",
+    "Code forges and single-page tools publish no posts: code.ffmpeg.org's stories are a commit, a repo and an issue (the bug-tracker entries above), and dogbolt.org's three are the same decompiler tool. The 2026-09 labelling pass admitted both while judging binvis.io, the same kind of tool, out."
   ],
   "deny": [
     "plus.google.com",
@@ -56,6 +57,8 @@
     "releases.ubuntu.com",
     "chromestatus.com",
     "chromereleases.googleblog.com",
-    "downdetector.com"
+    "downdetector.com",
+    "code.ffmpeg.org",
+    "dogbolt.org"
   ]
 }
