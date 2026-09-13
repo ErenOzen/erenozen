@@ -132,6 +132,25 @@ GitHub deletes a cache nobody reads for 7 days, so without it every monthly
 refresh started cold, and a blog whose feed failed that day lost all its feed
 posts until the next month.
 
+GitHub disables scheduled workflows in a public repository after 60 days
+without "repository activity", which it does not define. Scheduled runs do not
+count, so the cache keepalive does not help, and whether the refresh bot's own
+commits count is undocumented. If a month's refresh fails or has nothing to
+commit, both schedules can stop without an error; `workflow_dispatch` stops
+too, and a later push does not bring them back. Check and re-enable with:
+
+```bash
+gh api repos/erenozen/erenozen.github.io/actions/workflows \
+    --jq '.workflows[] | [.path, .state] | @tsv'      # disabled_inactivity?
+gh workflow enable refresh-blog-index.yml
+gh workflow enable keep-caches-warm.yml
+```
+
+There is deliberately no automatic re-enable. The only way to do it without a
+personal token is a workflow re-enabling itself through the API, and GitHub
+has called circumventing the 60-day policy a breach of its terms -- it blocked
+the best-known action that does exactly this in 2025.
+
 ## Classification is deliberately out of band
 
 Stage 6 needs an LLM and is **not** run by CI. Its output is committed to

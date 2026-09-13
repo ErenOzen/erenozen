@@ -20,6 +20,15 @@
     "developer.apple.com": "vendor",
     "apple.com": "vendor"
   },
+  "_programming_comment": [
+    "is_programming_blog corrections, found the same way: one writer's sites labelled",
+    "differently. Scott Alexander's slatestarcodex.com and astralcodexten.substack.com",
+    "were labelled not-programming and astralcodexten.com programming, so the same",
+    "essays were in the index under one address and out under the other two."
+  ],
+  "programming": {
+    "astralcodexten.com": false
+  },
   "_deny_comment": [
     "Hosting, social and paste domains the classifier labelled as blogs rather",
     "than skipping. plus.google.com alone carried 437 stories from many unrelated",

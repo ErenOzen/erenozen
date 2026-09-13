@@ -42,7 +42,12 @@ def discover_feed(home):
     # Platform shortcuts -- cheaper and more reliable than sniffing.
     if host.endswith(".substack.com"):
         return urljoin(home, "/feed")
-    if host == "medium.com" or host.endswith(".medium.com"):
+    # A Medium subdomain serves its own feed. Returning None for its empty path
+    # made every <name>.medium.com blog a permanent "no feed" in feed_urls.tsv
+    # without a single request.
+    if host.endswith(".medium.com"):
+        return f"https://{host}/feed"
+    if host == "medium.com":
         p = urlparse(home).path.strip("/")
         return f"https://medium.com/feed/{p}" if p else None
     if host == "dev.to":
@@ -234,13 +239,27 @@ def main():
                 continue
             total += 1
             by_key.setdefault(r.get("key"), []).append(r)
+        # A record fetched from a feed URL the seed no longer names is stale,
+        # however young. medium.com/@steve.yegge's seed was repointed off an old
+        # @handle that now belongs to a spam account: the cached record from that
+        # feed would have been reused for a month, spam post included, and
+        # update_feed_urls would have written the spam feed back into the seed.
+        # Dropped, the key counts as never fetched and is fetched first.
+        def stale(r):
+            s = KNOWN.get(r.get("key"))
+            return bool(s and r.get("feed") and r["feed"] != s)
+
+        n_stale = sum(stale(r) for rows in by_key.values() for r in rows)
         # Trim to one record per key BEFORE the run, so that afterwards there
         # are at most two: the previous generation and this one. Trimming to two
         # here instead lets the run add a third, which is how "two generations"
         # quietly becomes unbounded.
-        if total > len(by_key):
+        if total > len(by_key) or n_stale:
             with open(out_path, "w") as f:
                 for rows in by_key.values():
+                    rows = [r for r in rows if not stale(r)]
+                    if not rows:
+                        continue
                     # Keep the newest record that HAS entries; fall back to the
                     # newest only when no generation has any. handle() writes an
                     # empty record for every failure -- a 500, a rate limit, a
@@ -252,7 +271,8 @@ def main():
                     best = max(rows, key=lambda r: (bool(r.get("entries")),
                                                     r.get("fetched_at") or 0))
                     f.write(json.dumps(best, ensure_ascii=False) + "\n")
-            print(f"compacted: {total} records -> {len(by_key)}", flush=True)
+            print(f"compacted: {total} records -> one per key "
+                  f"({n_stale} from a feed the seed no longer names, dropped)", flush=True)
 
     fetched_at = {}
     if os.path.exists(out_path):

@@ -62,6 +62,12 @@ jobs:
       - name: Check feed post links
         run: python pipeline/test_feed_links.py
 
+      # Which blog a URL belongs to: fediverse posts, platforms that moved or
+      # give authors subdomains, and one Medium writer at two addresses --
+      # through the real aggregation and build, which must agree.
+      - name: Check blog identity
+        run: python pipeline/test_identity.py
+
       # Recall against ground truth the search did not produce.
       - name: Check search recall
         run: python pipeline/search_eval.py

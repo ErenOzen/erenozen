@@ -28,6 +28,10 @@ PATH_PLATFORMS = {
     "buttondown.email", "world.hey.com", "hey.com", "notion.so", "write.as",
     "tinyletter.com", "mataroa.blog", "beehiiv.com", "ghost.io", "omg.lol",
     "neocities.org", "codeberg.page", "srht.site",
+    # Buttondown moved to .com in 2024. Unlisted, its 66 HN stories merged
+    # into one fake blog again -- Hillel Wayne, Justin Jaffray and a dozen
+    # other newsletters indexed as "buttondown.com".
+    "buttondown.com",
 }
 # Hosts where the subdomain is the author -> keep the full hostname.
 SUBDOMAIN_PLATFORMS = {
@@ -36,6 +40,15 @@ SUBDOMAIN_PLATFORMS = {
     "hatenablog.com", "hatenadiary.jp", "netlify.app", "vercel.app",
     "pages.dev", "surge.sh", "neocities.org", "gitbook.io", "webflow.io",
     "onrender.com", "fly.dev", "workers.dev", "glitch.me", "repl.co",
+    # Path platforms that ALSO give authors a subdomain, and are not on the
+    # Public Suffix List (which is what keeps blogspot.com and github.io
+    # apart). Without them the path rule ran on doctorow.medium.com/<slug>
+    # and made every post its own one-story "blog", or skipped /p/ and /blog/
+    # and dropped the blog outright: 78 blogs with 3+ HN stories were missing,
+    # jwz.livejournal.com, steve-yegge.medium.com and ludic.mataroa.blog
+    # among them.
+    "medium.com", "livejournal.com", "mataroa.blog", "beehiiv.com",
+    "codeberg.page", "srht.site", "omg.lol",
 }
 
 # Unambiguous non-blogs only. Anything requiring judgment (corporate eng blogs,
@@ -74,6 +87,19 @@ DENY_EXACT = {
     "books.google.com", "scholar.google.com", "goo.gl", "bit.ly",
 }
 DENY_SUFFIX = (".gov", ".mil", ".edu")
+# A fediverse status is a social post, not a blog post -- the same call that
+# denies twitter.com, bsky.app and mastodon.social above. Self-hosted instances
+# slipped past that list: hachyderm.io, social.treehouse.systems and
+# grapheneos.social were each indexed as one "blog" of other people's toots.
+# social.kernel.org, an Akkoma server, was still indexed. Status shapes of
+# Mastodon, Pleroma/Akkoma and GoToSocial, each with its id as the whole last
+# segment. Mastodon ids are 17-18 digit snowflakes; 13+ keeps out Medium's
+# slugless /@user/<12 hex> posts, whose id is sometimes all digits. Medium's
+# /@user/slug-1a2b3c, dotat.at's /@/ pages and /notice/1.0.1.html do not match.
+FEDI_STATUS = re.compile(
+    r"^/(?:(?:@[^/]+|users/[^/]+/statuses)/\d{13,}"       # Mastodon
+    r"|notice/[A-Za-z0-9]{16,}"                           # Pleroma, Akkoma
+    r"|@[^/]+/statuses/[0-9A-HJKMNP-TV-Z]{26})/?$")       # GoToSocial (ULID)
 DENY_PATTERN = re.compile(
     r"(^|\.)(login|auth|accounts|checkout|shop|store|support|status)\.", re.I
 )
@@ -86,6 +112,8 @@ def blog_key(url):
     except ValueError:
         return None
     if p.scheme not in ("http", "https") or not p.netloc:
+        return None
+    if FEDI_STATUS.match(p.path):
         return None
     # rstrip("."): a fully-qualified name keeps its root dot, and without this
     # homepage.ntlworld.com. was indexed as a second blog beside
@@ -109,10 +137,21 @@ def blog_key(url):
         seg = [s for s in p.path.split("/") if s]
         if seg:
             first = seg[0]
+            # Tumblr's dashboard view of someone's blog is that blog, not
+            # Tumblr's own: tumblr.com/blog/view/<name>/<id> is <name>.tumblr.com.
+            if host == "tumblr.com" and len(seg) >= 3 and first.lower() == "blog" \
+                    and seg[1].lower() == "view":
+                name = seg[2].lower()
+                return f"{name}.tumblr.com", f"https://{name}.tumblr.com"
+            # The platform's own blog is one blog, not an author. Skipped with
+            # the generic routes below, it dropped notion.so/blog -- Notion's
+            # engineering blog, 13 HN stories -- from the index entirely.
+            if first.lower() == "blog":
+                return f"{host}/blog", f"https://{host}/blog"
             # medium.com/@user, dev.to/user -- but skip generic route segments
             # and date-archive paths, which are never an author.
             if (first.lower() not in {"p", "tag", "search", "feed", "s", "m",
-                                      "post", "posts", "blog", "archive"}
+                                      "post", "posts", "archive"}
                     and not re.fullmatch(r"(19|20)\d\d", first)):
                 return f"{host}/{first}", f"https://{host}/{first}"
         return None  # bare platform root is not a blog
@@ -164,6 +203,45 @@ def main():
             if urlparse(s["url"]).netloc.lower().startswith("www."):
                 b["www"] += 1
 
+    # One author, two addresses. Medium moved writers from medium.com/@bellmar
+    # to bellmar.medium.com, and Buttondown moved every newsletter from
+    # buttondown.email to buttondown.com, so their HN stories split across two
+    # keys: 15 Medium authors with 3+ stories on the subdomain were already
+    # indexed under the old form, 22 more reach 3 only when counted together,
+    # and Hillel Wayne's newsletter (65 stories on .email, 31 on .com) would
+    # have been indexed twice. The older key wins -- it is the one already
+    # classified -- and the newer address rides along as an alias that
+    # build_index honours.
+    #
+    # Medium spells a handle's subdomain with "-" for "." and "_": @steve.yegge
+    # writes at steve-yegge.medium.com. Matching the literal handle missed that
+    # and indexed him twice. The spelled form is a fallback, and only when it
+    # names exactly one handle.
+    spelled = defaultdict(list)
+    for k in blogs:
+        if k.startswith("medium.com/@"):
+            spelled[re.sub(r"[._]", "-", k[len("medium.com/@"):].lower()).strip("-")].append(k)
+    older = {k.lower(): k for k in blogs if k.startswith(("medium.com/", "buttondown.email/"))}
+    for new in list(blogs):
+        if "/" not in new and new.endswith(".medium.com"):
+            name = new[: -len(".medium.com")]
+            twin = older.get(f"medium.com/@{name}") or older.get(f"medium.com/{name}")
+            if not twin and len(spelled.get(name, ())) == 1:
+                twin = spelled[name][0]
+        elif new.startswith("buttondown.com/"):
+            twin = older.get("buttondown.email/" + new.split("/", 1)[1].lower())
+        else:
+            continue
+        if twin:
+            blogs[twin]["stories"] += blogs[new]["stories"]
+            blogs[twin]["www"] += blogs[new]["www"]
+            blogs[twin].setdefault("aliases", []).append(new)
+            if new.endswith(".medium.com"):
+                # The subdomain is where the writer is now. An old @handle can
+                # be re-registered: medium.com/@steve.yegge is a spam account.
+                blogs[twin]["home"] = f"https://{new}"
+            del blogs[new]
+
     rows = []
     for key, b in blogs.items():
         st = b["stories"]
@@ -190,6 +268,7 @@ def main():
             "last_seen": max(yrs),
             "sample_titles": [t["title"] for t in top],
             "sample_urls": [t["url"] for t in top],
+            **({"aliases": b["aliases"]} if b.get("aliases") else {}),
         })
 
     rows.sort(key=lambda r: (-r["n_stories"], -r["total_points"]))

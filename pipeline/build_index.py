@@ -364,6 +364,16 @@ def main():
                 bad += 1
     print(f"classifications loaded: {len(cls)} (malformed skipped: {bad})")
 
+    # A merged blog is labelled under whichever of its addresses was classified:
+    # only glaubercosta-11125.medium.com was, and folding it into the older
+    # medium.com/@glaubercosta_11125 would otherwise have dropped the blog.
+    # Before the overrides, so that one keyed on the merged blog applies.
+    for k, c in cands.items():
+        if k not in cls:
+            lab = next((cls[a] for a in c.get("aliases", ()) if a in cls), None)
+            if lab:
+                cls[k] = {**lab, "key": k}
+
     # Hand corrections, applied before any inclusion decision.
     ov_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "overrides.json")
     ov = json.load(open(ov_path)) if os.path.exists(ov_path) else {}
@@ -371,6 +381,9 @@ def main():
     for key, src in ov_source.items():
         if key in cls and src in SOURCE_IDX:
             cls[key]["source"] = src
+    for key, prog in ov.get("programming", {}).items():
+        if key in cls:
+            cls[key]["is_programming_blog"] = bool(prog)
 
     # Inclusion.
     #
@@ -510,22 +523,86 @@ def main():
     col_hn = []
     now = time.time()
     n_scanned = 0
+    # A blog with two addresses (bellmar.medium.com is medium.com/@bellmar) was
+    # merged by aggregate_domains.py, which records the other address as an
+    # alias. blog_key still returns the address a URL is on, so without this
+    # every story on the alias would be dropped as belonging to no blog.
+    alias_of = {a: k for k, c in cands.items() for a in c.get("aliases", ())}
 
-    for line in open(dedup):
+    # The same post at both of a merged blog's addresses -- submitted to HN as
+    # medium.com/@karpathy/<slug> and as karpathy.medium.com/<slug> -- is one
+    # post. dedupe.py keys on the host and cannot see it: HN listed 15 posts
+    # twice across 9 merged blogs, 22 across 14 counting their feeds. Compare
+    # the path below each address (for Medium, the post id) and keep the
+    # submission with the most points.
+    merged_blogs = {k for k, c in cands.items() if c.get("aliases")}
+
+    def twin_path(url, raw_key):
+        try:
+            p = urlparse(url)
+        except ValueError:
+            return None
+        segs = [x for x in p.path.split("/") if x]
+        if "/" in raw_key:              # the path form: drop the author segment
+            segs = segs[1:]
+        if p.netloc.lower().endswith("medium.com") and segs:
+            m = re.search(r"-([0-9a-f]{8,12})$", segs[-1])
+            if m:
+                return "medium:" + m.group(1)
+        return "/".join(segs).lower()
+
+    def hn_title(s, key):
+        """The story's title if it will be indexed under key, else None."""
+        title = html.unescape(s["title"]).replace("\n", " ").replace("\r", " ").strip()
+        if not title:
+            return None
+        try:
+            urlparse(s.get("canonical_url") or s["url"])
+        except ValueError:
+            return None
+        # Sources hidden by default are the bulk of the corpus (newsrooms alone
+        # were 59% of posts) but are invisible until the toggle is flipped.
+        # Carrying every routine wire story costs megabytes to serve something
+        # nobody sees; keeping only the genuinely notable ones makes the toggle
+        # reveal the best of the news rather than all of it.
+        if key in hidden_keys and min(s.get("points") or 0, 65535) < HIDDEN_MIN_POINTS:
+            return None
+        return title
+
+    # Only a story that will be indexed may claim a post. A hidden blog's
+    # 134-point story, under the bar, claimed Buttondown's "What I love about
+    # Django", and its feed copy was then dropped as the duplicate: the post
+    # vanished. A story is known by its line: objectID can be missing.
+    best_twin = {}
+    if merged_blogs:
+        for ln, line in enumerate(open(dedup)):
+            s = json.loads(line)
+            k = blog_key(s["url"])
+            key = alias_of.get(k[0], k[0]) if k else None
+            if key in merged_blogs and hn_title(s, key) is not None:
+                tp = twin_path(s["url"], k[0])
+                if tp is not None and (s.get("points") or 0) > best_twin.get((key, tp), (-1,))[0]:
+                    best_twin[(key, tp)] = (s.get("points") or 0, ln)
+    twin_taken, twin_dropped = set(), set()
+
+    for ln, line in enumerate(open(dedup)):
         s = json.loads(line)
         n_scanned += 1
         k = blog_key(s["url"])
-        if not k or k[0] not in blog_id:
+        key = alias_of.get(k[0], k[0]) if k else None
+        if key not in blog_id:
             continue
-        key = k[0]
+        title = hn_title(s, key)
+        if title is None:
+            continue
+        if key in merged_blogs:
+            tp = twin_path(s["url"], k[0])
+            if tp is not None:
+                if best_twin.get((key, tp), (0, ln))[1] != ln:
+                    twin_dropped.add((key, tp))
+                    continue
+                twin_taken.add((key, tp))
 
-        title = html.unescape(s["title"]).replace("\n", " ").replace("\r", " ").strip()
-        if not title:
-            continue
-        try:
-            p = urlparse(s.get("canonical_url") or s["url"])
-        except ValueError:
-            continue
         # cands[key], NOT a loop variable: `st` in scope here is left over from the
         # blogs loop above and would join every post against the last blog's
         # home. And canonical_url, as before -- it is what the dead-link crawl
@@ -534,14 +611,6 @@ def main():
                          keep_fragment=True)
 
         pts = min(s.get("points") or 0, 65535)
-
-        # Sources hidden by default are the bulk of the corpus (newsrooms alone
-        # were 59% of posts) but are invisible until the toggle is flipped.
-        # Carrying every routine wire story costs megabytes to serve something
-        # nobody sees; keeping only the genuinely notable ones makes the toggle
-        # reveal the best of the news rather than all of it.
-        if key in hidden_keys and pts < HIDDEN_MIN_POINTS:
-            continue
 
         day = max(0, min(int((s["created_at_i"] - DAY0) / 86400), 65535))
 
@@ -591,9 +660,13 @@ def main():
     last_feed_year = {}
     if feeds_path and os.path.exists(feeds_path):
         from dedupe import canonical_url
-        have = set()
+        # owner: the blog each indexed post went to, so a deferred entry can be
+        # credited to whichever blog actually took it.
+        have, owner = set(), {}
         for i in range(n_hn):
-            have.add(canonical_url(post_url(blogs_json[col_blog[i]]["h"], paths[i])))
+            cu = canonical_url(post_url(blogs_json[col_blog[i]]["h"], paths[i]))
+            have.add(cu)
+            owner[cu] = blogs_json[col_blog[i]]["n"]
 
         # Merge records by blog before capping.
         #
@@ -625,13 +698,143 @@ def main():
                 e for e in older["entries"] if e.get("url") not in urls]
             merged[key] = newer
 
-        n_feed = skipped_date = skipped_forum = firehose = prolific = own_page = 0
+        skipped_date = skipped_forum = firehose = prolific = 0
+        stat = Counter()            # own_page, left, other, kept
+        deferred = []
+        MINE = object()
 
         def host_of(u):
             try:
                 return _host(urlparse(u).netloc)
             except ValueError:
                 return ""
+
+        def emit(key, ts, title, link, cu, tp):
+            path = post_path(cands[key]["home"], link)
+            have.add(cu)
+            owner[cu] = key
+            if tp is not None:
+                twin_taken.add(tp)
+            yr = time.gmtime(ts).tm_year
+            if yr > last_feed_year.get(key, 0):
+                last_feed_year[key] = yr
+
+            kind, kind_flag = None, 0
+            for ki, rx in KIND_RULES:
+                if rx.search(title):
+                    kind, kind_flag = ki, FLAG_KIND_RULE
+                    break
+            if kind is None:
+                src_slug = keep[key]["source"]
+                kind = FALLBACK_KIND.get(src_slug)
+                if kind is None:
+                    kind = KIND_IDX.get(keep[key].get("kind"), KIND_IDX["deep-dive"])
+
+            age_yr = (now - ts) / 31_557_600
+            recency = 1.0 / (1.0 + age_yr / 6.0)
+            # No HN score exists, so rank on recency alone and cap below the
+            # HN band -- an unvetted post must not outrank a 500-point one.
+            titles.append(title)
+            paths.append(path)
+            col_blog.append(blog_id[key])
+            col_pts.append(0)
+            col_day.append(max(0, min(int((ts - DAY0) / 86400), 65535)))
+            dead_flag = FLAG_DEAD if (
+                dead_urls and
+                dead_key(post_url(cands[key]["home"], path)) in dead_urls) else 0
+            col_tm.append((blog_topic_mask[key] & TOPIC_BITS) | kind_flag
+                          | FLAG_FEED | dead_flag)
+            col_ks.append((blog_source[key] << 3) | kind)
+            col_score.append(max(0, min(120, int(120 * recency))))
+            col_hn.append(0)
+
+        def consider(c, e):
+            """What feed c would take from entry e.
+
+            None: skip it at no cost. MINE: on a second walk, an entry this feed
+            already indexed, which counts again. Otherwise (title, link, cu, tp,
+            other, atp): tp is the post's key across this blog's two addresses,
+            other the indexed blog that wrote an off-site entry, and atp the
+            post's key across that blog's two addresses.
+            """
+            key = c["key"]
+            title = html.unescape(e.get("title") or "").replace("\n", " ").strip()
+            if not title or REPLY_TITLE.search(title):   # search, not match: the
+                # commit marker "(tags: trunk)" sits at the END of the title
+                return None
+            if SPONSOR_TITLE.search(title):
+                return None
+            link = resolve_link(e.get("url"), c["r"].get("feed") or cands[key]["home"],
+                                cands[key]["home"])
+            if not link:
+                return None
+            if c["link_blog"] and host_of(link) not in c["own_hosts"]:
+                own = next((a for a in c["own_alts"](e)
+                            if c["alt_uses"][canonical_url(a)] == 1), None)
+                if own:
+                    link = own
+                    if not c["final"]:
+                        stat["own_page"] += 1
+            cu = canonical_url(link)
+            if not cu:
+                return None
+            if c["final"] and cu in c["emitted"]:
+                return MINE
+            if cu in have:
+                return None
+            raw = blog_key(link)
+            rk = alias_of.get(raw[0], raw[0]) if raw else None
+            # A twin key only for a link on one of this blog's own addresses: on
+            # an off-site link twin_path would make site1.org/about and
+            # site2.org/about the same post.
+            tp = None
+            if key in merged_blogs and rk == key:
+                t = twin_path(link, raw[0])
+                tp = (key, t) if t is not None else None
+                if tp in twin_taken:
+                    twin_dropped.add(tp)
+                    return None
+            other = atp = None
+            lh = host_of(link)
+            if (rk and rk != key and rk in blog_id and lh not in c["own_hosts"]
+                    and (get_sld(lh) or lh) != (get_sld(c["home_host"]) or c["home_host"])):
+                other = rk
+                if other in merged_blogs:
+                    t = twin_path(link, raw[0])
+                    atp = (other, t) if t is not None else None
+            return title, link, cu, tp, other, atp
+
+        def walk(c):
+            """Take feed c's entries, newest first, until its cap."""
+            for ts, e in c["ents"]:
+                if c["taken"] >= c["cap"]:
+                    break
+                day = ts // 86400
+                # Checked against days already TAKEN, so an entry skipped below
+                # as a duplicate leaves its day open for the next one.
+                if c["one_per_day"] and day in c["days"]:
+                    continue
+                got = consider(c, e)
+                if got is None:
+                    continue
+                if got is MINE:
+                    c["taken"] += 1
+                    c["days"].add(day)
+                    continue
+                title, link, cu, tp, other, atp = got
+                if other and c["final"] and atp in twin_taken:
+                    continue                # its author has it at the other address
+                c["taken"] += 1
+                c["days"].add(day)
+                if other and not c["final"]:
+                    deferred.append((c, ts, title, link, cu, tp, other, atp))
+                    continue
+                emit(c["key"], ts, title, link, cu, tp)
+                c["emitted"].add(cu)
+                if other:
+                    stat["kept"] += 1
+                    if atp is not None:
+                        twin_taken.add(atp)
 
         for r in merged.values():
             key = r["key"]
@@ -708,7 +911,11 @@ def main():
                 if top_n * 2 >= sum(off.values()):
                     own_hosts.add(top)
 
-            def own_alts(e):
+            # Bound now: a second walk runs after this loop, when these names
+            # belong to the last feed -- read that way, sebsauvage.net took 19
+            # posts under a 12-post cap.
+            def own_alts(e, home_host=home_host, home_path=home_path,
+                         home_cu=home_cu, feed_cu=feed_cu):
                 return [a for a in e.get("alt") or []
                         if isinstance(a, str) and a.startswith(("http://", "https://"))
                         and host_of(a) == home_host
@@ -726,76 +933,50 @@ def main():
             link_blog = (len(set(off) - own_hosts) >= 3 and bool(with_alt)
                          and linked * 2 >= len(with_alt))
 
-            taken = 0
-            days = set()
-            for ts, e in ents:
-                if taken >= cap:
-                    break
-                # Checked against days already TAKEN, so an entry skipped below
-                # as a duplicate leaves its day open for the next one.
-                if one_per_day and ts // 86400 in days:
-                    continue
-                title = html.unescape(e.get("title") or "").replace("\n", " ").strip()
-                if not title or REPLY_TITLE.search(title):   # search, not match: the
-                    # commit marker "(tags: trunk)" sits at the END of the title
-                    continue
-                if SPONSOR_TITLE.search(title):
-                    continue
-                link = resolve_link(e.get("url"), r.get("feed") or cands[key]["home"],
-                                    cands[key]["home"])
-                if not link:
-                    continue
-                if link_blog and host_of(link) not in own_hosts:
-                    own = next((a for a in own_alts(e) if alt_uses[canonical_url(a)] == 1), None)
-                    if own:
-                        link = own
-                        own_page += 1
-                cu = canonical_url(link)
-                if not cu or cu in have:
-                    continue
-                path = post_path(cands[key]["home"], link)
-                have.add(cu)
-                taken += 1
-                days.add(ts // 86400)
-                yr = time.gmtime(ts).tm_year
-                if yr > last_feed_year.get(key, 0):
-                    last_feed_year[key] = yr
+            walk({"key": key, "r": r, "ents": ents, "cap": cap, "one_per_day": one_per_day,
+                  "home_host": home_host, "own_hosts": own_hosts, "own_alts": own_alts,
+                  "alt_uses": alt_uses, "link_blog": link_blog,
+                  "taken": 0, "days": set(), "emitted": set(), "final": False})
 
-                kind, kind_flag = None, 0
-                for ki, rx in KIND_RULES:
-                    if rx.search(title):
-                        kind, kind_flag = ki, FLAG_KIND_RULE
-                        break
-                if kind is None:
-                    src_slug = keep[key]["source"]
-                    kind = FALLBACK_KIND.get(src_slug)
-                    if kind is None:
-                        kind = KIND_IDX.get(keep[key].get("kind"), KIND_IDX["deep-dive"])
+        # An aggregator, or a link post with no page of its own, carries SOMEONE
+        # ELSE's post: ocaml.org's feed is a planet of anil.recoil.org and its
+        # neighbours, and whichever feed the build met first took the post. When
+        # that someone is a blog in this index, the entry was deferred with its
+        # slot held -- dropping it outright lost 42 posts that a build without
+        # the rule indexed (the author's feed broken, or the post past its cap).
+        # Every feed is in now. One that HN or its author's own feed indexed, at
+        # either of a merged author's addresses, is the author's, and the feed
+        # that carried it gets the slot back: a second walk refills it, so what
+        # an aggregator keeps no longer depends on the order of feeds.jsonl. One
+        # nobody took stays with the feed that carried it. A moved or sibling
+        # domain is the blog's own and is never deferred.
+        again = {}
+        for c, ts, title, link, cu, tp, other, atp in deferred:
+            if cu in have or atp in twin_taken:
+                stat["left" if owner.get(cu, other) == other else "other"] += 1
+                again[id(c)] = c
+            else:
+                emit(c["key"], ts, title, link, cu, tp)
+                c["emitted"].add(cu)
+                stat["kept"] += 1
+                if atp is not None:
+                    twin_taken.add(atp)
+        for c in again.values():
+            c.update(taken=0, days=set(), final=True)
+            walk(c)
 
-                age_yr = (now - ts) / 31_557_600
-                recency = 1.0 / (1.0 + age_yr / 6.0)
-                # No HN score exists, so rank on recency alone and cap below the
-                # HN band -- an unvetted post must not outrank a 500-point one.
-                titles.append(title)
-                paths.append(path)
-                col_blog.append(blog_id[key])
-                col_pts.append(0)
-                col_day.append(max(0, min(int((ts - DAY0) / 86400), 65535)))
-                dead_flag = FLAG_DEAD if (
-                    dead_urls and
-                    dead_key(post_url(cands[key]["home"], path)) in dead_urls) else 0
-                col_tm.append((blog_topic_mask[key] & TOPIC_BITS) | kind_flag
-                              | FLAG_FEED | dead_flag)
-                col_ks.append((blog_source[key] << 3) | kind)
-                col_score.append(max(0, min(120, int(120 * recency))))
-                col_hn.append(0)
-                n_feed += 1
+        n_feed = len(titles) - n_hn
         print(f"feed posts added : {n_feed:,} (cap {FEED_CAP}/blog, "
               f"{skipped_date:,} skipped for unusable dates, "
               f"{skipped_forum} forum feeds skipped, "
               f"{firehose} firehose feeds throttled, {prolific} of them personal "
-              f"blogs kept to one post a day, {own_page} link-blog entries sent "
-              f"to the blog's own page)")
+              f"blogs kept to one post a day, {stat['own_page']} link-blog entries "
+              f"sent to the blog's own page)")
+        print(f"feed entries by another indexed blog: {stat['left']} left to it, "
+              f"{stat['other']} taken by another feed that carried them, "
+              f"{stat['kept']} kept by the feed that carried them")
+        print(f"posts at both of a merged blog's addresses, extra copies dropped: "
+              f"{len(twin_dropped)}")
 
     n = len(titles)
     if dead_urls:
